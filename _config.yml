@@ -1,0 +1,17 @@
+title: Maciej Górski | Portfolio IT
+email: maciejgorski978@gmail.com
+description: >-
+  Student informatyki, aspirujący Python Developer i Administrator Sieci.
+  Zaawansowane projekty DevOps/SecOps – Jekyll + GitHub Pages.
+baseurl: ""
+url: "https://gorski-maciej.github.io"
+github_username: gorski-maciej
+linkedin_username: maciej-gorski-046176282
+
+# Motyw – używamy własnego układu, więc ustawiamy null
+theme: null
+
+# Wtyczki (dozwolone na GitHub Pages, ale z Actions możemy użyć dowolnych)
+plugins:
+  - jekyll-sitemap
+  - jekyll-seo-tag
