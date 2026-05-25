@@ -278,8 +278,9 @@
     .timeline__item span { color: var(--muted); font-size: 0.92rem; }
 
     .skills-grid { display: grid; gap: 1rem; }
-    .skill-card { border-radius: var(--radius-xl); padding: 1rem; transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease; }
+    .skill-card { border-radius: var(--radius-xl); padding: 1rem; container-type: inline-size; transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease; }
     .skill-card:hover { transform: translateY(-4px); border-color: rgba(229, 176, 92, 0.34); box-shadow: var(--shadow-glow); }
+    .skill-card--wide { min-height: 100%; }
     .skill-card h3 { margin-bottom: 0.75rem; color: var(--gold); }
     .skill-tags { display: flex; flex-wrap: wrap; gap: 0.55rem; }
     .skill-tag {
@@ -297,80 +298,65 @@
       transition: transform 160ms ease, color 160ms ease, border-color 160ms ease;
     }
     .skill-tag i { color: var(--gold); font-size: 1.05rem; transition: transform 160ms ease; }
-    .skill-tag:hover { transform: translateY(-2px); border-color: rgba(229, 176, 92, 0.38); color: var(--gold); z-index: 10; }
+    .skill-tag:hover { transform: translateY(-2px); border-color: rgba(229, 176, 92, 0.38); color: var(--gold); }
     .skill-tag:hover i { transform: rotate(-6deg) scale(1.08); }
     .skill-tag[data-tooltip]::after {
       content: attr(data-tooltip);
       position: absolute;
       left: 50%;
-      bottom: calc(100% + 10px);
-      z-index: 20;
-      width: 280px;
-      max-width: 80vw;
-      transform: translateX(-50%) translateY(5px);
+      bottom: calc(100% + 8px);
+      z-index: 6;
+      width: max-content;
+      max-width: min(280px, 82vw);
+      transform: translateX(-50%) translateY(4px);
       opacity: 0;
       pointer-events: none;
       border: 1px solid var(--border);
-      border-radius: 14px;
+      border-radius: 12px;
       background: #0b111e;
       color: var(--text);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-      font-size: 0.8rem;
-      line-height: 1.45;
-      padding: 0.7rem 0.9rem;
+      box-shadow: var(--shadow-card);
+      font-size: 0.78rem;
+      line-height: 1.35;
+      padding: 0.55rem 0.65rem;
+      transition: opacity 140ms ease, transform 140ms ease;
       white-space: normal;
       text-align: left;
-      transition: opacity 160ms ease, transform 160ms ease;
     }
     .skill-tag:hover::after, .skill-tag:focus-within::after { opacity: 1; transform: translateX(-50%) translateY(0); }
 
-    .projects-grid, .mini-grid { display: grid; gap: 1.2rem; }
-    .project-card { container-type: inline-size; display: grid; gap: 0.8rem; border-radius: var(--radius-xl); padding: 1.2rem; transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease; }
-    .project-card:hover { transform: translateY(-4px); border-color: rgba(229, 176, 92, 0.34); box-shadow: var(--shadow-glow); }
-    .project-card h3 { margin-bottom: 0; color: var(--gold); font-size: 1.3rem; }
-    .project-card .desc { margin: 0; color: var(--muted); font-size: 0.95rem; line-height: 1.55; }
-    .project-card .tech-details { margin-top: 0.4rem; color: var(--soft); font-size: 0.85rem; background: rgba(255,255,255,0.03); border-radius: 12px; padding: 0.6rem 0.8rem; }
-    .tag { display: inline-flex; align-items: center; border: 1px solid rgba(229, 176, 92, 0.26); border-radius: 999px; background: rgba(229, 176, 92, 0.08); color: var(--gold); font-family: var(--font-mono); font-size: 0.75rem; font-weight: 800; padding: 0.32rem 0.5rem; }
-    .project-links { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 0.3rem; }
-    .project-link { color: var(--gold); font-weight: 900; }
-    .project-link span { border-bottom: 1px solid currentColor; }
-
-    /* live terminal */
-    .live-terminal {
-      background: #0b111e;
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--border);
-      padding: 1rem;
-      font-family: var(--font-mono);
-    }
-    .live-terminal .output {
-      min-height: 160px;
-      max-height: 300px;
-      overflow-y: auto;
-      margin-bottom: 0.8rem;
-      color: #dbeafe;
-      font-size: 0.85rem;
-      line-height: 1.5;
-    }
-    .live-terminal .input-line {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      color: var(--blue);
-    }
-    .live-terminal input {
-      flex: 1;
-      background: transparent;
+    /* ---------- TERMINAL ---------- */
+    .terminal-interactive { border: 1px solid var(--border); border-radius: var(--radius-lg); background: #0b111e; }
+    .terminal-output { min-height: 180px; max-height: 320px; overflow-y: auto; padding: 0.85rem; font-family: var(--font-mono); font-size: 0.87rem; color: #dbeafe; }
+    .terminal-input-line { display: flex; align-items: center; border-top: 1px solid rgba(255,255,255,0.08); padding: 0.68rem 0.85rem; }
+    .terminal-input-line .prompt { margin-right: 0.5rem; flex-shrink: 0; }
+    #terminalInput {
+      width: 100%;
       border: none;
+      background: transparent;
       color: #dbeafe;
-      font-family: inherit;
-      font-size: 0.85rem;
+      font-family: var(--font-mono);
+      font-size: 0.87rem;
       outline: none;
       caret-color: var(--gold);
     }
+    .terminal-output .cmd { color: var(--blue); }
+    .terminal-output .gold { color: var(--gold); }
+    .terminal-output .muted { color: var(--muted); }
+
+    .projects-grid, .mini-grid { display: grid; gap: 1rem; }
+    .project-card, .mini-card { container-type: inline-size; display: grid; gap: 0.75rem; border-radius: var(--radius-xl); padding: 1rem; transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease; }
+    .project-card:hover, .mini-card:hover { transform: translateY(-4px); border-color: rgba(229, 176, 92, 0.34); box-shadow: var(--shadow-glow); }
+    .project-card h3, .mini-card h3 { margin-bottom: 0; color: var(--gold); font-size: clamp(1.12rem, 6cqi, 1.42rem); }
+    .project-card p, .mini-card p { margin: 0; color: var(--muted); }
+    .project-card .tech-detail { font-size: 0.9rem; color: var(--soft); line-height: 1.4; }
+    .tag { display: inline-flex; align-items: center; border: 1px solid rgba(229, 176, 92, 0.26); border-radius: 999px; background: rgba(229, 176, 92, 0.08); color: var(--gold); font-family: var(--font-mono); font-size: 0.75rem; font-weight: 800; padding: 0.32rem 0.5rem; }
+    .project-links { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 0.25rem; }
+    .project-link { color: var(--gold); font-weight: 900; }
+    .project-link span { border-bottom: 1px solid currentColor; }
 
     .contact-grid { display: grid; gap: 1rem; }
-    .contact-card { border-radius: var(--radius-xl); padding: 1.2rem; background: rgba(20, 28, 46, 0.72); }
+    .contact-card { border-radius: var(--radius-xl); padding: 1rem; background: rgba(20, 28, 46, 0.72); }
     .contact-methods { display: grid; gap: 0.65rem; margin: 0.9rem 0 0; padding: 0; list-style: none; }
     .contact-line { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.65rem; border: 1px solid var(--border); border-radius: 14px; background: rgba(255,255,255,0.025); padding: 0.7rem; }
     .contact-main { display: inline-flex; align-items: center; gap: 0.6rem; min-width: 0; color: var(--text); font-weight: 840; }
@@ -400,7 +386,12 @@
     @media (min-width: 640px) {
       .section { padding: 2.4rem 1.25rem; }
       .hero { padding: 2.5rem 1.25rem; }
+      .hero-card, .contact-card, .skill-card, .project-card, .mini-card { padding: 1.2rem; }
       .timeline { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+      .timeline__item { padding-left: 0.85rem; padding-top: 2rem; }
+      .timeline__item::before { top: 0.8rem; }
+      .timeline__item::after { content: ""; position: absolute; left: 1.35rem; right: -1rem; top: 1.08rem; height: 1px; background: rgba(229, 176, 92, 0.24); }
+      .timeline__item:last-child::after { display: none; }
       .skills-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .projects-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .mini-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
@@ -410,9 +401,11 @@
       .section { padding: 3rem 1.5rem; }
       .nav__links { display: flex; }
       .menu-btn { display: none; }
+      .hero { padding: 3rem 1.5rem; }
       .hero__grid, .about-grid, .contact-grid { grid-template-columns: minmax(0, 1.05fr) minmax(360px, 0.95fr); }
       .section__head { grid-template-columns: minmax(0, 0.95fr) minmax(320px, 0.68fr); align-items: end; }
       .skills-grid { grid-template-columns: 1.15fr 1.15fr 0.9fr; align-items: stretch; }
+      .skill-card--wide { grid-column: span 1; }
       .projects-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
 
@@ -421,7 +414,7 @@
       .brand span:last-child { display: none; }
       .avatar { grid-template-columns: 1fr; }
       .actions .btn { width: 100%; }
-      .skill-tag[data-tooltip]::after { max-width: 70vw; }
+      .skill-tag[data-tooltip]::after { display: none; }
     }
   </style>
 </head>
@@ -438,7 +431,7 @@
         <a href="#hero" data-section="hero" aria-current="true">Start</a>
         <a href="#about" data-section="about">O mnie</a>
         <a href="#skills" data-section="skills">Stack</a>
-        <a href="#terminal" data-section="terminal">Live Demo</a>
+        <a href="#terminal" data-section="terminal">Terminal</a>
         <a href="#projects" data-section="projects">Projekty</a>
         <a href="#contact" data-section="contact">Kontakt</a>
       </div>
@@ -449,14 +442,15 @@
     </nav>
     <div class="mobile-menu" id="mobileMenu" data-open="false">
       <div class="mobile-menu__inner">
-        <div class="mobile-menu__links container">
-          <a href="#hero">Start</a><a href="#about">O mnie</a><a href="#skills">Stack</a><a href="#terminal">Live Demo</a><a href="#projects">Projekty</a><a href="#contact">Kontakt</a>
+        <div class="mobile-menu__links container" aria-label="Nawigacja mobilna">
+          <a href="#hero">Start</a><a href="#about">O mnie</a><a href="#skills">Stack</a><a href="#terminal">Terminal</a><a href="#projects">Projekty</a><a href="#contact">Kontakt</a>
         </div>
       </div>
     </div>
   </header>
 
   <main id="main">
+    <!-- HERO -->
     <section class="hero" id="hero" aria-labelledby="heroTitle">
       <canvas class="particles" id="particles" aria-hidden="true"></canvas>
       <div class="container hero__grid">
@@ -466,26 +460,26 @@
           <p class="hero__subtitle">Student Informatyki · Python Developer · Administrator Sieci</p>
           <p class="hero__title type-cursor" id="typewriter" aria-label="Buduję niezawodne systemy – od skryptu w Pythonie po bezpieczną architekturę sieci."></p>
           <p class="hero__lead">Buduję niezawodne systemy – od skryptu w Pythonie po bezpieczną architekturę sieci. Łączę praktyczne projekty programistyczne z konsekwentnym rozwojem w administracji Linux i technologiach Cisco.</p>
-          <div class="actions">
-            <a class="btn btn--primary" href="#projects"><i class="fa-solid fa-diagram-project"></i>Projekty</a>
-            <a class="btn btn--ghost" href="#contact"><i class="fa-solid fa-paper-plane"></i>Kontakt</a>
+          <div class="actions" aria-label="Najważniejsze akcje">
+            <a class="btn btn--primary" href="#projects"><i class="fa-solid fa-diagram-project" aria-hidden="true"></i>Projekty</a>
+            <a class="btn btn--ghost" href="#contact"><i class="fa-solid fa-paper-plane" aria-hidden="true"></i>Kontakt</a>
           </div>
-          <div class="socials">
-            <a href="https://github.com/gorski-maciej" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i>GitHub</a>
-            <a href="https://www.linkedin.com/in/maciej-gorski-046176282" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i>LinkedIn</a>
+          <div class="socials" aria-label="Profile społecznościowe">
+            <a href="https://github.com/gorski-maciej" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github" aria-hidden="true"></i>GitHub</a>
+            <a href="https://www.linkedin.com/in/maciej-gorski-046176282" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin" aria-hidden="true"></i>LinkedIn</a>
           </div>
         </div>
 
-        <aside class="hero-card reveal">
+        <aside class="hero-card reveal" aria-label="Karta profilu Macieja Górskiego">
           <div class="avatar">
             <div class="avatar__mark" aria-hidden="true">MG</div>
             <div>
-              <h2 style="font-size: 1.4rem; margin-bottom: 0.25rem;">Junior IT Specialist</h2>
+              <h2 style="font-size: clamp(1.25rem, 3vw, 1.65rem); margin-bottom: 0.25rem;">Junior IT Specialist</h2>
               <span class="status">Otwarty na praktyki i role junior</span>
             </div>
           </div>
-          <div class="terminal-mini">
-            <div class="terminal-bar"><div class="terminal-dots"><span class="dot dot--red"></span><span class="dot dot--yellow"></span><span class="dot dot--green"></span></div><span class="terminal-title">maciej@portfolio:~</span></div>
+          <div class="terminal-mini" aria-label="Krótki terminal profilu">
+            <div class="terminal-bar"><div class="terminal-dots" aria-hidden="true"><span class="dot dot--red"></span><span class="dot dot--yellow"></span><span class="dot dot--green"></span></div><span class="terminal-title">maciej@portfolio:~</span></div>
             <div class="terminal-body">
               <p><span class="prompt">$ whoami</span> Maciej Górski</p>
               <p><span class="prompt">$ focus</span> Python · TCP/IP · Linux · CCNA</p>
@@ -496,168 +490,170 @@
       </div>
     </section>
 
+    <!-- O MNIE -->
     <section class="section" id="about" aria-labelledby="aboutTitle">
       <div class="section__inner about-grid">
-        <aside class="about-profile reveal">
-          <div class="tech-avatar card" role="img" aria-label="Geometryczny awatar MG"><div class="tech-avatar__inner">MG</div></div>
+        <aside class="about-profile reveal" aria-label="Profil i dane podstawowe">
+          <div class="tech-avatar card" role="img" aria-label="Geometryczny awatar technologiczny z monogramem MG"><div class="tech-avatar__inner">MG</div></div>
           <ul class="info-list">
-            <li><i class="fa-solid fa-location-dot"></i>Polska · hybrydowo / zdalnie</li>
-            <li><i class="fa-solid fa-language"></i>Polski ojczysty · Angielski B1/B2</li>
-            <li><i class="fa-solid fa-certificate"></i>CCNA w toku · praktyka projektowa</li>
+            <li><i class="fa-solid fa-location-dot" aria-hidden="true"></i>Polska · gotowość do pracy hybrydowej / zdalnej</li>
+            <li><i class="fa-solid fa-language" aria-hidden="true"></i>Polski: ojczysty · Angielski: B1/B2</li>
+            <li><i class="fa-solid fa-certificate" aria-hidden="true"></i>CCNA: w toku · Python i Linux: praktyka projektowa</li>
           </ul>
         </aside>
 
         <article class="contact-card reveal">
           <p class="kicker">O mnie</p>
-          <h2 id="aboutTitle">Junior, który rozumie kod i infrastrukturę.</h2>
+          <h2 id="aboutTitle">Junior, który rozumie zarówno kod, jak i infrastrukturę.</h2>
           <div class="about-copy">
-            <p>Jestem studentem I roku Informatyki, zafascynowanym wydajnymi rozwiązaniami w Pythonie oraz stabilnymi sieciami. Od podstaw zgłębiam Linux (Debian/Ubuntu), Bash i przygotowuję się do certyfikacji Cisco CCNA.</p>
-            <p>Stawiam na ciągły rozwój – realizuję zaawansowane projekty z zakresu FinOps, SecOps i automatyzacji infrastruktury. Wierzę, że rzetelny kod i dobrze skonfigurowana sieć to fundament każdej nowoczesnej firmy.</p>
+            <p>Jestem studentem pierwszego roku Informatyki, zafascynowanym tworzeniem wydajnych rozwiązań w Pythonie oraz projektowaniem stabilnych sieci komputerowych.</p>
+            <p>Od podstaw samodzielnie zgłębiam Linux (Debian/Ubuntu), Bash i administrację serwerami. Równolegle przygotowuję się do certyfikacji Cisco CCNA, aby połączyć świat programowania z infrastrukturą sieciową.</p>
+            <p>Moje podejście to ciągłe uczenie się i szukanie praktycznych zastosowań – stąd realizuję własne, zaawansowane projekty z obszarów FinOps, SecOps i automatyzacji infrastruktury.</p>
+            <p>Wierzę, że rzetelny kod i dobrze skonfigurowana sieć to fundament każdej nowoczesnej firmy.</p>
           </div>
-          <div class="timeline">
-            <div class="timeline__item"><strong>2024</strong><span>Start studiów informatycznych</span></div>
-            <div class="timeline__item"><strong>2025</strong><span>CCNA w toku</span></div>
-            <div class="timeline__item"><strong>2025</strong><span>Zaawansowane projekty DevOps</span></div>
-            <div class="timeline__item"><strong>2026</strong><span>Cel: praktyki / staż</span></div>
+          <div class="timeline" aria-label="Kamienie milowe">
+            <div class="timeline__item"><strong>2024</strong><span>Rozpoczęcie studiów informatycznych</span></div>
+            <div class="timeline__item"><strong>2025</strong><span>CCNA – certyfikacja w toku</span></div>
+            <div class="timeline__item"><strong>2025</strong><span>Pierwsze zaawansowane projekty DevOps</span></div>
+            <div class="timeline__item"><strong>2026</strong><span>Cel: praktyki / staż junior IT</span></div>
           </div>
         </article>
       </div>
     </section>
 
+    <!-- STACK (ULEPSZONY) -->
     <section class="section" id="skills" aria-labelledby="skillsTitle">
       <div class="section__inner">
         <div class="section__head reveal">
-          <div><p class="kicker">Stack techniczny</p><h2 id="skillsTitle">Narzędzia, które znam – najedź, aby zobaczyć szczegóły.</h2></div>
-          <p class="lead">Każdy tag kryje konkretne umiejętności, które wyniosłem z kursów, laboratoriów i własnych projektów.</p>
+          <div><p class="kicker">Stack techniczny i umiejętności</p><h2 id="skillsTitle">Technologie, które rozumiem i stosuję w praktyce.</h2></div>
+          <p class="lead">Najedź na każdy tag, aby zobaczyć konkretne umiejętności. To nie tylko nazwy – to realne kompetencje.</p>
         </div>
         <div class="skills-grid">
-          <article class="skill-card reveal">
+          <article class="skill-card skill-card--wide reveal">
             <h3>Języki i narzędzia</h3>
             <div class="skill-tags">
-              <span class="skill-tag" data-tooltip="Python: OOP, skrypty automatyzujące (przetwarzanie plików CSV/JSON, wywołania API), testy jednostkowe (unittest, pytest), tworzenie REST API z FastAPI, wizualizacja danych (matplotlib, seaborn)."><i class="devicon-python-plain"></i>Python</span>
-              <span class="skill-tag" data-tooltip="FastAPI: budowa endpointów REST, automatyczna dokumentacja OpenAPI, walidacja Pydantic, obsługa błędów HTTP, podstawy autoryzacji JWT."><i class="devicon-fastapi-plain"></i>FastAPI</span>
-              <span class="skill-tag" data-tooltip="Flask: lekkie API, szablony Jinja2, integracja z SQLAlchemy, obsługa sesji."><i class="devicon-flask-original"></i>Flask</span>
-              <span class="skill-tag" data-tooltip="Bash: administracja Linux, skrypty backupu, automatyzacja zadań cron, przetwarzanie potoków (grep, awk, sed)."><i class="devicon-bash-plain"></i>Bash</span>
-              <span class="skill-tag" data-tooltip="SQL i MySQL: projektowanie relacyjnych baz danych, zapytania SELECT/INSERT/UPDATE, indeksy, normalizacja, podstawy optymalizacji."><i class="devicon-mysql-plain"></i>SQL</span>
-              <span class="skill-tag" data-tooltip="Git: praca z repozytoriami (clone, commit, push, pull), rozwiązywanie konfliktów, branchowanie, GitHub flow."><i class="devicon-git-plain"></i>Git</span>
-              <span class="skill-tag" data-tooltip="Docker: tworzenie obrazów (Dockerfile), docker-compose, podstawy sieci Docker, konteneryzacja aplikacji."><i class="devicon-docker-plain"></i>Docker</span>
-              <span class="skill-tag" data-tooltip="Postman: testowanie endpointów API, zarządzanie kolekcjami, zmienne środowiskowe, automatyzacja testów."><i class="fa-solid fa-paper-plane"></i>Postman</span>
-              <span class="skill-tag" data-tooltip="Wireshark: przechwytywanie pakietów, analiza protokołów TCP/UDP, filtrowanie ruchem, diagnostyka problemów sieciowych."><i class="fa-solid fa-magnifying-glass-chart"></i>Wireshark</span>
+              <span class="skill-tag" data-tooltip="Python (średniozaawansowany): OOP, pisanie skryptów automatyzujących, tworzenie API (FastAPI/Flask), analiza danych (Pandas), testy jednostkowe."><i class="devicon-python-plain" aria-hidden="true"></i>Python</span>
+              <span class="skill-tag" data-tooltip="FastAPI (podstawy): budowa REST API, walidacja danych, automatyczna dokumentacja OpenAPI, integracja z bazami SQL."><i class="devicon-fastapi-plain" aria-hidden="true"></i>FastAPI</span>
+              <span class="skill-tag" data-tooltip="Flask (podstawy): lekkie aplikacje webowe, routing, szablony Jinja2."><i class="devicon-flask-original" aria-hidden="true"></i>Flask</span>
+              <span class="skill-tag" data-tooltip="Bash (średniozaawansowany): skrypty administracyjne, automatyzacja zadań, przetwarzanie logów, cron."><i class="devicon-bash-plain" aria-hidden="true"></i>Bash</span>
+              <span class="skill-tag" data-tooltip="SQL (podstawy): zapytania SELECT/INSERT/UPDATE, złączenia, proste optymalizacje, MySQL."><i class="devicon-mysql-plain" aria-hidden="true"></i>SQL</span>
+              <span class="skill-tag" data-tooltip="Git (średniozaawansowany): praca z repozytoriami, branchowanie, rozwiązywanie konfliktów, GitHub."><i class="devicon-git-plain" aria-hidden="true"></i>Git</span>
+              <span class="skill-tag" data-tooltip="Docker (podstawy): tworzenie obrazów, Docker Compose, podstawy konteneryzacji."><i class="devicon-docker-plain" aria-hidden="true"></i>Docker</span>
             </div>
           </article>
 
-          <article class="skill-card reveal">
+          <article class="skill-card skill-card--wide reveal">
             <h3>Sieci i infrastruktura</h3>
             <div class="skill-tags">
-              <span class="skill-tag" data-tooltip="TCP/IP: adresacja IPv4, maski podsieci, konfiguracja interfejsów, diagnostyka ping/traceroute, rozumienie przepływu pakietów."><i class="fa-solid fa-network-wired"></i>TCP/IP</span>
-              <span class="skill-tag" data-tooltip="Model OSI: znajomość 7 warstw i ich funkcji, przypisanie protokołów do warstw, rozwiązywanie problemów warstwowych."><i class="fa-solid fa-layer-group"></i>OSI</span>
-              <span class="skill-tag" data-tooltip="VLAN: konfiguracja sieci wirtualnych, trunking 802.1Q, routing między VLAN (router-on-a-stick)."><i class="fa-solid fa-sitemap"></i>VLAN</span>
-              <span class="skill-tag" data-tooltip="RIP / OSPF: podstawy protokołów wektora odległości i stanu łącza, konfiguracja w środowisku Cisco."><i class="fa-solid fa-route"></i>RIP / OSPF</span>
-              <span class="skill-tag" data-tooltip="VLSM: efektywny podział adresacji, obliczanie masek, planowanie podsieci."><i class="fa-solid fa-calculator"></i>VLSM</span>
-              <span class="skill-tag" data-tooltip="Cisco: obsługa IOS, tryby uprzywilejowane, podstawowa konfiguracja routerów/switchy, zapis konfiguracji."><i class="devicon-cisco-plain"></i>Cisco</span>
-              <span class="skill-tag" data-tooltip="Firewall: iptables – filtracja ruchu, NAT, podstawowe reguły, koncepcje pfSense."><i class="fa-solid fa-shield-halved"></i>Firewall</span>
-              <span class="skill-tag" data-tooltip="Monitoring: użycie ping, arp-scan, tworzenie prostych skryptów monitorujących, logowanie do plików."><i class="fa-solid fa-chart-line"></i>Monitoring</span>
+              <span class="skill-tag" data-tooltip="TCP/IP (średniozaawansowany): adresacja, podsieci, VLSM, działanie DNS/DHCP, analiza pakietów Wireshark."><i class="fa-solid fa-network-wired" aria-hidden="true"></i>TCP/IP</span>
+              <span class="skill-tag" data-tooltip="VLAN (podstawy): segmentacja sieci, trunking, Inter-VLAN routing."><i class="fa-solid fa-sitemap" aria-hidden="true"></i>VLAN</span>
+              <span class="skill-tag" data-tooltip="Routing (podstawy): statyczny, RIP, OSPF – konfiguracja w Packet Tracer."><i class="fa-solid fa-route" aria-hidden="true"></i>RIP/OSPF</span>
+              <span class="skill-tag" data-tooltip="Cisco (w trakcie CCNA): konfiguracja przełączników i routerów, IOS, laboratoria."><i class="devicon-cisco-plain" aria-hidden="true"></i>Cisco</span>
+              <span class="skill-tag" data-tooltip="Firewall (podstawy): iptables, reguły filtrujące, koncepcja stref bezpieczeństwa."><i class="fa-solid fa-shield-halved" aria-hidden="true"></i>Firewall</span>
+              <span class="skill-tag" data-tooltip="Monitoring sieci: ping, arp-scan, tworzenie własnych skryptów monitorujących."><i class="fa-solid fa-chart-line" aria-hidden="true"></i>Monitoring</span>
             </div>
           </article>
 
           <article class="skill-card reveal">
-            <h3>Systemy i kompetencje</h3>
+            <h3>Systemy i praktyki</h3>
             <div class="skill-tags">
-              <span class="skill-tag" data-tooltip="Linux: administracja Debian/Ubuntu, zarządzanie pakietami (apt), uprawnienia plików, cron, konfiguracja sieci."><i class="devicon-linux-plain"></i>Linux</span>
-              <span class="skill-tag" data-tooltip="Troubleshooting: systematyczna diagnoza problemów, analiza logów, testowanie hipotez."><i class="fa-solid fa-magnifying-glass-chart"></i>Troubleshooting</span>
-              <span class="skill-tag" data-tooltip="Komunikacja: jasne formułowanie problemów technicznych, dokumentacja, praca zespołowa."><i class="fa-solid fa-comments"></i>Komunikacja</span>
-              <span class="skill-tag" data-tooltip="Szybka nauka: samodzielne przyswajanie nowych technologii poprzez projekty i kursy online."><i class="fa-solid fa-bolt"></i>Szybka nauka</span>
+              <span class="skill-tag" data-tooltip="Linux (średniozaawansowany): administracja Debian/Ubuntu, uprawnienia, systemd, cron, skrypty shell."><i class="devicon-linux-plain" aria-hidden="true"></i>Linux</span>
+              <span class="skill-tag" data-tooltip="Troubleshooting: analiza logów, diagnostyka krok po kroku, rozwiązywanie problemów."><i class="fa-solid fa-magnifying-glass-chart" aria-hidden="true"></i>Troubleshooting</span>
+              <span class="skill-tag" data-tooltip="Komunikacja techniczna: dokumentowanie ustaleń, czytelne raporty."><i class="fa-solid fa-comments" aria-hidden="true"></i>Komunikacja</span>
+              <span class="skill-tag" data-tooltip="Szybka nauka: samodzielne wdrażanie nowych narzędzi, kursy online, praktyka."><i class="fa-solid fa-bolt" aria-hidden="true"></i>Szybka nauka</span>
             </div>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- NOWY MODUŁ: LIVE TERMINAL -->
+    <!-- TERMINAL (NOWY MODUŁ) -->
     <section class="section" id="terminal" aria-labelledby="terminalTitle">
       <div class="section__inner">
         <div class="section__head reveal">
-          <div><p class="kicker">Live Demo</p><h2 id="terminalTitle">Interaktywny terminal – sprawdź mnie w akcji.</h2></div>
-          <p class="lead">Wpisz komendę (np. <code>stack</code>, <code>projects</code>, <code>contact</code>, <code>help</code>) aby zobaczyć, co potrafię.</p>
+          <div><p class="kicker">Interaktywny terminal</p><h2 id="terminalTitle">Wpisz komendę, aby poznać mój świat.</h2></div>
+          <p class="lead">Spróbuj <code>help</code>, <code>about</code>, <code>projects</code>, <code>skills</code> lub <code>contact</code>.</p>
         </div>
-        <div class="live-terminal reveal">
-          <div class="terminal-bar"><div class="terminal-dots"><span class="dot dot--red"></span><span class="dot dot--yellow"></span><span class="dot dot--green"></span></div><span class="terminal-title">guest@maciej-portfolio:~</span></div>
-          <div class="output" id="terminalOutput" aria-live="polite">
-            <p><span class="prompt">$</span> Witaj! Wpisz <strong>help</strong>, aby zobaczyć dostępne komendy.</p>
+        <div class="terminal-interactive reveal">
+          <div class="terminal-bar"><div class="terminal-dots" aria-hidden="true"><span class="dot dot--red"></span><span class="dot dot--yellow"></span><span class="dot dot--green"></span></div><span class="terminal-title">maciej@portfolio:~</span></div>
+          <div class="terminal-output" id="terminalOutput" aria-live="polite">
+            <p><span class="prompt">$</span> Witaj! Wpisz <span class="gold">help</span>, aby zobaczyć dostępne komendy.</p>
           </div>
-          <div class="input-line">
+          <div class="terminal-input-line">
             <span class="prompt">$</span>
-            <input type="text" id="terminalInput" placeholder="help" autofocus />
+            <input type="text" id="terminalInput" placeholder="help" autocomplete="off" aria-label="Wpisz komendę terminala" />
           </div>
         </div>
       </div>
     </section>
 
+    <!-- PROJEKTY (ROZBUDOWANE) -->
     <section class="section" id="projects" aria-labelledby="projectsTitle">
       <div class="section__inner">
         <div class="section__head reveal">
-          <div><p class="kicker">Portfolio / Zaawansowane projekty</p><h2 id="projectsTitle">Platformy demonstrujące umiejętności DevOps i SecOps.</h2></div>
-          <p class="lead">Każdy projekt to kompletny stos Docker Compose z własnym API, bazą danych i dedykowaną logiką biznesową.</p>
+          <div><p class="kicker">Portfolio / Zaawansowane projekty</p><h2 id="projectsTitle">Case studies – od koncepcji po wdrożenie.</h2></div>
+          <p class="lead">Każdy projekt to kompletny system, który pokazuje moje umiejętności inżynierskie.</p>
         </div>
         <div class="projects-grid">
           <article class="project-card reveal">
-            <h3>CloudBudget – Analityka kosztów chmury</h3>
-            <p class="desc">Platforma FinOps do agregacji kosztów z różnych źródeł, prognozowania trendów i generowania rekomendacji oszczędności.</p>
-            <div class="tech-details">
-              <strong>Architektura:</strong> FastAPI + PostgreSQL (dane trwałe) + DuckDB (szybka analityka w pamięci). Asynchroniczne przetwarzanie zadań przez Celery i RabbitMQ. API przyjmuje dane kosztowe, zapisuje je, a następnie cyklicznie przelicza agregaty i prognozy.
-              <br><strong>Moja rola:</strong> zaprojektowałem modele danych, zbudowałem warstwę API, skonfigurowałem kontenery Docker i zintegrowałem kolejkę zadań.
-            </div>
-            <div class="tags"><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">PostgreSQL</span><span class="tag">DuckDB</span><span class="tag">Celery</span></div>
-            <div class="project-links"><a class="project-link" href="https://github.com/Gorski-Maciej/PROJEKTS-WORK/tree/main/cloudbudget" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> <span>GitHub</span></a></div>
+            <h3>CloudBudget – FinOps</h3>
+            <p class="tech-detail"><strong>Cel:</strong> Agregacja kosztów chmury i generowanie rekomendacji oszczędności.</p>
+            <p class="tech-detail"><strong>Architektura:</strong> FastAPI + Celery + RabbitMQ + PostgreSQL + DuckDB. System pobiera dane przez API, przetwarza asynchronicznie i zapisuje zagregowane wyniki. Dashboard w Jinja2.</p>
+            <p class="tech-detail"><strong>Moja rola:</strong> Zaprojektowałem modele danych, zaimplementowałem kolejki zadań, skonfigurowałem Docker Compose.</p>
+            <div class="tags"><span class="tag">FastAPI</span><span class="tag">PostgreSQL</span><span class="tag">DuckDB</span><span class="tag">Celery</span></div>
+            <div class="project-links"><a class="project-link" href="https://github.com/Gorski-Maciej/PROJEKTS-WORK/tree/main/cloudbudget" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github" aria-hidden="true"></i> <span>GitHub</span></a></div>
           </article>
           <article class="project-card reveal">
-            <h3>InfraFlow – Monitoring i obserwowalność</h3>
-            <p class="desc">System zbierania metryk hostów i zdarzeń infrastrukturalnych z wizualizacją w Grafanie i alertami.</p>
-            <div class="tech-details">
-              <strong>Architektura:</strong> FastAPI + TimescaleDB (metryki czasowe) + Redis (kolejka). Agenci wysyłają dane do API, które zapisuje je w bazie. Prometheus scrapuje metryki, a Grafana wyświetla dashboardy.
-              <br><strong>Moja rola:</strong> stworzyłem endpointy API, skonfigurowałem Prometheus i Grafana, napisałem agenta monitorującego CPU/RAM/Dysk.
-            </div>
-            <div class="tags"><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">TimescaleDB</span><span class="tag">Redis</span><span class="tag">Grafana</span></div>
-            <div class="project-links"><a class="project-link" href="https://github.com/Gorski-Maciej/PROJEKTS-WORK/tree/main/infraflow" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> <span>GitHub</span></a></div>
+            <h3>InfraFlow – Obserwowalność</h3>
+            <p class="tech-detail"><strong>Cel:</strong> Zbieranie metryk hostów i zdarzeń infrastrukturalnych.</p>
+            <p class="tech-detail"><strong>Architektura:</strong> FastAPI + Redis + TimescaleDB + Grafana. Agent wysyła metryki do API, Redis kolejka buforuje, worker zapisuje do TimescaleDB. Wizualizacja w Grafanie.</p>
+            <p class="tech-detail"><strong>Moja rola:</strong> Integracja z Prometheus, konfiguracja retention policy, tworzenie dashboardów.</p>
+            <div class="tags"><span class="tag">FastAPI</span><span class="tag">TimescaleDB</span><span class="tag">Redis</span><span class="tag">Grafana</span></div>
+            <div class="project-links"><a class="project-link" href="https://github.com/Gorski-Maciej/PROJEKTS-WORK/tree/main/infraflow" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github" aria-hidden="true"></i> <span>GitHub</span></a></div>
           </article>
           <article class="project-card reveal">
-            <h3>NetGuardian – Bezpieczeństwo sieciowe</h3>
-            <p class="desc">Platforma SecOps do detekcji zdarzeń sieciowych, analizy behawioralnej i automatycznej reakcji na incydenty.</p>
-            <div class="tech-details">
-              <strong>Architektura:</strong> FastAPI + Kafka (strumieniowanie zdarzeń) + TimescaleDB (logi) + DuckDB (szybkie zapytania). WebSocket do powiadomień na żywo. Reguły bezpieczeństwa i integracja z GeoIP.
-              <br><strong>Moja rola:</strong> zaprojektowałem przepływ zdarzeń, skonfigurowałem Kafkę, zaimplementowałem analizę reguł i dashboard operacyjny.
-            </div>
-            <div class="tags"><span class="tag">Python</span><span class="tag">Kafka</span><span class="tag">TimescaleDB</span><span class="tag">DuckDB</span><span class="tag">WebSocket</span></div>
-            <div class="project-links"><a class="project-link" href="https://github.com/Gorski-Maciej/PROJEKTS-WORK/tree/main/netguardian" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> <span>GitHub</span></a></div>
+            <h3>NetGuardian – SecOps</h3>
+            <p class="tech-detail"><strong>Cel:</strong> Detekcja zdarzeń sieciowych i automatyczna reakcja.</p>
+            <p class="tech-detail"><strong>Architektura:</strong> Kafka + FastAPI + TimescaleDB + DuckDB. Zdarzenia płyną przez Kafkę, są analizowane przez silnik reguł, wyniki trafiają do bazy. WebSocket powiadamia dashboard.</p>
+            <p class="tech-detail"><strong>Moja rola:</strong> Skonfigurowałem brokera Kafka, zaprojektowałem silnik korelacji zdarzeń.</p>
+            <div class="tags"><span class="tag">Kafka</span><span class="tag">TimescaleDB</span><span class="tag">DuckDB</span><span class="tag">WebSocket</span></div>
+            <div class="project-links"><a class="project-link" href="https://github.com/Gorski-Maciej/PROJEKTS-WORK/tree/main/netguardian" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github" aria-hidden="true"></i> <span>GitHub</span></a></div>
           </article>
           <article class="project-card reveal">
-            <h3>NetAegis – Orkiestracja bezpieczeństwa</h3>
-            <p class="desc">Dwuwarstwowy system MCP z agentami do zbierania telemetrii, logów i automatyzacji konfiguracji.</p>
-            <div class="tech-details">
-              <strong>Architektura:</strong> Dwa serwisy FastAPI (MCP main i operational). Trzy agenty w Pythonie: NetPulse (telemetria), SecLog (logi bezpieczeństwa), NetConfig (automatyka). SQLite dla konfiguracji, Redis do komunikacji między komponentami.
-              <br><strong>Moja rola:</strong> zaprojektowałem architekturę wieloagentową, zbudowałem API obu warstw, zaimplementowałem agentów i ich integrację.
-            </div>
-            <div class="tags"><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">SQLite</span><span class="tag">Redis</span><span class="tag">MCP</span></div>
-            <div class="project-links"><a class="project-link" href="https://github.com/Gorski-Maciej/PROJEKTS-WORK/tree/main/netaegis" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> <span>GitHub</span></a></div>
+            <h3>NetAegis – Orkiestracja</h3>
+            <p class="tech-detail"><strong>Cel:</strong> Dwuwarstwowy system MCP z agentami bezpieczeństwa.</p>
+            <p class="tech-detail"><strong>Architektura:</strong> FastAPI + SQLite + Redis + trzech agentów (NetPulse, SecLog, NetConfig). Main MCP zarządza agentami, operational MCP wykonuje zadania.</p>
+            <p class="tech-detail"><strong>Moja rola:</strong> Implementacja komunikacji między warstwami, definicja API agentów, orkiestracja w Docker Compose.</p>
+            <div class="tags"><span class="tag">FastAPI</span><span class="tag">SQLite</span><span class="tag">Redis</span><span class="tag">MCP</span></div>
+            <div class="project-links"><a class="project-link" href="https://github.com/Gorski-Maciej/PROJEKTS-WORK/tree/main/netaegis" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github" aria-hidden="true"></i> <span>GitHub</span></a></div>
           </article>
+        </div>
+        <div class="section__head reveal" style="margin-top: 1.5rem;">
+          <div><p class="kicker">Mini-projekty</p><h2 style="font-size: clamp(1.45rem, 3vw, 2rem);">Ciągła praktyka w małych iteracjach.</h2></div>
+          <p class="lead">Mniejsze zadania pokazujące systematyczne ćwiczenie algorytmów, automatyzacji i analizy danych.</p>
+        </div>
+        <div class="mini-grid">
+          <article class="mini-card reveal"><h3>HashTable</h3><p>Własna implementacja tablicy mieszającej z obsługą kolizji.</p><div class="tags"><span class="tag">Python</span><span class="tag">DSA</span></div></article>
+          <article class="mini-card reveal"><h3>Backup skrypt</h3><p>Archiwizacja katalogów z rotacją i logowaniem.</p><div class="tags"><span class="tag">Bash</span><span class="tag">Linux</span></div></article>
+          <article class="mini-card reveal"><h3>Log parser</h3><p>Wyciąganie statystyk z logów serwera.</p><div class="tags"><span class="tag">Python</span><span class="tag">Regex</span></div></article>
         </div>
       </div>
     </section>
 
+    <!-- KONTAKT -->
     <section class="section" id="contact" aria-labelledby="contactTitle">
       <div class="section__inner contact-grid">
         <article class="contact-card reveal">
           <p class="kicker">Kontakt</p>
           <h2 id="contactTitle">Porozmawiajmy o stażu, praktykach lub roli junior.</h2>
-          <p class="lead">Interesują mnie Python, IT Support, administracja Linux, monitoring i sieci komputerowe.</p>
-          <ul class="contact-methods">
-            <li class="contact-line"><div class="contact-main"><i class="fa-solid fa-envelope"></i><span>maciejgorski978@gmail.com</span></div><button class="copy-btn" data-copy="maciejgorski978@gmail.com" aria-label="Kopiuj email"><i class="fa-regular fa-copy"></i></button></li>
-            <li class="contact-line"><a class="contact-main" href="tel:+48514299431"><i class="fa-solid fa-phone"></i><span>+48 514 299 431</span></a><button class="copy-btn" data-copy="+48 514 299 431" aria-label="Kopiuj telefon"><i class="fa-regular fa-copy"></i></button></li>
-            <li class="contact-line"><a class="contact-main" href="https://github.com/gorski-maciej" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i><span>github.com/gorski-maciej</span></a></li>
-            <li class="contact-line"><a class="contact-main" href="https://www.linkedin.com/in/maciej-gorski-046176282" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i><span>LinkedIn</span></a></li>
+          <p class="lead">Najbardziej interesują mnie obszary Python, IT Support, administracja Linux, monitoring oraz sieci komputerowe.</p>
+          <ul class="contact-methods" aria-label="Dane kontaktowe">
+            <li class="contact-line"><div class="contact-main"><i class="fa-solid fa-envelope" aria-hidden="true"></i><span>maciejgorski978@gmail.com</span></div><button class="copy-btn" type="button" data-copy="maciejgorski978@gmail.com" aria-label="Kopiuj adres email"><i class="fa-regular fa-copy" aria-hidden="true"></i></button></li>
+            <li class="contact-line"><a class="contact-main" href="tel:+48514299431"><i class="fa-solid fa-phone" aria-hidden="true"></i><span>+48 514 299 431</span></a><button class="copy-btn" type="button" data-copy="+48 514 299 431" aria-label="Kopiuj numer telefonu"><i class="fa-regular fa-copy" aria-hidden="true"></i></button></li>
+            <li class="contact-line"><a class="contact-main" href="https://github.com/gorski-maciej" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github" aria-hidden="true"></i><span>github.com/gorski-maciej</span></a></li>
+            <li class="contact-line"><a class="contact-main" href="https://www.linkedin.com/in/maciej-gorski-046176282" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin" aria-hidden="true"></i><span>LinkedIn</span></a></li>
           </ul>
         </article>
-
         <article class="contact-card reveal">
           <p class="kicker">Formularz Web3Forms</p>
           <h3>Wyślij wiadomość</h3>
@@ -667,8 +663,8 @@
             <label class="form-field">Twoje imię<input type="text" name="name" autocomplete="name" placeholder="Jan Kowalski" required /></label>
             <label class="form-field">Twój email<input type="email" name="email" autocomplete="email" placeholder="jan@example.com" required /></label>
             <label class="form-field">Wiadomość<textarea name="message" placeholder="Napisz krótką wiadomość..." required></textarea></label>
-            <p class="form-note">Podmień <strong>TWÓJ_KLUCZ_DOSTĘPU</strong> na klucz z Web3Forms.</p>
-            <button class="btn btn--primary" type="submit"><i class="fa-solid fa-paper-plane"></i>Wyślij</button>
+            <p class="form-note">Przed publikacją podmień <strong>TWÓJ_KLUCZ_DOSTĘPU</strong> na własny klucz Web3Forms.</p>
+            <button class="btn btn--primary" type="submit"><i class="fa-solid fa-paper-plane" aria-hidden="true"></i>Wyślij</button>
           </form>
         </article>
       </div>
@@ -682,7 +678,6 @@
   <div class="toast" id="toast" role="status" aria-live="polite">Skopiowano!</div>
 
   <script>
-    // Theme toggle, menu, copy, typewriter, reveal, particles – bez zmian
     const root = document.documentElement;
     const themeToggle = document.getElementById('themeToggle');
     const menuToggle = document.getElementById('menuToggle');
@@ -694,14 +689,15 @@
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     function setTheme(theme) {
-      const next = theme === 'light' ? 'light' : 'dark';
-      root.dataset.theme = next;
-      localStorage.setItem('portfolio-theme', next);
-      const isLight = next === 'light';
+      const nextTheme = theme === 'light' ? 'light' : 'dark';
+      root.dataset.theme = nextTheme;
+      localStorage.setItem('portfolio-theme', nextTheme);
+      const isLight = nextTheme === 'light';
       themeToggle.setAttribute('aria-pressed', String(isLight));
       themeToggle.setAttribute('aria-label', isLight ? 'Przełącz na tryb ciemny' : 'Przełącz na tryb jasny');
-      themeToggle.innerHTML = isLight ? '<i class="fa-solid fa-sun"></i>' : '<i class="fa-solid fa-moon"></i>';
+      themeToggle.innerHTML = isLight ? '<i class="fa-solid fa-sun" aria-hidden="true"></i>' : '<i class="fa-solid fa-moon" aria-hidden="true"></i>';
     }
+
     setTheme(localStorage.getItem('portfolio-theme') || 'dark');
     themeToggle.addEventListener('click', () => setTheme(root.dataset.theme === 'dark' ? 'light' : 'dark'));
 
@@ -709,80 +705,158 @@
       mobileMenu.dataset.open = 'false';
       menuToggle.setAttribute('aria-expanded', 'false');
       menuToggle.setAttribute('aria-label', 'Otwórz menu');
-      menuToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
+      menuToggle.innerHTML = '<i class="fa-solid fa-bars" aria-hidden="true"></i>';
       document.body.classList.remove('no-scroll');
     }
+
     menuToggle.addEventListener('click', () => {
-      if (mobileMenu.dataset.open === 'true') { closeMenu(); return; }
+      const isOpen = mobileMenu.dataset.open === 'true';
+      if (isOpen) { closeMenu(); return; }
       mobileMenu.dataset.open = 'true';
       menuToggle.setAttribute('aria-expanded', 'true');
       menuToggle.setAttribute('aria-label', 'Zamknij menu');
-      menuToggle.innerHTML = '<i class="fa-solid fa-xmark"></i>';
+      menuToggle.innerHTML = '<i class="fa-solid fa-xmark" aria-hidden="true"></i>';
       document.body.classList.add('no-scroll');
     });
+
     document.querySelectorAll('.mobile-menu a').forEach(link => link.addEventListener('click', closeMenu));
 
     async function copyText(text) {
-      if (navigator.clipboard && window.isSecureContext) { await navigator.clipboard.writeText(text); return; }
-      const ta = document.createElement('textarea'); ta.value = text; ta.style.position='fixed'; ta.style.left='-9999px'; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); ta.remove();
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(text);
+        return;
+      }
+      const textarea = document.createElement('textarea');
+      textarea.value = text;
+      textarea.setAttribute('readonly', '');
+      textarea.style.position = 'fixed';
+      textarea.style.left = '-9999px';
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand('copy');
+      textarea.remove();
     }
+
     let toastTimer;
-    function showToast(msg='Skopiowano!') {
-      toast.textContent=msg; toast.dataset.show='true'; clearTimeout(toastTimer); toastTimer=setTimeout(()=>toast.dataset.show='false',1700);
+    function showToast(message = 'Skopiowano!') {
+      toast.textContent = message;
+      toast.dataset.show = 'true';
+      clearTimeout(toastTimer);
+      toastTimer = window.setTimeout(() => { toast.dataset.show = 'false'; }, 1700);
     }
-    document.querySelectorAll('[data-copy]').forEach(btn => btn.addEventListener('click', async () => { try { await copyText(btn.dataset.copy); showToast(); } catch { showToast('Błąd kopiowania'); } }));
+
+    document.querySelectorAll('[data-copy]').forEach(button => {
+      button.addEventListener('click', async () => {
+        try { await copyText(button.dataset.copy); showToast('Skopiowano!'); }
+        catch { showToast('Nie udało się skopiować'); }
+      });
+    });
 
     const phrase = 'Buduję niezawodne systemy – od skryptu w Pythonie po bezpieczną architekturę sieci.';
-    let charIndex=0;
-    function typeLoop(){ if(!typewriter||reduceMotion){ if(typewriter)typewriter.textContent=phrase; return; } typewriter.textContent=phrase.slice(0,charIndex); charIndex+=1; if(charIndex<=phrase.length)setTimeout(typeLoop,28); } typeLoop();
+    let charIndex = 0;
+    function typeLoop() {
+      if (!typewriter || reduceMotion) { if (typewriter) typewriter.textContent = phrase; return; }
+      typewriter.textContent = phrase.slice(0, charIndex);
+      charIndex += 1;
+      if (charIndex <= phrase.length) window.setTimeout(typeLoop, 28);
+    }
+    typeLoop();
 
-    const revealObserver = 'IntersectionObserver' in window ? new IntersectionObserver(entries=>{ entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('is-visible'); revealObserver.unobserve(e.target); } }); },{threshold:0.14}) : null;
-    document.querySelectorAll('.reveal').forEach(el => { if(revealObserver) revealObserver.observe(el); else el.classList.add('is-visible'); });
+    const revealObserver = 'IntersectionObserver' in window ? new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('is-visible'); revealObserver.unobserve(entry.target); } });
+    }, { threshold: 0.14 }) : null;
+
+    document.querySelectorAll('.reveal').forEach(el => {
+      if (revealObserver) revealObserver.observe(el);
+      else el.classList.add('is-visible');
+    });
 
     const navLinks = Array.from(document.querySelectorAll('.nav__links a'));
-    const sections = navLinks.map(a=>document.querySelector(a.getAttribute('href'))).filter(Boolean);
-    const navObserver = 'IntersectionObserver' in window ? new IntersectionObserver(entries=>{ entries.forEach(e=>{ if(e.isIntersecting) navLinks.forEach(link=>link.setAttribute('aria-current', String(link.getAttribute('href')===`#${e.target.id}`))); }); },{rootMargin:'-38% 0px -54% 0px'}) : null;
-    if(navObserver) sections.forEach(s=>navObserver.observe(s));
+    const sections = navLinks.map(link => document.querySelector(link.getAttribute('href'))).filter(Boolean);
+    const navObserver = 'IntersectionObserver' in window ? new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (entry.isIntersecting) navLinks.forEach(link => link.setAttribute('aria-current', String(link.getAttribute('href') === `#${entry.target.id}`))); });
+    }, { rootMargin: '-38% 0px -54% 0px' }) : null;
+    if (navObserver) sections.forEach(section => navObserver.observe(section));
 
-    // cząsteczki (te same, powiększone)
-    function initParticles(){ if(!ctx||reduceMotion)return; let w,h,particles=[],pointer={x:null,y:null}; function resize(){ const r=Math.min(window.devicePixelRatio||1,2),rect=canvas.getBoundingClientRect(); w=rect.width; h=rect.height; canvas.width=Math.floor(w*r); canvas.height=Math.floor(h*r); ctx.setTransform(r,0,0,r,0,0); const c=Math.min(80,Math.max(40,Math.floor(w/18))); particles=Array.from({length:c},()=>({x:Math.random()*w,y:Math.random()*h,vx:(Math.random()-0.5)*0.25,vy:(Math.random()-0.5)*0.25,r:Math.random()*3+2.5})); }
-    function drawLine(a,b,d){ const dist=Math.hypot(a.x-b.x,a.y-b.y); if(dist>d)return; const alpha=1-dist/d; ctx.strokeStyle=`rgba(229,176,92,${alpha*0.45})`; ctx.lineWidth=2.5; ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y); ctx.stroke(); }
-    function animate(){ ctx.clearRect(0,0,w,h); particles.forEach((p,i)=>{ p.x+=p.vx; p.y+=p.vy; if(p.x<0||p.x>w)p.vx*=-1; if(p.y<0||p.y>h)p.vy*=-1; ctx.shadowColor='rgba(229,176,92,0.7)'; ctx.shadowBlur=10; ctx.fillStyle='rgba(229,176,92,0.9)'; ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2); ctx.fill(); ctx.shadowColor='transparent'; ctx.shadowBlur=0; for(let j=i+1;j<particles.length;j++)drawLine(p,particles[j],150); if(pointer.x!==null)drawLine(p,pointer,200); }); requestAnimationFrame(animate); }
-    window.addEventListener('resize',resize,{passive:true}); window.addEventListener('pointermove',e=>{const rect=canvas.getBoundingClientRect(); pointer.x=e.clientX-rect.left; pointer.y=e.clientY-rect.top;},{passive:true}); window.addEventListener('pointerleave',()=>{pointer.x=null;pointer.y=null;},{passive:true}); resize(); animate(); }
-    initParticles();
-
-    // LIVE TERMINAL
+    // ═══════ TERMINAL INTERAKTYWNY ═══════
     const termOutput = document.getElementById('terminalOutput');
     const termInput = document.getElementById('terminalInput');
     const commands = {
-      help: 'Dostępne komendy: <strong>stack</strong>, <strong>projects</strong>, <strong>contact</strong>, <strong>clear</strong>, <strong>help</strong>.',
-      stack: 'Python (OOP, FastAPI, Flask, testy), Bash, SQL, Git, Docker, Linux (Debian/Ubuntu), TCP/IP, VLAN, Cisco, Firewall, Wireshark.',
-      projects: 'CloudBudget (FinOps), InfraFlow (monitoring), NetGuardian (SecOps), NetAegis (orkiestracja). Zobacz sekcję Projekty po więcej szczegółów.',
-      contact: 'Email: maciejgorski978@gmail.com | Tel: +48 514 299 431 | GitHub: gorski-maciej | LinkedIn w stopce.',
-      clear: '__CLEAR__'
+      help: () => `<span class="gold">Dostępne komendy:</span> about, projects, skills, contact, clear`,
+      about: () => `<span class="gold">Maciej Górski</span> – Student Informatyki, Python Developer, przyszły admin sieci.<br>Motto: <span class="gold">Clean code + reliable networks = solid solutions</span>`,
+      projects: () => `<span class="gold">CloudBudget</span> (FinOps) | <span class="gold">InfraFlow</span> (Obserwowalność) | <span class="gold">NetGuardian</span> (SecOps) | <span class="gold">NetAegis</span> (Orkiestracja)<br>Więcej w sekcji <a href="#projects" class="gold">Projekty</a>`,
+      skills: () => `<span class="gold">Stack:</span> Python, FastAPI, Flask, Bash, SQL, Git, Docker, TCP/IP, VLAN, Routing, Cisco, Linux, Troubleshooting`,
+      contact: () => `📧 maciejgorski978@gmail.com | 📞 +48 514 299 431 | <a href="https://github.com/gorski-maciej" class="gold" target="_blank">GitHub</a>`,
+      clear: () => ''
     };
-    function appendOutput(text, isHtml=false) {
-      const p = document.createElement('p');
-      if (isHtml) p.innerHTML = text; else p.textContent = text;
-      termOutput.appendChild(p);
+
+    function appendOutput(html) {
+      if (html === '') { termOutput.innerHTML = ''; return; }
+      const line = document.createElement('p');
+      line.innerHTML = `<span class="cmd">$ ${termInput.value.trim()}</span><br>${html}`;
+      termOutput.appendChild(line);
       termOutput.scrollTop = termOutput.scrollHeight;
     }
+
     termInput.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter') {
-        const cmd = termInput.value.trim().toLowerCase();
-        appendOutput(`$ ${cmd}`, false);
-        if (cmd === 'clear') {
-          termOutput.innerHTML = '';
-        } else if (commands[cmd]) {
-          const resp = commands[cmd];
-          if (resp === '__CLEAR__') termOutput.innerHTML = '';
-          else appendOutput(resp, true);
-        } else {
-          appendOutput(`Nieznana komenda: ${cmd}. Wpisz <strong>help</strong> aby zobaczyć dostępne.`, true);
-        }
-        termInput.value = '';
-      }
+      if (e.key !== 'Enter') return;
+      const cmd = termInput.value.trim().toLowerCase();
+      termInput.value = '';
+      if (cmd === 'clear') { termOutput.innerHTML = ''; return; }
+      const response = commands[cmd] ? commands[cmd]() : `Nieznana komenda. Wpisz <span class="gold">help</span>.`;
+      appendOutput(response);
     });
+
+    // ═══════ POWIĘKSZONE CZĄSTECZKI ═══════
+    function initParticles() {
+      if (!ctx || reduceMotion) return;
+      let width, height, particles = [];
+      const pointer = { x: null, y: null };
+      function resize() {
+        const ratio = Math.min(window.devicePixelRatio || 1, 2);
+        const rect = canvas.getBoundingClientRect();
+        width = rect.width; height = rect.height;
+        canvas.width = Math.floor(width * ratio); canvas.height = Math.floor(height * ratio);
+        ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
+        const count = Math.min(80, Math.max(40, Math.floor(width / 18)));
+        particles = Array.from({ length: count }, () => ({
+          x: Math.random() * width, y: Math.random() * height,
+          vx: (Math.random() - 0.5) * 0.25, vy: (Math.random() - 0.5) * 0.25,
+          r: Math.random() * 3 + 2.5
+        }));
+      }
+      function drawLine(a, b, maxDist) {
+        const dist = Math.hypot(a.x - b.x, a.y - b.y);
+        if (dist > maxDist) return;
+        const alpha = 1 - dist / maxDist;
+        ctx.strokeStyle = `rgba(229, 176, 92, ${alpha * 0.45})`;
+        ctx.lineWidth = 2.5;
+        ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
+      }
+      function animate() {
+        ctx.clearRect(0, 0, width, height);
+        particles.forEach((p, i) => {
+          p.x += p.vx; p.y += p.vy;
+          if (p.x < 0 || p.x > width) p.vx *= -1;
+          if (p.y < 0 || p.y > height) p.vy *= -1;
+          ctx.shadowColor = 'rgba(229, 176, 92, 0.7)'; ctx.shadowBlur = 10;
+          ctx.fillStyle = 'rgba(229, 176, 92, 0.9)';
+          ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2); ctx.fill();
+          ctx.shadowColor = 'transparent'; ctx.shadowBlur = 0;
+          for (let j = i + 1; j < particles.length; j++) drawLine(p, particles[j], 150);
+          if (pointer.x !== null) drawLine(p, pointer, 200);
+        });
+        window.requestAnimationFrame(animate);
+      }
+      window.addEventListener('resize', resize, { passive: true });
+      window.addEventListener('pointermove', (e) => {
+        const rect = canvas.getBoundingClientRect();
+        pointer.x = e.clientX - rect.left; pointer.y = e.clientY - rect.top;
+      }, { passive: true });
+      window.addEventListener('pointerleave', () => { pointer.x = null; pointer.y = null; }, { passive: true });
+      resize(); animate();
+    }
+    initParticles();
   </script>
 </body>
 </html>
