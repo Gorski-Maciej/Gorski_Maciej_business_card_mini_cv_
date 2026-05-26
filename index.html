@@ -1,30 +1,23 @@
-```html
 <!DOCTYPE html>
 <html lang="pl" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="description" content="Portfolio Macieja Górskiego – Python Developer, Administrator sieci, student informatyki. Zaawansowane projekty DevOps, SecOps, FinOps z pełnym stosem technologii.">
+  <meta name="description" content="Portfolio Macieja Górskiego – Python Developer, Administrator sieci, student informatyki. Innowacyjna prezentacja stacku, zaawansowanych projektów i interaktywnego terminala.">
   <meta name="theme-color" content="#0a0c12">
-  <meta name="author" content="Maciej Górski">
-  <meta property="og:title" content="Maciej Górski | Portfolio Python & Sieci">
-  <meta property="og:description" content="Sprawdź moje projekty, umiejętności i kod. Łączę Pythona, sieci i automatyzację.">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="https://placehold.co/1200x630/0a0c12/e5b05c?text=MG+Portfolio">
-  <meta name="twitter:card" content="summary_large_image">
+  <meta property="og:title" content="Maciej Górski | Portfolio 4.0">
+  <meta property="og:description" content="Sprawdź moją interaktywną wizytówkę: szczegółowe projekty, rozbudowany stack z tooltipami umiejętności oraz kreatywny terminal.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
-  <title>Maciej Górski | Python · Sieci · DevOps</title>
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-
     :root {
       color-scheme: dark;
       --bg-deep: #0a0c12;
@@ -42,7 +35,6 @@
       --radius-sm: 1rem;
       --transition: all 0.25s cubic-bezier(0.2, 0.9, 0.4, 1.1);
     }
-
     [data-theme="light"] {
       color-scheme: light;
       --bg-deep: #f4f7fc;
@@ -55,7 +47,6 @@
       --gold: #c47f2e;
       --gold-soft: #daa042;
     }
-
     body {
       background: var(--bg-deep);
       font-family: "Inter", system-ui, sans-serif;
@@ -64,14 +55,11 @@
       overflow-x: hidden;
       transition: background 0.2s ease;
     }
-
     .container {
       max-width: 1320px;
       margin: 0 auto;
       padding: 0 1.5rem;
     }
-
-    /* SKIP LINK */
     .skip-link {
       position: absolute;
       top: -60px;
@@ -84,10 +72,7 @@
       z-index: 200;
       transition: top 0.2s;
     }
-    .skip-link:focus {
-      top: 20px;
-    }
-
+    .skip-link:focus { top: 20px; }
     /* HEADER */
     .header {
       position: sticky;
@@ -97,9 +82,7 @@
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border-glow);
     }
-    [data-theme="light"] .header {
-      background: rgba(244, 247, 252, 0.85);
-    }
+    [data-theme="light"] .header { background: rgba(244, 247, 252, 0.85); }
     .nav {
       display: flex;
       justify-content: space-between;
@@ -128,9 +111,7 @@
       transition: var(--transition);
       text-decoration: none;
     }
-    .nav-links a:hover, .nav-links a.active {
-      color: var(--gold);
-    }
+    .nav-links a:hover, .nav-links a.active { color: var(--gold); }
     .theme-toggle {
       background: var(--bg-card);
       border: 1px solid var(--border-glow);
@@ -150,12 +131,8 @@
       cursor: pointer;
     }
     @media (max-width: 768px) {
-      .nav-links {
-        display: none;
-      }
-      .mobile-menu-btn {
-        display: block;
-      }
+      .nav-links { display: none; }
+      .mobile-menu-btn { display: block; }
       .mobile-nav {
         position: fixed;
         top: 72px;
@@ -172,23 +149,16 @@
         gap: 1rem;
         border-bottom: 1px solid var(--border-glow);
       }
-      .mobile-nav.open {
-        transform: translateX(0);
-      }
+      .mobile-nav.open { transform: translateX(0); }
       .mobile-nav a {
         color: var(--text-primary);
         text-decoration: none;
         font-weight: 600;
         padding: 0.75rem;
         border-radius: var(--radius-sm);
-        transition: background 0.2s;
       }
-      .mobile-nav a:hover {
-        background: rgba(229, 176, 92, 0.15);
-      }
+      .mobile-nav a:hover { background: rgba(229, 176, 92, 0.15); }
     }
-
-    /* sekcje */
     section {
       padding: 4rem 0;
       scroll-margin-top: 90px;
@@ -238,110 +208,76 @@
       display: inline-block;
       margin-bottom: 1rem;
     }
-
-    /* STACK - kreatywna chmura tagów */
+    /* -------------------- STACK (rozbudowane tooltipy) ------------------ */
     .skill-cloud {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.8rem;
+      gap: 0.9rem;
       margin-top: 1rem;
     }
-    .skill-item {
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid var(--border-glow);
-      border-radius: 60px;
-      padding: 0.6rem 1.3rem;
-      font-weight: 500;
-      transition: var(--transition);
+    .skill-trigger {
+      position: relative;
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      cursor: default;
-      position: relative;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-glow);
+      border-radius: 60px;
+      padding: 0.7rem 1.4rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: var(--transition);
     }
-    .skill-item i, .skill-item .devicon {
-      font-size: 1.2rem;
-      color: var(--gold);
-    }
-    .skill-item:hover {
+    .skill-trigger i, .skill-trigger .devicon { font-size: 1.2rem; color: var(--gold); }
+    .skill-trigger:hover {
       background: rgba(229, 176, 92, 0.1);
       border-color: var(--gold);
       transform: scale(1.02);
     }
-    .skill-item[data-tooltip]:before {
-      content: attr(data-tooltip);
-      position: absolute;
-      bottom: 120%;
-      left: 50%;
-      transform: translateX(-50%);
-      background: var(--bg-deep);
-      color: var(--gold);
-      padding: 0.3rem 0.8rem;
-      border-radius: 20px;
-      font-size: 0.7rem;
-      white-space: nowrap;
-      opacity: 0;
+    /* dynamiczny tooltip jako karta */
+    .skill-tooltip-card {
+      position: fixed;
+      z-index: 1000;
+      background: var(--bg-surface);
+      border-radius: 1.2rem;
+      padding: 1rem 1.3rem;
+      border-left: 4px solid var(--gold);
+      box-shadow: 0 20px 35px -10px rgba(0,0,0,0.4);
+      max-width: 320px;
+      backdrop-filter: blur(12px);
+      font-size: 0.85rem;
+      line-height: 1.5;
+      color: var(--text-secondary);
       pointer-events: none;
-      transition: 0.15s;
-      border: 1px solid var(--gold);
-    }
-    .skill-item:hover:before {
-      opacity: 1;
-    }
-
-    /* MODUŁ KOD – terminal interaktywny */
-    .terminal {
-      background: #0b0e17;
-      border-radius: 1.5rem;
-      overflow: hidden;
+      transition: opacity 0.2s;
       border: 1px solid var(--border-glow);
-      font-family: "JetBrains Mono", monospace;
     }
-    .terminal-header {
-      background: #161c2a;
-      padding: 0.8rem 1.2rem;
-      display: flex;
-      gap: 0.5rem;
-      border-bottom: 1px solid #2a3142;
+    .skill-tooltip-card strong {
+      color: var(--gold);
+      display: block;
+      margin-bottom: 6px;
     }
-    .terminal-dot {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: #ff5f56;
+    .skill-tooltip-card ul {
+      margin: 0.4rem 0 0 1rem;
+      padding-left: 0.5rem;
     }
-    .terminal-dot:nth-child(2) { background: #ffbd2e; }
-    .terminal-dot:nth-child(3) { background: #27c93f; }
-    .terminal-body {
-      padding: 1.5rem;
-      overflow-x: auto;
-    }
-    pre {
-      margin: 0;
-      color: #cbd5e6;
+    /* -------------------- PROJEKTY (rozbudowane technicznie) ------------------ */
+    .project-arch {
+      margin: 1rem 0 0.5rem;
+      padding-top: 0.5rem;
+      border-top: 1px dashed var(--border-glow);
       font-size: 0.85rem;
     }
-    .keyword { color: #f5c47b; font-weight: 600; }
-    .func { color: #86e2d5; }
-    .string { color: #b5f28e; }
-    .comment { color: #6c7e9e; }
-    .copy-code {
-      background: rgba(255,255,255,0.05);
-      border: none;
+    .project-arch h4 {
       color: var(--gold);
-      cursor: pointer;
-      margin-top: 0.8rem;
-      font-size: 0.7rem;
-      padding: 0.3rem 0.9rem;
-      border-radius: 30px;
+      margin-bottom: 0.4rem;
+      font-size: 0.9rem;
     }
-
-    /* PROJEKTY – szczegółowe technicznie */
-    .project-tech-stack {
+    .tech-stack-list {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.5rem;
-      margin: 1rem 0;
+      gap: 0.4rem;
+      margin: 0.6rem 0;
     }
     .tech-tag {
       background: rgba(59, 130, 246, 0.12);
@@ -351,39 +287,80 @@
       font-weight: 500;
       color: var(--blue-glow);
     }
-    .project-links {
-      margin-top: 1.2rem;
-      display: flex;
-      gap: 1rem;
+    /* -------------------- MODUŁ KOD: interaktywny terminal ------------------ */
+    .interactive-terminal {
+      background: #0b0e17;
+      border-radius: 1.8rem;
+      overflow: hidden;
+      border: 1px solid var(--gold);
+      box-shadow: 0 0 20px rgba(229,176,92,0.2);
     }
-    .github-link {
+    .term-header {
+      background: #161c2a;
+      padding: 0.8rem 1.2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #2a3142;
+    }
+    .term-buttons span {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      margin-right: 6px;
+    }
+    .term-buttons span:nth-child(1) { background: #ff5f56; }
+    .term-buttons span:nth-child(2) { background: #ffbd2e; }
+    .term-buttons span:nth-child(3) { background: #27c93f; }
+    .term-body {
+      background: #0b0e17;
+      padding: 1.5rem;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.85rem;
+      min-height: 350px;
+    }
+    .term-output {
+      color: #b9c7df;
+      white-space: pre-wrap;
+      margin-bottom: 1rem;
+      line-height: 1.5;
+    }
+    .term-input-line {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .term-prompt {
       color: var(--gold);
-      text-decoration: none;
       font-weight: 600;
-      transition: 0.2s;
     }
-    .github-link:hover {
-      text-decoration: underline;
+    .term-input {
+      background: transparent;
+      border: none;
+      color: #e2e8f0;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.85rem;
+      flex: 1;
+      outline: none;
     }
-
-    /* formularz */
-    .contact-form {
-      display: flex;
-      flex-direction: column;
-      gap: 1.2rem;
+    .term-help {
+      margin-top: 1rem;
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      border-top: 1px solid #2a2f3f;
+      padding-top: 0.8rem;
     }
+    /* formularz kontakt */
     .contact-form input, .contact-form textarea {
       background: rgba(10, 12, 18, 0.6);
       border: 1px solid var(--border-glow);
       border-radius: 1rem;
       padding: 0.9rem 1rem;
       color: var(--text-primary);
+      width: 100%;
       font-family: inherit;
-      transition: 0.2s;
-    }
-    .contact-form input:focus, .contact-form textarea:focus {
-      outline: none;
-      border-color: var(--gold);
     }
     .btn {
       background: var(--gold);
@@ -394,7 +371,6 @@
       color: #0a0c12;
       cursor: pointer;
       transition: var(--transition);
-      font-size: 1rem;
     }
     .btn:hover {
       background: var(--gold-soft);
@@ -403,7 +379,7 @@
     .copy-btn {
       background: transparent;
       border: 1px solid var(--border-glow);
-      padding: 0.4rem 0.8rem;
+      padding: 0.3rem 0.8rem;
       border-radius: 40px;
       color: var(--text-secondary);
       cursor: pointer;
@@ -428,9 +404,7 @@
       z-index: 200;
       pointer-events: none;
     }
-    .toast.show {
-      opacity: 1;
-    }
+    .toast.show { opacity: 1; }
     canvas#particlesCanvas {
       position: fixed;
       top: 0;
@@ -452,173 +426,145 @@
     @media (max-width: 700px) {
       .container { padding: 0 1.2rem; }
       .card { padding: 1.2rem; }
+      .skill-tooltip-card { max-width: 260px; }
     }
   </style>
 </head>
 <body>
 <canvas id="particlesCanvas"></canvas>
 <a href="#hero" class="skip-link">Przejdź do treści</a>
-
 <header class="header">
   <div class="container nav">
-    <div class="logo">MG // portfolio</div>
+    <div class="logo">MG // terminal.portfolio</div>
     <div class="nav-links">
       <a href="#hero" class="active">Start</a>
       <a href="#about">O mnie</a>
       <a href="#stack">Stack</a>
-      <a href="#code">Kod</a>
-      <a href="#projects">Projekty</a>
+      <a href="#projekty">Projekty</a>
+      <a href="#code-lab">Kod</a>
       <a href="#contact">Kontakt</a>
     </div>
     <button class="theme-toggle" id="themeToggle" aria-label="Zmień motyw"><i class="fa-solid fa-moon"></i> Tryb</button>
     <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu"><i class="fa-solid fa-bars"></i></button>
   </div>
   <div class="mobile-nav" id="mobileNav">
-    <a href="#hero">Start</a>
-    <a href="#about">O mnie</a>
-    <a href="#stack">Stack</a>
-    <a href="#code">Kod</a>
-    <a href="#projects">Projekty</a>
-    <a href="#contact">Kontakt</a>
+    <a href="#hero">Start</a><a href="#about">O mnie</a><a href="#stack">Stack</a><a href="#projekty">Projekty</a><a href="#code-lab">Kod</a><a href="#contact">Kontakt</a>
   </div>
 </header>
-
 <main>
   <!-- HERO -->
   <section id="hero">
     <div class="container">
       <div class="grid-2" style="align-items: center;">
         <div class="reveal">
-          <span class="badge"><i class="fa-regular fa-star"></i> Python · Sieci · Linux</span>
-          <h1 style="font-size: clamp(2.6rem, 8vw, 4.5rem); font-weight: 800; line-height: 1.1;">Maciej Górski</h1>
-          <p style="font-size: 1.3rem; font-weight: 500; color: var(--gold); margin: 0.5rem 0 0.8rem;" id="typewriter"></p>
-          <p style="color: var(--text-secondary); max-width: 500px;">Student informatyki, który łączy programowanie w Pythonie z inżynierią sieci i automatyzacją infrastruktury. Tworzę projekty klasy enterprise, aby rozwijać się w kierunku DevOps i SecOps.</p>
+          <span class="badge"><i class="fa-regular fa-star"></i> Python · Sieci · DevOps</span>
+          <h1 style="font-size: clamp(2.6rem, 8vw, 4.5rem); font-weight: 800;">Maciej Górski</h1>
+          <p style="font-size: 1.3rem; color: var(--gold); margin: 0.5rem 0 0.8rem;" id="typewriter"></p>
+          <p style="color: var(--text-secondary);">Student informatyki, który integruje programowanie w Pythonie z inżynierią sieci. Tworzę projekty o architekturze produkcyjnej – od API w FastAPI po monitoring i automatyzację.</p>
           <div style="display: flex; gap: 1rem; margin-top: 1.8rem;">
-            <a href="#projects" class="btn" style="background: var(--gold); color:#0a0c12;">Zobacz projekty</a>
+            <a href="#projekty" class="btn" style="background: var(--gold); color:#0a0c12;">Zobacz projekty</a>
             <a href="#contact" class="btn" style="background: transparent; border: 1px solid var(--gold); color: var(--gold);">Kontakt</a>
           </div>
         </div>
         <div class="card reveal" style="text-align: center;">
-          <i class="fa-solid fa-code" style="font-size: 2rem; color: var(--gold);"></i>
-          <h3 style="margin: 0.5rem 0;">gotowy na wyzwania IT</h3>
-          <p style="color: var(--text-muted);">Python · FastAPI · Docker · CCNA (w trakcie)</p>
-          <div style="margin-top: 1rem;">
-            <i class="fa-brands fa-github"></i> <i class="fa-brands fa-linkedin"></i> <i class="fa-solid fa-terminal"></i>
-          </div>
+          <i class="fa-solid fa-microchip" style="font-size: 2rem; color: var(--gold);"></i>
+          <h3 style="margin: 0.5rem 0;">#AlwaysLearning</h3>
+          <p style="color: var(--text-muted);">Python · FastAPI · Docker · CCNA</p>
+          <div><i class="fa-brands fa-github"></i> <i class="fa-brands fa-linkedin"></i> <i class="fa-solid fa-terminal"></i></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- O MNIE -->
+  <!-- O MNIE (krótko) -->
   <section id="about">
     <div class="container">
-      <h2 class="section-title reveal">O mnie — kod i infrastruktura</h2>
+      <h2 class="section-title reveal">O mnie — kod + infrastruktura</h2>
       <div class="grid-2 reveal">
-        <div class="card">
-          <i class="fa-solid fa-user-astronaut" style="font-size: 2rem; color: var(--gold);"></i>
-          <h3 style="margin: 1rem 0 0.5rem;">Junior z techniczną głębią</h3>
-          <p>Tworzę aplikacje w Pythonie, projektuję sieci w oparciu o protokoły TCP/IP, VLAN, OSPF. Na co dzień pracuję w środowisku Linux (Debian/Ubuntu), automatyzuję za pomocą Bash i rozwijam wiedzę o kontenerach (Docker). Mocno stawiam na czytelny kod i dobre praktyki DevOps.</p>
-        </div>
-        <div class="card">
-          <i class="fa-solid fa-chart-line" style="font-size: 2rem; color: var(--gold);"></i>
-          <h3 style="margin: 1rem 0 0.5rem;">Ciągły rozwój</h3>
-          <p>Certyfikacja Cisco CCNA w toku, systematyczne kursy z zakresu bezpieczeństwa sieci i administracji Linux. Wierzę w iteracyjne doskonalenie – każdy projekt to krok w stronę inżyniera systemowego.</p>
-        </div>
+        <div class="card"><i class="fa-solid fa-rocket" style="color: var(--gold); font-size: 1.8rem;"></i><h3>Junior z potencjałem</h3><p>Projektuję aplikacje i sieci, automatyzuję w Bash, rozwijam się w kierunku DevOps. Szybko przyswajam nowe technologie – to moje superpower.</p></div>
+        <div class="card"><i class="fa-solid fa-chalkboard-user" style="color: var(--gold); font-size: 1.8rem;"></i><h3>Cel: staż / junior</h3><p>Otwarty na wyzwania w Python, IT support, administracji Linux, network engineering. Łączę teorię z praktyką projektową.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- STACK (kreatywny moduł) -->
+  <!-- STACK – nowoczesny, z tooltipami umiejętności (podstawowe/średniozaawansowane) -->
   <section id="stack">
     <div class="container">
       <h2 class="section-title reveal">Technologiczny ekosystem</h2>
-      <div class="section-sub reveal">Narzędzia, które stosuję w praktyce – od backendu po sieci.</div>
+      <div class="section-sub reveal">Najedź na dowolny tag – zobaczysz konkretne umiejętności na poziomie junior ze średniozaawansowanym zacięciem.</div>
       <div class="card reveal">
-        <div class="skill-cloud">
-          <span class="skill-item" data-tooltip="Zaawansowany Python: OOP, asyncio, FastAPI"><i class="devicon-python-plain"></i> Python</span>
-          <span class="skill-item" data-tooltip="Nowoczesne API, dokumentacja OpenAPI"><i class="devicon-fastapi-plain"></i> FastAPI</span>
-          <span class="skill-item" data-tooltip="Mikrousługi, konteneryzacja"><i class="devicon-docker-plain"></i> Docker</span>
-          <span class="skill-item" data-tooltip="Wersjonowanie, GitHub flow"><i class="devicon-git-plain"></i> Git</span>
-          <span class="skill-item" data-tooltip="Bazy relacyjne, zapytania złożone"><i class="devicon-postgresql-plain"></i> PostgreSQL</span>
-          <span class="skill-item" data-tooltip="Analiza danych i przetwarzanie strumieni"><i class="devicon-pandas-original"></i> Pandas / DuckDB</span>
-          <span class="skill-item" data-tooltip="Automatyzacja zadań systemowych"><i class="devicon-bash-plain"></i> Bash</span>
-          <span class="skill-item" data-tooltip="Administracja Debian/Ubuntu"><i class="devicon-linux-plain"></i> Linux</span>
-          <span class="skill-item" data-tooltip="Routing, switching, symulacje"><i class="devicon-cisco-plain"></i> Cisco / CCNA</span>
-          <span class="skill-item" data-tooltip="Monitoring, logi, Wireshark"><i class="fa-solid fa-chart-simple"></i> Observability</span>
-          <span class="skill-item" data-tooltip="Kolejki i asynchroniczność"><i class="fa-solid fa-tasks"></i> Celery / Kafka</span>
-          <span class="skill-item" data-tooltip="Dashboardy metryk"><i class="fa-solid fa-chart-line"></i> Grafana</span>
+        <div class="skill-cloud" id="skillCloud">
+          <!-- każdy trigger ma atrybut data-skills zawierający HTML z listą umiejętności -->
+          <span class="skill-trigger" data-skills="<strong>☁️ Linux (Debian/Ubuntu)</strong><ul><li>Instalacja, konfiguracja, zarządzanie pakietami (apt)</li><li>Uprawnienia, procesy, crontab, logi</li><li>Skrypty Bash automatyzujące backup i monitoring</li><li>Podstawy sieciowania (ip, netplan, iptables)</li></ul>"><i class="devicon-linux-plain"></i> Linux</span>
+          <span class="skill-trigger" data-skills="<strong>🌐 TCP/IP &amp; Sieci</strong><ul><li>Model OSI, adresacja IPv4, VLSM, subnetting</li><li>Routing statyczny/dynamiczny (RIP, OSPF podstawy)</li><li>VLAN, trunk, DHCP, DNS (konfiguracja)</li><li>Analiza ruchu Wireshark, podstawy bezpieczeństwa</li></ul>"><i class="fa-solid fa-network-wired"></i> TCP/IP</span>
+          <span class="skill-trigger" data-skills="<strong>🐍 Python (średniozaawansowany)</strong><ul><li>OOP, asyncio, dekoratory, context managers</li><li>FastAPI / Flask – tworzenie REST API, dokumentacja OpenAPI</li><li>Pandas, DuckDB – analiza i przetwarzanie danych</li><li>Testowanie (pytest), obsługa błędów, type hints</li></ul>"><i class="devicon-python-plain"></i> Python</span>
+          <span class="skill-trigger" data-skills="<strong>⚡ FastAPI</strong><ul><li>Endpointy, walidacja Pydantic, zależności</li><li>WebSockets, background tasks, middleware</li><li>Integracja z PostgreSQL, Redis, async SQLAlchemy</li><li>Dokumentacja Swagger, JWT, CORS</li></ul>"><i class="devicon-fastapi-plain"></i> FastAPI</span>
+          <span class="skill-trigger" data-skills="<strong>🐳 Docker</strong><ul><li>Tworzenie Dockerfile, docker-compose</li><li>Wielokontenerowe środowiska dev</li><li>Zarządzanie wolumenami, sieciami</li><li>Podstawy Kubernetes (minikube w planie)</li></ul>"><i class="devicon-docker-plain"></i> Docker</span>
+          <span class="skill-trigger" data-skills="<strong>🗄️ SQL &amp; Bazy</strong><ul><li>PostgreSQL, MySQL – projektowanie schematów</li><li>Zapytania złożone (JOIN, GROUP BY, okna)</li><li>TimescaleDB do danych szeregów czasowych</li><li>Podstawy ORM (SQLAlchemy)</li></ul>"><i class="devicon-postgresql-plain"></i> SQL</span>
+          <span class="skill-trigger" data-skills="<strong>📊 Analiza Danych</strong><ul><li>Pandas – czyszczenie, agregacje, merging</li><li>DuckDB – szybkie zapytania SQL na plikach</li><li>Wizualizacja: Matplotlib, podstawy Grafany</li><li>Przetwarzanie logów i metryk</li></ul>"><i class="devicon-pandas-original"></i> Data</span>
+          <span class="skill-trigger" data-skills="<strong>🛠️ Narzędzia DevOps</strong><ul><li>Git (branching, PR, rebase)</li><li>GitHub Actions – podstawy CI/CD</li><li>Monitoring: Prometheus, Grafana (konfiguracja)</li><li>Obserwowalność: logi, metryki, tracing</li></ul>"><i class="fa-solid fa-gear"></i> DevOps</span>
+          <span class="skill-trigger" data-skills="<strong>🔒 Cisco / CCNA (w trakcie)</strong><ul><li>Konfiguracja routerów i switchy</li><li>VLAN, STP, EtherChannel</li><li>Routing OSPFv2, ACL, NAT</li><li>Packet Tracer – symulacje sieci firmowych</li></ul>"><i class="devicon-cisco-plain"></i> Cisco</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- MODUŁ KOD - profesjonalny terminal z klasą Python -->
-  <section id="code">
+  <!-- PROJEKTY – szczegółowe, techniczne, z opisem architektury -->
+  <section id="projekty">
     <div class="container">
-      <h2 class="section-title reveal">Kod jako wizytówka</h2>
-      <div class="reveal terminal">
-        <div class="terminal-header">
-          <div class="terminal-dot"></div><div class="terminal-dot"></div><div class="terminal-dot"></div>
-          <span style="margin-left: 0.5rem; color: #8a99b5;">portfolio_maciej.py</span>
-        </div>
-        <div class="terminal-body">
-          <pre id="codeBlock"><code><span class="keyword">from</span> typing <span class="keyword">import</span> List, Dict
-<span class="keyword">class</span> <span class="func">MaciejGorski</span>:
-    <span class="string">"""Python Developer | Network Admin | Student"""</span>
-    <span class="keyword">def</span> <span class="func">__init__</span>(self):
-        self.name = <span class="string">"Maciej Górski"</span>
-        self.skills = {
-            <span class="string">"languages"</span>: [<span class="string">"Python"</span>, <span class="string">"Bash"</span>, <span class="string">"SQL"</span>],
-            <span class="string">"networking"</span>: [<span class="string">"TCP/IP"</span>, <span class="string">"VLAN"</span>, <span class="string">"OSPF"</span>, <span class="string">"CCNA in progress"</span>],
-            <span class="string">"tools"</span>: [<span class="string">"FastAPI"</span>, <span class="string">"Docker"</span>, <span class="string">"Git"</span>, <span class="string">"TimescaleDB"</span>]
-        }
-        self.projects = [<span class="string">"CloudBudget"</span>, <span class="string">"InfraFlow"</span>, <span class="string">"NetGuardian"</span>, <span class="string">"NetAegis"</span>]
-
-    <span class="keyword">def</span> <span class="func">approach</span>(self) -> str:
-        <span class="keyword">return</span> <span class="string">"Clean code + resilient infrastructure = performance"</span>
-
-mg = MaciejGorski()
-print(f<span class="string">"Hello, world! I'm {mg.name} – ready for challenges."</span>)</code></pre>
-          <button id="copyCodeBtn" class="copy-code"><i class="fa-regular fa-copy"></i> Kopiuj kod</button>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROJEKTY Z ROZBUDOWANYMI OPISAMI TECHNICZNYMI -->
-  <section id="projects">
-    <div class="container">
-      <h2 class="section-title reveal">Flagowe projekty — moja wizytówka</h2>
-      <div class="section-sub reveal">Każdy projekt demonstruje architekturę klasy produkcyjnej, praktyki DevOps i skomplikowane przepływy danych.</div>
+      <h2 class="section-title reveal">Projekty – wizytówka inżynierska</h2>
+      <div class="section-sub reveal">Każdy projekt demonstruje architekturę, przepływ danych i decyzje techniczne – pokazuję, jak myślę i co potrafię zbudować.</div>
       <div class="grid-2">
         <div class="card reveal">
-          <h3><i class="fa-solid fa-cloud-arrow-up"></i> CloudBudget – FinOps Platform</h3>
-          <p>Asynchroniczny agregator kosztów z wieloma źródłami danych. Wykorzystuje <strong>FastAPI</strong> jako API Gateway, <strong>Celery + RabbitMQ</strong> do kolejkowania zadań oraz <strong>DuckDB</strong> do szybkiej analizy OLAP. Prognozowanie trendów za pomocą modeli regresji liniowej. Backend przechowuje metadane w <strong>PostgreSQL</strong>, a raporty generowane są w formacie CSV/JSON.</p>
-          <div class="project-tech-stack"><span class="tech-tag">Python</span><span class="tech-tag">FastAPI</span><span class="tech-tag">Celery</span><span class="tech-tag">DuckDB</span><span class="tech-tag">PostgreSQL</span></div>
+          <h3><i class="fa-solid fa-cloud-arrow-up"></i> CloudBudget – FinOps</h3>
+          <p>Platforma do agregacji kosztów chmurowych z prognozowaniem trendów. Architektura: <strong>FastAPI</strong> (gateway), <strong>Celery + RabbitMQ</strong> (kolejkowanie zadań), <strong>DuckDB</strong> (analiza OLAP). Dane źródłowe pobierane przez skrypty scraping/csv, wyniki przechowywane w <strong>PostgreSQL</strong>. Model regresji liniowej do predykcji wydatków.</p>
+          <div class="project-arch"><h4>⚙️ Jak działa?</h4> Użytkownik przesyła plik z danymi kosztów → API weryfikuje i wysyła zadanie do Celery → worker wykonuje agregację w DuckDB → wyniki zapisywane w DB → endpoint zwraca raport JSON/CSV. Skalowalne dzięki asynchroniczności.</div>
+          <div class="tech-stack-list"><span class="tech-tag">FastAPI</span><span class="tech-tag">Celery</span><span class="tech-tag">DuckDB</span><span class="tech-tag">PostgreSQL</span><span class="tech-tag">RabbitMQ</span></div>
           <div class="project-links"><a href="#" class="github-link"><i class="fa-brands fa-github"></i> Repozytorium</a></div>
         </div>
         <div class="card reveal">
-          <h3><i class="fa-solid fa-chart-line"></i> InfraFlow – Observability Stack</h3>
-          <p>System monitorowania infrastruktury zbierający metryki w czasie rzeczywistym. Architektura oparta na <strong>TimescaleDB</strong> (baza szeregów czasowych) oraz <strong>Redis Streams</strong> do buforowania zdarzeń. Integracja z <strong>Grafana</strong> i <strong>Prometheus</strong>. Dashboard pokazuje użycie CPU, RAM, ruch sieciowy i alerty. Własny agent napisany w Pythonie wysyła dane poprzez REST API.</p>
-          <div class="project-tech-stack"><span class="tech-tag">FastAPI</span><span class="tech-tag">TimescaleDB</span><span class="tech-tag">Redis</span><span class="tech-tag">Grafana</span><span class="tech-tag">Docker</span></div>
+          <h3><i class="fa-solid fa-chart-line"></i> InfraFlow – Observability</h3>
+          <p>System monitorowania infrastruktury zbierający metryki CPU, RAM, ruch sieciowy. Architektura: <strong>Python agents</strong> (push co 30s) → <strong>FastAPI</strong> ingest → <strong>Redis Streams</strong> bufor → <strong>TimescaleDB</strong> (hypertables). Dashboard <strong>Grafana</strong> z predefiniowanymi panelami alertów. Obsługa > 1000 zdarzeń/s.</p>
+          <div class="project-arch"><h4>📡 Przepływ danych</h4> Agent wysyła POST /metrics → API zapisuje w Redis (kolejka) → konsument zapisuje do TimescaleDB po batch. Wizualizacja w czasie rzeczywistym przez WebSocket.</div>
+          <div class="tech-stack-list"><span class="tech-tag">FastAPI</span><span class="tech-tag">Redis</span><span class="tech-tag">TimescaleDB</span><span class="tech-tag">Grafana</span><span class="tech-tag">Docker</span></div>
           <div class="project-links"><a href="#" class="github-link"><i class="fa-brands fa-github"></i> Repozytorium</a></div>
         </div>
         <div class="card reveal">
-          <h3><i class="fa-solid fa-shield-halved"></i> NetGuardian – SecOps Engine</h3>
-          <p>Platforma do analizy logów bezpieczeństwa i detekcji anomalii. <strong>Apache Kafka</strong> jako strumień zdarzeń, <strong>WebSocket</strong> do powiadomień na żywo. Silnik reguł (YARA-like) i analiza behawioralna. Przechowuje zdarzenia w <strong>ElasticSearch</strong> (opcjonalnie). Skalowalna obsługa tysiąca zdarzeń na sekundę.</p>
-          <div class="project-tech-stack"><span class="tech-tag">Kafka</span><span class="tech-tag">Python asyncio</span><span class="tech-tag">DuckDB</span><span class="tech-tag">WebSockets</span></div>
+          <h3><i class="fa-solid fa-shield-halved"></i> NetGuardian – SecOps</h3>
+          <p>Platforma do detekcji anomalii w logach bezpieczeństwa. Strumienie zdarzeń przez <strong>Apache Kafka</strong> → silnik reguł (YARA‑like) + analiza behawioralna. Przechowuje zdarzenia w <strong>Elasticsearch</strong> (opcjonalnie). Alerty wysyłane przez WebSocket do frontu demo.</p>
+          <div class="project-arch"><h4>🧠 Inteligencja</h4> Reguły konfigurowalne przez API, wykrywanie nieudanych logowań, skanowanie portów, podejrzane procesy. Raporty okresowe w PDF.</div>
+          <div class="tech-stack-list"><span class="tech-tag">Kafka</span><span class="tech-tag">Python asyncio</span><span class="tech-tag">Elasticsearch</span><span class="tech-tag">WebSocket</span></div>
           <div class="project-links"><a href="#" class="github-link"><i class="fa-brands fa-github"></i> Repozytorium</a></div>
         </div>
         <div class="card reveal">
           <h3><i class="fa-solid fa-diagram-project"></i> NetAegis – Orchestration MCP</h3>
-          <p>Wieloagentowy system do automatyzacji konfiguracji sieci. Model <strong>Model-Controller-Protocol</strong> z agentami: NetPulse (telemetria), SecLog (audyt), NetConfig (push config). API REST pełni rolę orkiestratora, a zadania asynchroniczne realizowane przez <strong>RQ (Redis Queue)</strong>. Zapewnia idempotentne zmiany konfiguracji i historię wersji.</p>
-          <div class="project-tech-stack"><span class="tech-tag">FastAPI</span><span class="tech-tag">SQLite</span><span class="tech-tag">Redis</span><span class="tech-tag">Paramiko</span></div>
+          <p>Wieloagentowy system do automatyzacji konfiguracji sieci (Model‑Controller‑Protocol). Agenci: <strong>NetPulse</strong> (telemetria), <strong>SecLog</strong> (audyt), <strong>NetConfig</strong> (push konfiguracji). Orkiestrator napisany w <strong>FastAPI</strong> + <strong>Redis Queue</strong> do zadań asynchronicznych. Idempotentne zmiany i historie wersji.</p>
+          <div class="project-arch"><h4>🔁 Przepływ</h4> Operator wywołuje endpoint /deploy → zadanie w RQ → agent NetConfig łączy się przez SSH z urządzeniem i stosuje konfigurację. Wszystkie zmiany logowane.</div>
+          <div class="tech-stack-list"><span class="tech-tag">FastAPI</span><span class="tech-tag">Redis</span><span class="tech-tag">Paramiko</span><span class="tech-tag">SQLite</span></div>
           <div class="project-links"><a href="#" class="github-link"><i class="fa-brands fa-github"></i> Repozytorium</a></div>
         </div>
       </div>
-      <div style="margin-top: 2rem; text-align: center;" class="reveal">
-        <p class="badge">+ więcej mini-projektów: backup skrypt w Bash, analizator logów, implementacja hash-table, scraper z BeautifulSoup</p>
+    </div>
+  </section>
+
+  <!-- MODUŁ KOD: interaktywny terminal / CLI (nowy, kreatywny) -->
+  <section id="code-lab">
+    <div class="container">
+      <h2 class="section-title reveal">Terminal interaktywny – poznaj mnie w nowy sposób</h2>
+      <div class="section-sub reveal">Wypróbuj komendy: <strong>help, skills, projects, contact, about</strong>. To mój interaktywny manifest.</div>
+      <div class="interactive-terminal reveal">
+        <div class="term-header">
+          <div class="term-buttons"><span></span><span></span><span></span></div>
+          <span style="color:#b9c7df;">maciej@portfolio:~</span>
+        </div>
+        <div class="term-body">
+          <div class="term-output" id="termOutput">[system] Witaj w interaktywnym terminalu Macieja Górskiego.<br>Wpisz 'help' aby zobaczyć dostępne komendy.<br></div>
+          <div class="term-input-line">
+            <span class="term-prompt">$></span>
+            <input type="text" id="termInput" class="term-input" autofocus placeholder="wpisz komendę...">
+          </div>
+          <div class="term-help">💡 Podpowiedź: skills | projects | contact | about | clear</div>
+        </div>
       </div>
     </div>
   </section>
@@ -629,216 +575,184 @@ print(f<span class="string">"Hello, world! I'm {mg.name} – ready for challenge
       <div class="grid-2">
         <div class="reveal">
           <h2 class="section-title" style="font-size: 2.2rem;">Porozmawiajmy</h2>
-          <p>Szukam praktyk / stażu jako Python Developer, Junior DevOps lub Network Admin. Chętnie odpowiem na pytania techniczne.</p>
+          <p>Szukam praktyk / stażu jako Python Developer, Junior DevOps lub Network Admin.</p>
           <ul style="list-style: none; margin-top: 1.5rem;">
             <li style="margin-bottom: 1rem;"><i class="fa-regular fa-envelope" style="color: var(--gold); width: 1.8rem;"></i> maciejgorski978@gmail.com <button class="copy-btn" data-copy="maciejgorski978@gmail.com">kopiuj</button></li>
             <li><i class="fa-solid fa-phone" style="color: var(--gold); width: 1.8rem;"></i> +48 514 299 431 <button class="copy-btn" data-copy="+48 514 299 431">kopiuj</button></li>
           </ul>
-          <div style="margin-top: 1rem;">
-            <a href="https://github.com/gorski-maciej" style="color: var(--gold); margin-right: 1rem;"><i class="fa-brands fa-github"></i> GitHub</a>
-            <a href="#" style="color: var(--gold);"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
-          </div>
+          <div style="margin-top: 1rem;"><a href="https://github.com/gorski-maciej" style="color: var(--gold); margin-right: 1rem;"><i class="fa-brands fa-github"></i> GitHub</a></div>
         </div>
         <div class="card reveal">
           <h3>Wyślij wiadomość</h3>
           <form class="contact-form" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
-            <input type="hidden" name="access_key" value="dummy-key-replace-me">
+            <input type="hidden" name="access_key" value="dummy-replace">
             <input type="text" name="name" placeholder="Imię i nazwisko" required>
             <input type="email" name="email" placeholder="Adres e-mail" required>
-            <textarea rows="4" name="message" placeholder="Treść wiadomości..."></textarea>
+            <textarea rows="4" name="message" placeholder="Twoja wiadomość..."></textarea>
             <button type="submit" class="btn">Wyślij <i class="fa-solid fa-paper-plane"></i></button>
-            <p style="font-size: 0.7rem; color: var(--text-muted);">* dla działania formularza wklep swój klucz web3forms w access_key</p>
           </form>
         </div>
       </div>
     </div>
   </section>
 </main>
-
-<footer>
-  <div class="container">© 2026 Maciej Górski — Portfolio wykonane z pasją do kodowania i sieci.</div>
-</footer>
+<footer><div class="container">© 2026 Maciej Górski — Portfolio z interaktywnym terminalem i szczegółowymi projektami.</div></footer>
 <div class="toast" id="toastMsg">Skopiowano!</div>
 
 <script>
-  // motyw + menu mobilne + particles + typewriter + copy
   (function() {
+    // motyw, menu, particles, typewriter, tooltipy, terminal, kopiowanie
     const root = document.documentElement;
     const themeToggle = document.getElementById('themeToggle');
-    const currentTheme = localStorage.getItem('theme') || 'dark';
-    root.setAttribute('data-theme', currentTheme);
-    function toggleTheme() {
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    root.setAttribute('data-theme', savedTheme);
+    themeToggle.addEventListener('click', () => {
       const newTheme = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
       root.setAttribute('data-theme', newTheme);
       localStorage.setItem('theme', newTheme);
-    }
-    themeToggle.addEventListener('click', toggleTheme);
-
+    });
     // mobile menu
     const mobileBtn = document.getElementById('mobileMenuBtn');
     const mobileNav = document.getElementById('mobileNav');
-    if (mobileBtn && mobileNav) {
-      mobileBtn.addEventListener('click', () => {
-        mobileNav.classList.toggle('open');
-      });
-      document.querySelectorAll('.mobile-nav a').forEach(link => link.addEventListener('click', () => mobileNav.classList.remove('open')));
-    }
+    if(mobileBtn) mobileBtn.addEventListener('click', () => mobileNav.classList.toggle('open'));
+    document.querySelectorAll('.mobile-nav a').forEach(a => a.addEventListener('click', () => mobileNav.classList.remove('open')));
 
-    // typewriter effect
+    // typewriter
     const typeEl = document.getElementById('typewriter');
-    if (typeEl) {
-      const text = "Python Dev · Sieciowiec · Automatyzacja";
-      let i = 0;
-      function type() {
-        if (i < text.length) {
-          typeEl.textContent += text.charAt(i);
-          i++;
-          setTimeout(type, 45);
-        }
-      }
-      typeEl.textContent = "";
-      type();
+    if(typeEl) {
+      const text = "Python Dev · Netzwerk · Automatyzacja";
+      let i=0; typeEl.textContent="";
+      function typeIt(){ if(i<text.length) { typeEl.textContent += text.charAt(i); i++; setTimeout(typeIt, 45); } }
+      typeIt();
     }
-
-    // reveal on scroll
+    // reveal observer
     const reveals = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1 });
-    reveals.forEach(r => observer.observe(r));
+    const obs = new IntersectionObserver((entries) => { entries.forEach(e => { if(e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } }); }, {threshold:0.1});
+    reveals.forEach(r => obs.observe(r));
 
-    // copy buttons
-    const copyBtns = document.querySelectorAll('[data-copy]');
-    const toast = document.getElementById('toastMsg');
-    function showToast(msg) {
-      toast.textContent = msg;
-      toast.classList.add('show');
-      setTimeout(() => toast.classList.remove('show'), 1800);
-    }
-    copyBtns.forEach(btn => {
-      btn.addEventListener('click', async () => {
-        const text = btn.getAttribute('data-copy');
-        try {
-          await navigator.clipboard.writeText(text);
-          showToast('Skopiowano!');
-        } catch(e) { showToast('Błąd kopiowania'); }
+    // tooltipy dla stack (dynamiczne karty)
+    const triggers = document.querySelectorAll('.skill-trigger');
+    let activeTooltip = null;
+    triggers.forEach(trigger => {
+      trigger.addEventListener('mouseenter', (e) => {
+        if(activeTooltip) activeTooltip.remove();
+        const skillsHTML = trigger.getAttribute('data-skills');
+        const tooltipDiv = document.createElement('div');
+        tooltipDiv.className = 'skill-tooltip-card';
+        tooltipDiv.innerHTML = skillsHTML;
+        document.body.appendChild(tooltipDiv);
+        const rect = trigger.getBoundingClientRect();
+        tooltipDiv.style.left = rect.left + window.scrollX + 'px';
+        tooltipDiv.style.top = rect.bottom + window.scrollY + 8 + 'px';
+        activeTooltip = tooltipDiv;
+      });
+      trigger.addEventListener('mouseleave', () => {
+        if(activeTooltip) { activeTooltip.remove(); activeTooltip = null; }
       });
     });
-    // kopiowanie kodu
-    const copyCode = document.getElementById('copyCodeBtn');
-    if (copyCode) {
-      copyCode.addEventListener('click', async () => {
-        const codeBlock = document.querySelector('#codeBlock pre code');
-        if (codeBlock) {
-          const text = codeBlock.innerText;
-          await navigator.clipboard.writeText(text);
-          showToast('Kod skopiowany');
-        }
-      });
-    }
 
-    // zaawansowane cząsteczki (interaktywne)
-    const canvas = document.getElementById('particlesCanvas');
-    let ctx = canvas.getContext('2d');
-    let width, height;
-    let particles = [];
-    let mouseX = null, mouseY = null;
-
-    function resizeCanvas() {
-      width = window.innerWidth;
-      height = window.innerHeight;
-      canvas.width = width;
-      canvas.height = height;
+    // INTERAKTYWNY TERMINAL
+    const termInput = document.getElementById('termInput');
+    const termOutputDiv = document.getElementById('termOutput');
+    function addToOutput(text, isError = false) {
+      const line = document.createElement('div');
+      line.style.marginBottom = '6px';
+      line.style.color = isError ? '#f87171' : '#cbd5e6';
+      line.innerHTML = text;
+      termOutputDiv.appendChild(line);
+      termOutputDiv.scrollTop = termOutputDiv.scrollHeight;
     }
-    function initParticles() {
-      const count = Math.min(60, Math.floor(width / 25));
-      particles = [];
-      for (let i = 0; i < count; i++) {
-        particles.push({
-          x: Math.random() * width,
-          y: Math.random() * height,
-          vx: (Math.random() - 0.5) * 0.35,
-          vy: (Math.random() - 0.5) * 0.35,
-          radius: Math.random() * 3 + 1.8,
-          alpha: Math.random() * 0.5 + 0.3
-        });
+    function processCommand(cmd) {
+      const lower = cmd.trim().toLowerCase();
+      if(lower === 'help') {
+        addToOutput('📟 Dostępne komendy: <span style="color:#f5c47b;">skills, projects, contact, about, clear</span>');
+      } else if(lower === 'skills') {
+        addToOutput('🐍 Python: OOP, FastAPI, analiza danych (Pandas/DuckDB).<br>🌐 Sieci: TCP/IP, VLAN, OSPF, CCNA w trakcie.<br>🐳 Docker, Linux (Debian/Ubuntu), Bash, Git.');
+      } else if(lower === 'projects') {
+        addToOutput('📁 CloudBudget (FinOps), InfraFlow (monitoring), NetGuardian (SecOps), NetAegis (orkiestracja). Szczegóły w sekcji #projekty.');
+      } else if(lower === 'contact') {
+        addToOutput('📧 maciejgorski978@gmail.com | 📞 +48 514 299 431 | GitHub: gorski-maciej');
+      } else if(lower === 'about') {
+        addToOutput('👨‍💻 Student informatyki, junior Python Dev i sieciowiec. Szybko się uczę, szukam praktyk.');
+      } else if(lower === 'clear') {
+        termOutputDiv.innerHTML = '';
+      } else if(cmd.trim() === '') {
+        // nic
+      } else {
+        addToOutput(`Nieznana komenda: ${cmd}. Wpisz 'help'.`, true);
       }
     }
-    function draw() {
-      if (!ctx) return;
-      ctx.clearRect(0, 0, width, height);
-      for (let i = 0; i < particles.length; i++) {
+    termInput.addEventListener('keypress', (e) => {
+      if(e.key === 'Enter') {
+        const cmd = termInput.value;
+        addToOutput(`<span style="color:var(--gold);">$></span> ${cmd}`);
+        processCommand(cmd);
+        termInput.value = '';
+      }
+    });
+
+    // kopiowanie
+    const copyBtns = document.querySelectorAll('[data-copy]');
+    const toast = document.getElementById('toastMsg');
+    function showToastMsg(msg) { toast.textContent = msg; toast.classList.add('show'); setTimeout(()=>toast.classList.remove('show'),1800); }
+    copyBtns.forEach(btn => {
+      btn.addEventListener('click', async () => {
+        const txt = btn.getAttribute('data-copy');
+        try { await navigator.clipboard.writeText(txt); showToastMsg('Skopiowano!'); } catch(e) { showToastMsg('Błąd'); }
+      });
+    });
+
+    // Cząsteczki tła (interaktywne)
+    const canvas = document.getElementById('particlesCanvas');
+    let ctx = canvas.getContext('2d');
+    let width, height, particles = [], mouseX = null, mouseY = null;
+    function resizeCanvas() { width = window.innerWidth; height = window.innerHeight; canvas.width = width; canvas.height = height; }
+    function initParticles() {
+      particles = [];
+      const count = Math.min(55, Math.floor(width / 28));
+      for(let i=0;i<count;i++) {
+        particles.push({ x: Math.random()*width, y: Math.random()*height, vx: (Math.random()-0.5)*0.3, vy: (Math.random()-0.5)*0.3, radius: Math.random()*2.5+1.5 });
+      }
+    }
+    function drawParticles() {
+      if(!ctx) return;
+      ctx.clearRect(0,0,width,height);
+      for(let i=0;i<particles.length;i++) {
         let p = particles[i];
-        p.x += p.vx;
-        p.y += p.vy;
-        if (p.x < 0 || p.x > width) p.vx *= -1;
-        if (p.y < 0 || p.y > height) p.vy *= -1;
+        p.x += p.vx; p.y += p.vy;
+        if(p.x<0||p.x>width) p.vx*=-1;
+        if(p.y<0||p.y>height) p.vy*=-1;
         ctx.beginPath();
-        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(229, 176, 92, ${p.alpha * 0.7})`;
+        ctx.arc(p.x, p.y, p.radius, 0, Math.PI*2);
+        ctx.fillStyle = `rgba(229,176,92,0.5)`;
         ctx.fill();
-        // linie między cząsteczkami
-        for (let j = i+1; j < particles.length; j++) {
+        for(let j=i+1;j<particles.length;j++) {
           const p2 = particles[j];
-          const dist = Math.hypot(p.x - p2.x, p.y - p2.y);
-          if (dist < 120) {
+          const dist = Math.hypot(p.x-p2.x, p.y-p2.y);
+          if(dist<130) {
             ctx.beginPath();
-            ctx.moveTo(p.x, p.y);
-            ctx.lineTo(p2.x, p2.y);
-            ctx.strokeStyle = `rgba(229, 176, 92, ${0.2 * (1 - dist/120)})`;
+            ctx.moveTo(p.x,p.y);
+            ctx.lineTo(p2.x,p2.y);
+            ctx.strokeStyle = `rgba(229,176,92,0.18)`;
             ctx.lineWidth = 1.2;
             ctx.stroke();
           }
         }
-        // interakcja z myszą
-        if (mouseX && mouseY) {
-          const distMouse = Math.hypot(p.x - mouseX, p.y - mouseY);
-          if (distMouse < 130) {
-            ctx.beginPath();
-            ctx.moveTo(p.x, p.y);
-            ctx.lineTo(mouseX, mouseY);
-            ctx.strokeStyle = `rgba(229, 176, 92, 0.35)`;
-            ctx.stroke();
-          }
+        if(mouseX && mouseY && Math.hypot(p.x-mouseX, p.y-mouseY) < 140) {
+          ctx.beginPath();
+          ctx.moveTo(p.x,p.y);
+          ctx.lineTo(mouseX,mouseY);
+          ctx.strokeStyle = `rgba(229,176,92,0.35)`;
+          ctx.stroke();
         }
       }
-      requestAnimationFrame(draw);
+      requestAnimationFrame(drawParticles);
     }
-
-    window.addEventListener('resize', () => {
-      resizeCanvas();
-      initParticles();
-    });
-    window.addEventListener('mousemove', (e) => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-    });
+    window.addEventListener('resize', () => { resizeCanvas(); initParticles(); });
+    window.addEventListener('mousemove', (e) => { mouseX = e.clientX; mouseY = e.clientY; });
     window.addEventListener('mouseleave', () => { mouseX = null; mouseY = null; });
-    resizeCanvas();
-    initParticles();
-    draw();
-
-    // aktywne linki nawigacji
-    const sections = document.querySelectorAll('section');
-    const navLinks = document.querySelectorAll('.nav-links a, .mobile-nav a');
-    window.addEventListener('scroll', () => {
-      let current = "";
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop - 110;
-        if (pageYOffset >= sectionTop) current = section.getAttribute('id');
-      });
-      navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${current}`) link.classList.add('active');
-      });
-    });
+    resizeCanvas(); initParticles(); drawParticles();
   })();
 </script>
 </body>
 </html>
-```
