@@ -1,946 +1,844 @@
+```html
 <!DOCTYPE html>
 <html lang="pl" data-theme="dark">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Portfolio Macieja Górskiego – studenta informatyki, aspirującego Python Developera i Administratora Sieci. Zaawansowane projekty z zakresu FinOps, InfraOps, SecOps i orkiestracji bezpieczeństwa." />
-  <meta name="theme-color" content="#0a0f1c" />
-  <meta name="robots" content="index, follow" />
-  <meta property="og:type" content="profile" />
-  <meta property="og:title" content="Maciej Górski | Portfolio Python & Sieci IT" />
-  <meta property="og:description" content="Zwarta, techniczna wizytówka junior Python Developera i Administratora Sieci: Python, Linux, TCP/IP, Bash, CCNA, zaawansowane projekty DevOps/SecOps." />
-  <meta property="og:image" content="https://gorski-maciej.github.io/og-image.png" />
-  <meta property="og:url" content="https://gorski-maciej.github.io" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <title>Maciej Górski | Portfolio Python & Sieci IT</title>
-  <link rel="canonical" href="https://gorski-maciej.github.io" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..900&family=JetBrains+Mono:wght@400;500;700;800&display=swap" rel="stylesheet" />
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
-  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Person",
-        "name": "Maciej Górski",
-        "jobTitle": "Student Informatyki | Python Developer | Administrator Sieci",
-        "url": "https://gorski-maciej.github.io",
-        "email": "maciejgorski978@gmail.com",
-        "telephone": "+48 514 299 431",
-        "address": { "@type": "PostalAddress", "addressCountry": "PL" },
-        "knowsLanguage": ["Polish", "English"],
-        "knowsAbout": [
-          "Python", "Linux", "Bash", "TCP/IP", "Cisco CCNA", "Docker",
-          "Git", "MySQL", "IoT", "IT security", "FastAPI", "PostgreSQL",
-          "Redis", "Kafka", "DuckDB", "TimescaleDB", "Grafana", "Prometheus"
-        ],
-        "sameAs": [
-          "https://github.com/gorski-maciej",
-          "https://www.linkedin.com/in/maciej-gorski-046176282"
-        ]
-      },
-      {
-        "@type": "ProfilePage",
-        "name": "Maciej Górski | Portfolio Python & Sieci IT",
-        "url": "https://gorski-maciej.github.io",
-        "description": "Portfolio junior Python Developera i Administratora Sieci z zaawansowanymi projektami DevOps/SecOps.",
-        "about": { "@type": "Person", "name": "Maciej Górski" }
-      }
-    ]
-  }
-  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="Portfolio Macieja Górskiego – Python Developer, Administrator sieci, student informatyki. Zaawansowane projekty DevOps, SecOps, FinOps z pełnym stosem technologii.">
+  <meta name="theme-color" content="#0a0c12">
+  <meta name="author" content="Maciej Górski">
+  <meta property="og:title" content="Maciej Górski | Portfolio Python & Sieci">
+  <meta property="og:description" content="Sprawdź moje projekty, umiejętności i kod. Łączę Pythona, sieci i automatyzację.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://placehold.co/1200x630/0a0c12/e5b05c?text=MG+Portfolio">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+  <title>Maciej Górski | Python · Sieci · DevOps</title>
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     :root {
       color-scheme: dark;
-      --bg: #0a0f1c;
-      --bg-2: #0d1424;
-      --card: #141c2e;
-      --card-2: #0b111e;
-      --border: rgba(255, 255, 255, 0.06);
+      --bg-deep: #0a0c12;
+      --bg-surface: #10131c;
+      --bg-card: rgba(22, 26, 38, 0.85);
+      --border-glow: rgba(229, 176, 92, 0.28);
       --gold: #e5b05c;
-      --gold-2: #f3c979;
-      --blue: #60a5fa;
-      --text: #e2e8f0;
-      --muted: #94a3b8;
-      --soft: #cbd5e1;
-      --shadow-glow: 0 0 20px rgba(229, 176, 92, 0.15);
-      --shadow-card: 0 18px 50px rgba(0, 0, 0, 0.28);
-      --radius-xl: 26px;
-      --radius-lg: 18px;
-      --radius-md: 14px;
-      --container: 1200px;
-      --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
-      --font-mono: "JetBrains Mono", ui-monospace, monospace;
+      --gold-soft: #f5cb8b;
+      --blue-glow: #3b82f6;
+      --text-primary: #f0f2f5;
+      --text-secondary: #a3adc2;
+      --text-muted: #6c7a92;
+      --shadow-xl: 0 25px 45px -12px rgba(0, 0, 0, 0.45);
+      --radius-card: 2rem;
+      --radius-sm: 1rem;
+      --transition: all 0.25s cubic-bezier(0.2, 0.9, 0.4, 1.1);
     }
 
-    html[data-theme="light"] {
+    [data-theme="light"] {
       color-scheme: light;
-      --bg: #f8fafc;
-      --bg-2: #eef2f7;
-      --card: #ffffff;
-      --card-2: #f8fafc;
-      --border: rgba(15, 23, 42, 0.10);
-      --text: #1e293b;
-      --muted: #475569;
-      --soft: #334155;
-      --shadow-card: 0 18px 46px rgba(15, 23, 42, 0.10);
+      --bg-deep: #f4f7fc;
+      --bg-surface: #eef2f8;
+      --bg-card: rgba(255, 255, 255, 0.92);
+      --border-glow: rgba(0, 0, 0, 0.08);
+      --text-primary: #111827;
+      --text-secondary: #2d3a4b;
+      --text-muted: #5d6f88;
+      --gold: #c47f2e;
+      --gold-soft: #daa042;
     }
 
-    *, *::before, *::after { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
     body {
-      min-width: 320px;
-      margin: 0;
-      background:
-        radial-gradient(circle at 18% 0%, rgba(229, 176, 92, 0.10), transparent 28rem),
-        radial-gradient(circle at 82% 10%, rgba(96, 165, 250, 0.08), transparent 24rem),
-        linear-gradient(135deg, var(--bg), var(--bg-2));
-      color: var(--text);
-      font-family: var(--font-sans);
-      line-height: 1.58;
+      background: var(--bg-deep);
+      font-family: "Inter", system-ui, sans-serif;
+      color: var(--text-primary);
+      line-height: 1.5;
       overflow-x: hidden;
-      text-rendering: optimizeLegibility;
-      transition: background 180ms ease, color 180ms ease;
+      transition: background 0.2s ease;
     }
 
-    body.no-scroll { overflow: hidden; }
-    a { color: inherit; text-decoration: none; }
-    button, input, textarea { font: inherit; }
-    button { cursor: pointer; }
-    img, canvas { display: block; max-width: 100%; }
-    ::selection { background: var(--gold); color: #111827; }
-    :focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+    .container {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
 
+    /* SKIP LINK */
     .skip-link {
       position: absolute;
-      top: 12px;
-      left: 12px;
-      z-index: 100;
-      transform: translateY(-80px);
-      border-radius: 999px;
+      top: -60px;
+      left: 20px;
       background: var(--gold);
-      color: #0a0f1c;
-      font-weight: 900;
-      padding: 10px 14px;
-      transition: transform 160ms ease;
+      color: #000;
+      padding: 0.75rem 1.25rem;
+      border-radius: 60px;
+      font-weight: 700;
+      z-index: 200;
+      transition: top 0.2s;
     }
-    .skip-link:focus { transform: translateY(0); }
-
-    .container { width: min(100% - 2rem, var(--container)); margin-inline: auto; }
-    .section { scroll-margin-top: 76px; padding: 2rem 1rem; }
-    .section__inner { max-width: var(--container); margin-inline: auto; }
-    .section__head { display: grid; gap: 0.65rem; margin-bottom: 1rem; }
-    .kicker {
-      margin: 0;
-      color: var(--gold);
-      font-family: var(--font-mono);
-      font-size: 0.78rem;
-      font-weight: 800;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
+    .skip-link:focus {
+      top: 20px;
     }
-    h1, h2, h3, p { margin-top: 0; }
-    h1 { margin-bottom: 0.75rem; font-size: clamp(2.75rem, 8vw, 6.2rem); line-height: 0.92; letter-spacing: -0.075em; }
-    h2 { margin-bottom: 0; font-size: clamp(1.8rem, 4vw, 3rem); line-height: 1.06; letter-spacing: -0.055em; }
-    h3 { line-height: 1.18; letter-spacing: -0.025em; }
-    .lead { max-width: 780px; margin: 0; color: var(--muted); font-size: clamp(1rem, 1.5vw, 1.08rem); }
 
-    .site-header {
+    /* HEADER */
+    .header {
       position: sticky;
       top: 0;
-      z-index: 50;
-      border-bottom: 1px solid var(--border);
-      background: rgba(10, 15, 28, 0.85);
-      backdrop-filter: blur(10px);
+      z-index: 99;
+      background: rgba(10, 12, 18, 0.8);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-glow);
     }
-    html[data-theme="light"] .site-header { background: rgba(248, 250, 252, 0.86); }
-    .nav { min-height: 58px; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
-    .brand { display: inline-flex; align-items: center; gap: 0.7rem; font-weight: 900; letter-spacing: -0.03em; white-space: nowrap; }
-    .brand__mark, .avatar__mark {
-      display: grid;
-      place-items: center;
-      border: 1px solid rgba(229, 176, 92, 0.34);
-      background: linear-gradient(145deg, rgba(229, 176, 92, 0.12), rgba(20, 28, 46, 0.74));
+    [data-theme="light"] .header {
+      background: rgba(244, 247, 252, 0.85);
+    }
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .logo {
+      font-weight: 800;
+      font-size: 1.5rem;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, var(--gold), #f3c779);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+    .nav-links a {
+      color: var(--text-secondary);
+      font-weight: 600;
+      transition: var(--transition);
+      text-decoration: none;
+    }
+    .nav-links a:hover, .nav-links a.active {
       color: var(--gold);
-      font-family: var(--font-mono);
-      font-weight: 900;
-      box-shadow: var(--shadow-glow);
     }
-    .brand__mark { width: 38px; height: 38px; border-radius: 12px; }
-    .nav__links { display: none; align-items: center; gap: 1.5rem; color: var(--muted); font-size: 0.92rem; font-weight: 800; }
-    .nav__links a { position: relative; transition: color 160ms ease; }
-    .nav__links a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -7px;
-      width: 0;
-      height: 2px;
-      border-radius: 999px;
-      background: var(--gold);
-      transition: width 160ms ease;
+    .theme-toggle {
+      background: var(--bg-card);
+      border: 1px solid var(--border-glow);
+      border-radius: 60px;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      color: var(--gold);
+      font-weight: 600;
+      transition: var(--transition);
     }
-    .nav__links a:hover, .nav__links a:focus-visible, .nav__links a[aria-current="true"] { color: var(--gold); }
-    .nav__links a:hover::after, .nav__links a:focus-visible::after, .nav__links a[aria-current="true"]::after { width: 100%; }
-    .nav__actions { display: flex; align-items: center; gap: 0.5rem; }
-    .icon-btn, .menu-btn, .copy-btn {
-      width: 44px;
-      height: 44px;
-      display: inline-grid;
-      place-items: center;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      background: rgba(20, 28, 46, 0.76);
-      color: var(--text);
-      transition: transform 160ms ease, border-color 160ms ease, color 160ms ease, box-shadow 160ms ease;
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.75rem;
+      color: var(--gold);
+      cursor: pointer;
     }
-    html[data-theme="light"] .icon-btn, html[data-theme="light"] .menu-btn, html[data-theme="light"] .copy-btn { background: #fff; }
-    .icon-btn:hover, .menu-btn:hover, .copy-btn:hover { transform: translateY(-2px); border-color: rgba(229, 176, 92, 0.44); color: var(--gold); box-shadow: var(--shadow-glow); }
-    .mobile-menu { display: grid; grid-template-rows: 0fr; border-top: 1px solid transparent; transition: grid-template-rows 180ms ease, border-color 180ms ease; }
-    .mobile-menu[data-open="true"] { grid-template-rows: 1fr; border-color: var(--border); }
-    .mobile-menu__inner { overflow: hidden; }
-    .mobile-menu__links { display: grid; gap: 0.6rem; padding-block: 0.85rem; }
-    .mobile-menu__links a { border: 1px solid var(--border); border-radius: 14px; background: var(--card); color: var(--muted); font-weight: 850; padding: 0.72rem 0.85rem; }
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      .mobile-menu-btn {
+        display: block;
+      }
+      .mobile-nav {
+        position: fixed;
+        top: 72px;
+        left: 0;
+        width: 100%;
+        background: var(--bg-surface);
+        backdrop-filter: blur(20px);
+        padding: 1rem;
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+        z-index: 98;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        border-bottom: 1px solid var(--border-glow);
+      }
+      .mobile-nav.open {
+        transform: translateX(0);
+      }
+      .mobile-nav a {
+        color: var(--text-primary);
+        text-decoration: none;
+        font-weight: 600;
+        padding: 0.75rem;
+        border-radius: var(--radius-sm);
+        transition: background 0.2s;
+      }
+      .mobile-nav a:hover {
+        background: rgba(229, 176, 92, 0.15);
+      }
+    }
 
-    .hero { position: relative; min-height: 70vh; display: grid; align-items: center; overflow: hidden; padding: 2rem 1rem; }
-    .particles { position: absolute; inset: 0; z-index: -1; width: 100%; height: 100%; opacity: 0.75; }
-    .hero__grid { display: grid; gap: 1rem; align-items: center; }
-    .hero__title { margin-bottom: 0.55rem; color: var(--gold); font-family: var(--font-mono); font-size: clamp(1rem, 2.2vw, 1.35rem); font-weight: 800; min-height: 2em; }
-    .hero__subtitle { max-width: 820px; margin-bottom: 0.75rem; color: var(--text); font-size: clamp(1.05rem, 2vw, 1.35rem); font-weight: 850; }
-    .hero__lead { max-width: 760px; margin: 0 0 1rem; color: var(--muted); font-size: clamp(1rem, 1.7vw, 1.12rem); }
-    .type-cursor::after { content: "_"; color: var(--gold); animation: blink 900ms steps(1) infinite; }
-    @keyframes blink { 50% { opacity: 0; } }
-    .actions, .socials, .tags, .meta-row { display: flex; flex-wrap: wrap; gap: 0.75rem; }
-    .btn {
-      min-height: 44px;
+    /* sekcje */
+    section {
+      padding: 4rem 0;
+      scroll-margin-top: 90px;
+    }
+    .section-title {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+      background: linear-gradient(130deg, var(--text-primary) 30%, var(--gold) 80%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .section-sub {
+      color: var(--text-muted);
+      max-width: 650px;
+      margin-bottom: 2.5rem;
+      font-size: 1.1rem;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    .card {
+      background: var(--bg-card);
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(229, 176, 92, 0.2);
+      border-radius: var(--radius-card);
+      padding: 1.8rem;
+      transition: var(--transition);
+      box-shadow: var(--shadow-xl);
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: var(--gold);
+      box-shadow: 0 30px 50px -20px rgba(0, 0, 0, 0.5);
+    }
+    .badge {
+      background: rgba(229, 176, 92, 0.15);
+      padding: 0.25rem 0.9rem;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--gold);
+      display: inline-block;
+      margin-bottom: 1rem;
+    }
+
+    /* STACK - kreatywna chmura tagów */
+    .skill-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 1rem;
+    }
+    .skill-item {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-glow);
+      border-radius: 60px;
+      padding: 0.6rem 1.3rem;
+      font-weight: 500;
+      transition: var(--transition);
       display: inline-flex;
       align-items: center;
-      justify-content: center;
-      gap: 0.55rem;
-      border: 1px solid transparent;
-      border-radius: 999px;
-      font-weight: 900;
-      padding: 0.7rem 1rem;
-      transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease, background 160ms ease, color 160ms ease;
-    }
-    .btn:hover, .btn:focus-visible { transform: translateY(-2px); }
-    .btn--primary { background: var(--gold); color: #111827; box-shadow: var(--shadow-glow); }
-    .btn--primary:hover { background: var(--gold-2); }
-    .btn--ghost { border-color: var(--border); background: rgba(20, 28, 46, 0.72); color: var(--text); }
-    html[data-theme="light"] .btn--ghost { background: #fff; }
-    .btn--ghost:hover { border-color: rgba(229, 176, 92, 0.45); color: var(--gold); }
-    .socials { margin-top: 0.85rem; }
-    .socials a { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--muted); font-weight: 850; transition: color 160ms ease, transform 160ms ease; }
-    .socials a:hover { color: var(--gold); transform: translateY(-2px); }
-
-    .card, .hero-card, .code-card, .project-card, .skill-card, .mini-card, .contact-card {
-      border: 1px solid var(--border);
-      background: rgba(20, 28, 46, 0.84);
-      box-shadow: var(--shadow-card);
-      backdrop-filter: blur(16px);
-    }
-    html[data-theme="light"] .card, html[data-theme="light"] .hero-card, html[data-theme="light"] .code-card, html[data-theme="light"] .project-card, html[data-theme="light"] .skill-card, html[data-theme="light"] .mini-card, html[data-theme="light"] .contact-card { background: rgba(255, 255, 255, 0.90); }
-    .hero-card { border-radius: var(--radius-xl); padding: 1rem; }
-    .avatar { display: grid; grid-template-columns: auto 1fr; gap: 0.9rem; align-items: center; margin-bottom: 0.9rem; }
-    .avatar__mark { width: 76px; height: 76px; border-radius: 24px; font-size: 1.65rem; }
-    .status { display: inline-flex; align-items: center; gap: 0.45rem; color: var(--muted); font-weight: 850; }
-    .status::before { content: ""; width: 8px; height: 8px; border-radius: 999px; background: #22c55e; box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.55); animation: pulse 1.8s infinite; }
-    @keyframes pulse { 70% { box-shadow: 0 0 0 10px rgba(34, 197, 94, 0); } }
-    .terminal-mini, .code-card { overflow: hidden; border-radius: var(--radius-lg); background: #0b111e; color: #dbeafe; font-family: var(--font-mono); }
-    .terminal-bar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; border-bottom: 1px solid rgba(255,255,255,0.08); padding: 0.68rem 0.85rem; }
-    .terminal-dots { display: flex; gap: 0.42rem; }
-    .dot { width: 10px; height: 10px; border-radius: 999px; }
-    .dot--red { background: #fb7185; } .dot--yellow { background: #facc15; } .dot--green { background: #4ade80; }
-    .terminal-title { color: #94a3b8; font-size: 0.78rem; }
-    .terminal-body { padding: 0.85rem; font-size: 0.87rem; }
-    .terminal-body p { margin-bottom: 0.45rem; }
-    .prompt { color: var(--blue); }
-
-    .about-grid { display: grid; gap: 1rem; }
-    .about-profile { display: grid; gap: 0.8rem; }
-    .tech-avatar { min-height: 220px; position: relative; display: grid; place-items: center; overflow: hidden; border-radius: var(--radius-xl); }
-    .tech-avatar::before { content: ""; position: absolute; inset: 18px; border: 1px solid rgba(229, 176, 92, 0.22); clip-path: polygon(50% 0, 100% 26%, 100% 76%, 50% 100%, 0 76%, 0 26%); background: linear-gradient(145deg, rgba(229, 176, 92, 0.12), rgba(96, 165, 250, 0.06)); }
-    .tech-avatar__inner { position: relative; z-index: 1; width: 150px; height: 150px; display: grid; place-items: center; border-radius: 36px; background: linear-gradient(145deg, #1f2937, #0b111e); color: var(--gold); font-family: var(--font-mono); font-size: 3.2rem; font-weight: 900; box-shadow: var(--shadow-glow); transform: rotate(-4deg); }
-    .info-list { display: grid; gap: 0.55rem; margin: 0; padding: 0; list-style: none; }
-    .info-list li { display: flex; align-items: center; gap: 0.6rem; border: 1px solid var(--border); border-radius: 14px; background: rgba(255,255,255,0.025); color: var(--soft); font-weight: 820; padding: 0.7rem 0.8rem; }
-    .info-list i { color: var(--gold); }
-    .about-copy { color: var(--muted); margin-bottom: 0.9rem; }
-    .about-copy p { margin-bottom: 0.72rem; }
-    .timeline { display: grid; gap: 0.65rem; margin-top: 1rem; }
-    .timeline__item { position: relative; border: 1px solid var(--border); border-radius: 14px; background: rgba(255,255,255,0.025); padding: 0.75rem 0.8rem 0.75rem 2.25rem; }
-    .timeline__item::before { content: ""; position: absolute; left: 0.86rem; top: 1rem; width: 10px; height: 10px; border-radius: 999px; background: var(--gold); box-shadow: var(--shadow-glow); }
-    .timeline__item strong { display: block; color: var(--gold); font-family: var(--font-mono); font-size: 0.85rem; }
-    .timeline__item span { color: var(--muted); font-size: 0.92rem; }
-
-    .skills-grid { display: grid; gap: 1rem; }
-    .skill-card { border-radius: var(--radius-xl); padding: 1rem; container-type: inline-size; transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease; }
-    .skill-card:hover { transform: translateY(-4px); border-color: rgba(229, 176, 92, 0.34); box-shadow: var(--shadow-glow); }
-    .skill-card--wide { min-height: 100%; }
-    .skill-card h3 { margin-bottom: 0.75rem; color: var(--gold); }
-    .skill-tags { display: flex; flex-wrap: wrap; gap: 0.55rem; }
-    .skill-tag {
+      gap: 8px;
+      cursor: default;
       position: relative;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.42rem;
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      background: rgba(255,255,255,0.035);
-      color: var(--text);
-      font-size: 0.9rem;
-      font-weight: 780;
-      padding: 0.48rem 0.68rem;
-      transition: transform 160ms ease, color 160ms ease, border-color 160ms ease;
     }
-    .skill-tag i { color: var(--gold); font-size: 1.05rem; transition: transform 160ms ease; }
-    .skill-tag:hover { transform: translateY(-2px); border-color: rgba(229, 176, 92, 0.38); color: var(--gold); }
-    .skill-tag:hover i { transform: rotate(-6deg) scale(1.08); }
-    .skill-tag[data-tooltip]::after {
+    .skill-item i, .skill-item .devicon {
+      font-size: 1.2rem;
+      color: var(--gold);
+    }
+    .skill-item:hover {
+      background: rgba(229, 176, 92, 0.1);
+      border-color: var(--gold);
+      transform: scale(1.02);
+    }
+    .skill-item[data-tooltip]:before {
       content: attr(data-tooltip);
       position: absolute;
+      bottom: 120%;
       left: 50%;
-      bottom: calc(100% + 8px);
-      z-index: 6;
-      width: max-content;
-      max-width: min(280px, 82vw);
-      transform: translateX(-50%) translateY(4px);
+      transform: translateX(-50%);
+      background: var(--bg-deep);
+      color: var(--gold);
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.7rem;
+      white-space: nowrap;
       opacity: 0;
       pointer-events: none;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      background: #0b111e;
-      color: var(--text);
-      box-shadow: var(--shadow-card);
-      font-size: 0.78rem;
-      line-height: 1.35;
-      padding: 0.55rem 0.65rem;
-      transition: opacity 140ms ease, transform 140ms ease;
+      transition: 0.15s;
+      border: 1px solid var(--gold);
     }
-    .skill-tag:hover::after, .skill-tag:focus-within::after { opacity: 1; transform: translateX(-50%) translateY(0); }
-
-    .code-card { border: 1px solid var(--border); box-shadow: 0 0 30px rgba(229, 176, 92, 0.08); }
-    .code-scroll { overflow-x: auto; padding: 1rem; }
-    pre { margin: 0; font-family: var(--font-mono); font-size: clamp(0.78rem, 1.5vw, 0.93rem); line-height: 1.58; }
-    .kw { color: var(--blue); font-weight: 800; }
-    .str { color: var(--gold); }
-    .cm { color: #6b7280; font-style: italic; }
-    .fn { color: #93c5fd; }
-    .num { color: #fcd34d; }
-
-    .projects-grid, .mini-grid { display: grid; gap: 1rem; }
-    .project-card, .mini-card { container-type: inline-size; display: grid; gap: 0.75rem; border-radius: var(--radius-xl); padding: 1rem; transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease; }
-    .project-card:hover, .mini-card:hover { transform: translateY(-4px); border-color: rgba(229, 176, 92, 0.34); box-shadow: var(--shadow-glow); }
-    .project-card h3, .mini-card h3 { margin-bottom: 0; color: var(--gold); font-size: clamp(1.12rem, 6cqi, 1.42rem); }
-    .project-card p, .mini-card p { margin: 0; color: var(--muted); }
-    .tag { display: inline-flex; align-items: center; border: 1px solid rgba(229, 176, 92, 0.26); border-radius: 999px; background: rgba(229, 176, 92, 0.08); color: var(--gold); font-family: var(--font-mono); font-size: 0.75rem; font-weight: 800; padding: 0.32rem 0.5rem; }
-    .project-links { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 0.25rem; }
-    .project-link { color: var(--gold); font-weight: 900; }
-    .project-link span { border-bottom: 1px solid currentColor; }
-
-    .contact-grid { display: grid; gap: 1rem; }
-    .contact-card { border-radius: var(--radius-xl); padding: 1rem; background: rgba(20, 28, 46, 0.72); }
-    .contact-methods { display: grid; gap: 0.65rem; margin: 0.9rem 0 0; padding: 0; list-style: none; }
-    .contact-line { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.65rem; border: 1px solid var(--border); border-radius: 14px; background: rgba(255,255,255,0.025); padding: 0.7rem; }
-    .contact-main { display: inline-flex; align-items: center; gap: 0.6rem; min-width: 0; color: var(--text); font-weight: 840; }
-    .contact-main i { width: 22px; text-align: center; color: var(--gold); }
-    .contact-main span { overflow-wrap: anywhere; }
-    .copy-btn { width: 44px; height: 44px; border-radius: 11px; }
-    .contact-form { display: grid; gap: 0.75rem; }
-    .form-field { display: grid; gap: 0.35rem; color: var(--soft); font-weight: 820; }
-    .form-field input, .form-field textarea { width: 100%; border: 1px solid var(--border); border-radius: 14px; outline: 0; background: rgba(255,255,255,0.035); color: var(--text); padding: 0.78rem 0.85rem; transition: border-color 160ms ease, box-shadow 160ms ease; }
-    .form-field textarea { min-height: 130px; resize: vertical; }
-    .form-field input:focus, .form-field textarea:focus { border-color: rgba(229, 176, 92, 0.46); box-shadow: 0 0 0 4px rgba(229, 176, 92, 0.10); }
-    .form-note { margin: 0; color: var(--muted); font-size: 0.88rem; }
-
-    .toast { position: fixed; right: 18px; bottom: 18px; z-index: 100; transform: translateY(18px); opacity: 0; pointer-events: none; border: 1px solid rgba(229, 176, 92, 0.32); border-radius: 999px; background: var(--card); color: var(--text); box-shadow: var(--shadow-card); font-weight: 900; padding: 0.7rem 0.9rem; transition: opacity 160ms ease, transform 160ms ease; }
-    .toast[data-show="true"] { opacity: 1; transform: translateY(0); }
-    footer { border-top: 1px solid var(--border); color: var(--muted); font-weight: 650; padding: 1rem; text-align: center; }
-
-    .reveal { opacity: 0; transform: translateY(20px); animation: reveal linear both; animation-timeline: view(); animation-range: entry 10% cover 30%; }
-    @keyframes reveal { to { opacity: 1; transform: translateY(0); } }
-    .reveal.is-visible { opacity: 1; transform: translateY(0); }
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: 0.01ms !important; }
-      .particles { display: none; }
-      .reveal { opacity: 1; transform: none; }
+    .skill-item:hover:before {
+      opacity: 1;
     }
 
-    @media (min-width: 640px) {
-      .section { padding: 2.4rem 1.25rem; }
-      .hero { padding: 2.5rem 1.25rem; }
-      .hero-card, .contact-card, .skill-card, .project-card, .mini-card { padding: 1.2rem; }
-      .timeline { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-      .timeline__item { padding-left: 0.85rem; padding-top: 2rem; }
-      .timeline__item::before { top: 0.8rem; }
-      .timeline__item::after { content: ""; position: absolute; left: 1.35rem; right: -1rem; top: 1.08rem; height: 1px; background: rgba(229, 176, 92, 0.24); }
-      .timeline__item:last-child::after { display: none; }
-      .skills-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .projects-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .mini-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    /* MODUŁ KOD – terminal interaktywny */
+    .terminal {
+      background: #0b0e17;
+      border-radius: 1.5rem;
+      overflow: hidden;
+      border: 1px solid var(--border-glow);
+      font-family: "JetBrains Mono", monospace;
+    }
+    .terminal-header {
+      background: #161c2a;
+      padding: 0.8rem 1.2rem;
+      display: flex;
+      gap: 0.5rem;
+      border-bottom: 1px solid #2a3142;
+    }
+    .terminal-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #ff5f56;
+    }
+    .terminal-dot:nth-child(2) { background: #ffbd2e; }
+    .terminal-dot:nth-child(3) { background: #27c93f; }
+    .terminal-body {
+      padding: 1.5rem;
+      overflow-x: auto;
+    }
+    pre {
+      margin: 0;
+      color: #cbd5e6;
+      font-size: 0.85rem;
+    }
+    .keyword { color: #f5c47b; font-weight: 600; }
+    .func { color: #86e2d5; }
+    .string { color: #b5f28e; }
+    .comment { color: #6c7e9e; }
+    .copy-code {
+      background: rgba(255,255,255,0.05);
+      border: none;
+      color: var(--gold);
+      cursor: pointer;
+      margin-top: 0.8rem;
+      font-size: 0.7rem;
+      padding: 0.3rem 0.9rem;
+      border-radius: 30px;
     }
 
-    @media (min-width: 1024px) {
-      .section { padding: 3rem 1.5rem; }
-      .nav__links { display: flex; }
-      .menu-btn { display: none; }
-      .hero { padding: 3rem 1.5rem; }
-      .hero__grid, .about-grid, .contact-grid { grid-template-columns: minmax(0, 1.05fr) minmax(360px, 0.95fr); }
-      .section__head { grid-template-columns: minmax(0, 0.95fr) minmax(320px, 0.68fr); align-items: end; }
-      .skills-grid { grid-template-columns: 1.15fr 1.15fr 0.9fr; align-items: stretch; }
-      .skill-card--wide { grid-column: span 1; }
-      .projects-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    /* PROJEKTY – szczegółowe technicznie */
+    .project-tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 1rem 0;
+    }
+    .tech-tag {
+      background: rgba(59, 130, 246, 0.12);
+      border-radius: 30px;
+      padding: 0.2rem 0.7rem;
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: var(--blue-glow);
+    }
+    .project-links {
+      margin-top: 1.2rem;
+      display: flex;
+      gap: 1rem;
+    }
+    .github-link {
+      color: var(--gold);
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.2s;
+    }
+    .github-link:hover {
+      text-decoration: underline;
     }
 
-    @media (max-width: 520px) {
-      .container { width: min(100% - 1.25rem, var(--container)); }
-      .brand span:last-child { display: none; }
-      .avatar { grid-template-columns: 1fr; }
-      .actions .btn { width: 100%; }
-      .skill-tag[data-tooltip]::after { display: none; }
+    /* formularz */
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+    .contact-form input, .contact-form textarea {
+      background: rgba(10, 12, 18, 0.6);
+      border: 1px solid var(--border-glow);
+      border-radius: 1rem;
+      padding: 0.9rem 1rem;
+      color: var(--text-primary);
+      font-family: inherit;
+      transition: 0.2s;
+    }
+    .contact-form input:focus, .contact-form textarea:focus {
+      outline: none;
+      border-color: var(--gold);
+    }
+    .btn {
+      background: var(--gold);
+      border: none;
+      padding: 0.9rem 1.8rem;
+      border-radius: 60px;
+      font-weight: 700;
+      color: #0a0c12;
+      cursor: pointer;
+      transition: var(--transition);
+      font-size: 1rem;
+    }
+    .btn:hover {
+      background: var(--gold-soft);
+      transform: scale(0.98);
+    }
+    .copy-btn {
+      background: transparent;
+      border: 1px solid var(--border-glow);
+      padding: 0.4rem 0.8rem;
+      border-radius: 40px;
+      color: var(--text-secondary);
+      cursor: pointer;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem 0;
+      border-top: 1px solid var(--border-glow);
+      color: var(--text-muted);
+    }
+    .toast {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--gold);
+      color: #0a0c12;
+      padding: 0.6rem 1.2rem;
+      border-radius: 60px;
+      font-weight: 700;
+      opacity: 0;
+      transition: 0.2s;
+      z-index: 200;
+      pointer-events: none;
+    }
+    .toast.show {
+      opacity: 1;
+    }
+    canvas#particlesCanvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      pointer-events: none;
+    }
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    @media (max-width: 700px) {
+      .container { padding: 0 1.2rem; }
+      .card { padding: 1.2rem; }
     }
   </style>
 </head>
 <body>
-  <a class="skip-link" href="#main">Przejdź do treści</a>
+<canvas id="particlesCanvas"></canvas>
+<a href="#hero" class="skip-link">Przejdź do treści</a>
 
-  <header class="site-header">
-    <nav class="nav container" aria-label="Główna nawigacja">
-      <a class="brand" href="#hero" aria-label="Maciej Górski - strona główna">
-        <span class="brand__mark" aria-hidden="true">MG</span>
-        <span>Maciej Górski</span>
-      </a>
-      <div class="nav__links" aria-label="Sekcje strony">
-        <a href="#hero" data-section="hero" aria-current="true">Start</a>
-        <a href="#about" data-section="about">O mnie</a>
-        <a href="#skills" data-section="skills">Stack</a>
-        <a href="#code" data-section="code">Kod</a>
-        <a href="#projects" data-section="projects">Projekty</a>
-        <a href="#contact" data-section="contact">Kontakt</a>
-      </div>
-      <div class="nav__actions">
-        <button class="icon-btn" id="themeToggle" type="button" aria-label="Przełącz na tryb jasny" aria-pressed="false"><i class="fa-solid fa-moon" aria-hidden="true"></i></button>
-        <button class="menu-btn" id="menuToggle" type="button" aria-label="Otwórz menu" aria-controls="mobileMenu" aria-expanded="false"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
-      </div>
-    </nav>
-    <div class="mobile-menu" id="mobileMenu" data-open="false">
-      <div class="mobile-menu__inner">
-        <div class="mobile-menu__links container" aria-label="Nawigacja mobilna">
-          <a href="#hero">Start</a><a href="#about">O mnie</a><a href="#skills">Stack</a><a href="#code">Kod</a><a href="#projects">Projekty</a><a href="#contact">Kontakt</a>
+<header class="header">
+  <div class="container nav">
+    <div class="logo">MG // portfolio</div>
+    <div class="nav-links">
+      <a href="#hero" class="active">Start</a>
+      <a href="#about">O mnie</a>
+      <a href="#stack">Stack</a>
+      <a href="#code">Kod</a>
+      <a href="#projects">Projekty</a>
+      <a href="#contact">Kontakt</a>
+    </div>
+    <button class="theme-toggle" id="themeToggle" aria-label="Zmień motyw"><i class="fa-solid fa-moon"></i> Tryb</button>
+    <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu"><i class="fa-solid fa-bars"></i></button>
+  </div>
+  <div class="mobile-nav" id="mobileNav">
+    <a href="#hero">Start</a>
+    <a href="#about">O mnie</a>
+    <a href="#stack">Stack</a>
+    <a href="#code">Kod</a>
+    <a href="#projects">Projekty</a>
+    <a href="#contact">Kontakt</a>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section id="hero">
+    <div class="container">
+      <div class="grid-2" style="align-items: center;">
+        <div class="reveal">
+          <span class="badge"><i class="fa-regular fa-star"></i> Python · Sieci · Linux</span>
+          <h1 style="font-size: clamp(2.6rem, 8vw, 4.5rem); font-weight: 800; line-height: 1.1;">Maciej Górski</h1>
+          <p style="font-size: 1.3rem; font-weight: 500; color: var(--gold); margin: 0.5rem 0 0.8rem;" id="typewriter"></p>
+          <p style="color: var(--text-secondary); max-width: 500px;">Student informatyki, który łączy programowanie w Pythonie z inżynierią sieci i automatyzacją infrastruktury. Tworzę projekty klasy enterprise, aby rozwijać się w kierunku DevOps i SecOps.</p>
+          <div style="display: flex; gap: 1rem; margin-top: 1.8rem;">
+            <a href="#projects" class="btn" style="background: var(--gold); color:#0a0c12;">Zobacz projekty</a>
+            <a href="#contact" class="btn" style="background: transparent; border: 1px solid var(--gold); color: var(--gold);">Kontakt</a>
+          </div>
+        </div>
+        <div class="card reveal" style="text-align: center;">
+          <i class="fa-solid fa-code" style="font-size: 2rem; color: var(--gold);"></i>
+          <h3 style="margin: 0.5rem 0;">gotowy na wyzwania IT</h3>
+          <p style="color: var(--text-muted);">Python · FastAPI · Docker · CCNA (w trakcie)</p>
+          <div style="margin-top: 1rem;">
+            <i class="fa-brands fa-github"></i> <i class="fa-brands fa-linkedin"></i> <i class="fa-solid fa-terminal"></i>
+          </div>
         </div>
       </div>
     </div>
-  </header>
+  </section>
 
-  <main id="main">
-    <section class="hero" id="hero" aria-labelledby="heroTitle">
-      <canvas class="particles" id="particles" aria-hidden="true"></canvas>
-      <div class="container hero__grid">
-        <div class="reveal">
-          <p class="kicker">Midnight Navy Portfolio · Python · Sieci · Linux</p>
-          <h1 id="heroTitle">Maciej Górski</h1>
-          <p class="hero__subtitle">Student Informatyki · Python Developer · Administrator Sieci</p>
-          <p class="hero__title type-cursor" id="typewriter" aria-label="Buduję niezawodne systemy – od skryptu w Pythonie po bezpieczną architekturę sieci."></p>
-          <p class="hero__lead">Buduję niezawodne systemy – od skryptu w Pythonie po bezpieczną architekturę sieci. Łączę praktyczne projekty programistyczne z konsekwentnym rozwojem w administracji Linux i technologiach Cisco.</p>
-          <div class="actions" aria-label="Najważniejsze akcje">
-            <a class="btn btn--primary" href="#projects"><i class="fa-solid fa-diagram-project" aria-hidden="true"></i>Projekty</a>
-            <a class="btn btn--ghost" href="#contact"><i class="fa-solid fa-paper-plane" aria-hidden="true"></i>Kontakt</a>
-          </div>
-          <div class="socials" aria-label="Profile społecznościowe">
-            <a href="https://github.com/gorski-maciej" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github" aria-hidden="true"></i>GitHub</a>
-            <a href="https://www.linkedin.com/in/maciej-gorski-046176282" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin" aria-hidden="true"></i>LinkedIn</a>
-          </div>
+  <!-- O MNIE -->
+  <section id="about">
+    <div class="container">
+      <h2 class="section-title reveal">O mnie — kod i infrastruktura</h2>
+      <div class="grid-2 reveal">
+        <div class="card">
+          <i class="fa-solid fa-user-astronaut" style="font-size: 2rem; color: var(--gold);"></i>
+          <h3 style="margin: 1rem 0 0.5rem;">Junior z techniczną głębią</h3>
+          <p>Tworzę aplikacje w Pythonie, projektuję sieci w oparciu o protokoły TCP/IP, VLAN, OSPF. Na co dzień pracuję w środowisku Linux (Debian/Ubuntu), automatyzuję za pomocą Bash i rozwijam wiedzę o kontenerach (Docker). Mocno stawiam na czytelny kod i dobre praktyki DevOps.</p>
         </div>
-
-        <aside class="hero-card reveal" aria-label="Karta profilu Macieja Górskiego">
-          <div class="avatar">
-            <div class="avatar__mark" aria-hidden="true">MG</div>
-            <div>
-              <h2 style="font-size: clamp(1.25rem, 3vw, 1.65rem); margin-bottom: 0.25rem;">Junior IT Specialist</h2>
-              <span class="status">Otwarty na praktyki i role junior</span>
-            </div>
-          </div>
-          <div class="terminal-mini" aria-label="Krótki terminal profilu">
-            <div class="terminal-bar"><div class="terminal-dots" aria-hidden="true"><span class="dot dot--red"></span><span class="dot dot--yellow"></span><span class="dot dot--green"></span></div><span class="terminal-title">maciej@portfolio:~</span></div>
-            <div class="terminal-body">
-              <p><span class="prompt">$ whoami</span> Maciej Górski</p>
-              <p><span class="prompt">$ focus</span> Python · TCP/IP · Linux · CCNA</p>
-              <p><span class="prompt">$ motto</span> Clean code + reliable networks</p>
-            </div>
-          </div>
-        </aside>
-      </div>
-    </section>
-
-    <section class="section" id="about" aria-labelledby="aboutTitle">
-      <div class="section__inner about-grid">
-        <aside class="about-profile reveal" aria-label="Profil i dane podstawowe">
-          <div class="tech-avatar card" role="img" aria-label="Geometryczny awatar technologiczny z monogramem MG"><div class="tech-avatar__inner">MG</div></div>
-          <ul class="info-list">
-            <li><i class="fa-solid fa-location-dot" aria-hidden="true"></i>Polska · gotowość do pracy hybrydowej / zdalnej</li>
-            <li><i class="fa-solid fa-language" aria-hidden="true"></i>Polski: ojczysty · Angielski: B1/B2</li>
-            <li><i class="fa-solid fa-certificate" aria-hidden="true"></i>CCNA: w toku · Python i Linux: praktyka projektowa</li>
-          </ul>
-        </aside>
-
-        <article class="contact-card reveal">
-          <p class="kicker">O mnie</p>
-          <h2 id="aboutTitle">Junior, który rozumie zarówno kod, jak i infrastrukturę.</h2>
-          <div class="about-copy">
-            <p>Jestem studentem pierwszego roku Informatyki, zafascynowanym tworzeniem wydajnych rozwiązań w Pythonie oraz projektowaniem stabilnych sieci komputerowych.</p>
-            <p>Od podstaw samodzielnie zgłębiam Linux (Debian/Ubuntu), Bash i administrację serwerami. Równolegle przygotowuję się do certyfikacji Cisco CCNA, aby połączyć świat programowania z infrastrukturą sieciową.</p>
-            <p>Moje podejście to ciągłe uczenie się i szukanie praktycznych zastosowań – stąd realizuję własne, zaawansowane projekty z obszarów FinOps, SecOps i automatyzacji infrastruktury.</p>
-            <p>Wierzę, że rzetelny kod i dobrze skonfigurowana sieć to fundament każdej nowoczesnej firmy.</p>
-          </div>
-          <div class="timeline" aria-label="Kamienie milowe">
-            <div class="timeline__item"><strong>2024</strong><span>Rozpoczęcie studiów informatycznych</span></div>
-            <div class="timeline__item"><strong>2025</strong><span>CCNA – certyfikacja w toku</span></div>
-            <div class="timeline__item"><strong>2025</strong><span>Pierwsze zaawansowane projekty DevOps</span></div>
-            <div class="timeline__item"><strong>2026</strong><span>Cel: praktyki / staż junior IT</span></div>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section class="section" id="skills" aria-labelledby="skillsTitle">
-      <div class="section__inner">
-        <div class="section__head reveal">
-          <div><p class="kicker">Stack techniczny i umiejętności</p><h2 id="skillsTitle">Konkretne narzędzia zamiast pustych pasków postępu.</h2></div>
-          <p class="lead">Tagi pokazują obszary, które rozwijam projektowo i laboratoryjnie. Tooltipy dopowiadają kontekst użycia.</p>
-        </div>
-        <div class="skills-grid">
-          <article class="skill-card skill-card--wide reveal">
-            <h3>Języki i narzędzia</h3>
-            <div class="skill-tags">
-              <span class="skill-tag" data-tooltip="OOP, skrypty automatyzujące, aplikacje konsolowe i praca z plikami"><i class="devicon-python-plain" aria-hidden="true"></i>Python</span>
-              <span class="skill-tag" data-tooltip="Mikroaplikacje i podstawy routingu HTTP/API"><i class="devicon-flask-original" aria-hidden="true"></i>Flask</span>
-              <span class="skill-tag" data-tooltip="Nowoczesne API z walidacją i dokumentacją OpenAPI"><i class="devicon-fastapi-plain" aria-hidden="true"></i>FastAPI</span>
-              <span class="skill-tag" data-tooltip="Podstawy analizy danych i raportowania"><i class="devicon-pandas-original" aria-hidden="true"></i>Pandas</span>
-              <span class="skill-tag" data-tooltip="Automatyzacja zadań systemowych i administracyjnych"><i class="devicon-bash-plain" aria-hidden="true"></i>Bash</span>
-              <span class="skill-tag" data-tooltip="MySQL, zapytania, relacyjne modelowanie danych"><i class="devicon-mysql-plain" aria-hidden="true"></i>SQL</span>
-              <span class="skill-tag" data-tooltip="Historia zmian, GitHub, praca z repozytoriami"><i class="devicon-git-plain" aria-hidden="true"></i>Git</span>
-              <span class="skill-tag" data-tooltip="Podstawy konteneryzacji i Docker Compose"><i class="devicon-docker-plain" aria-hidden="true"></i>Docker</span>
-              <span class="skill-tag" data-tooltip="Testowanie endpointów API i dokumentowanie zapytań"><i class="fa-solid fa-paper-plane" aria-hidden="true"></i>Postman</span>
-              <span class="skill-tag" data-tooltip="Analiza pakietów i diagnostyka ruchu sieciowego"><i class="fa-solid fa-magnifying-glass-chart" aria-hidden="true"></i>Wireshark</span>
-            </div>
-          </article>
-
-          <article class="skill-card skill-card--wide reveal">
-            <h3>Sieci i infrastruktura</h3>
-            <div class="skill-tags">
-              <span class="skill-tag" data-tooltip="Adresacja, segmentacja, diagnostyka podstawowych usług"><i class="fa-solid fa-network-wired" aria-hidden="true"></i>TCP/IP</span>
-              <span class="skill-tag" data-tooltip="Model referencyjny i rozumienie warstw komunikacji"><i class="fa-solid fa-layer-group" aria-hidden="true"></i>OSI</span>
-              <span class="skill-tag" data-tooltip="Segmentacja sieci i podstawy Inter-VLAN routing"><i class="fa-solid fa-sitemap" aria-hidden="true"></i>VLAN</span>
-              <span class="skill-tag" data-tooltip="Routing statyczny oraz podstawy RIP i OSPF"><i class="fa-solid fa-route" aria-hidden="true"></i>RIP / OSPF</span>
-              <span class="skill-tag" data-tooltip="Podział adresacji, maski, planowanie sieci"><i class="fa-solid fa-calculator" aria-hidden="true"></i>VLSM</span>
-              <span class="skill-tag" data-tooltip="Laboratoria Cisco Packet Tracer i konfiguracja urządzeń"><i class="devicon-cisco-plain" aria-hidden="true"></i>Cisco</span>
-              <span class="skill-tag" data-tooltip="Podstawy iptables i koncepcje pfSense"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i>Firewall</span>
-              <span class="skill-tag" data-tooltip="Ping, arp-scan, logowanie wyników i własne skrypty"><i class="fa-solid fa-chart-line" aria-hidden="true"></i>Monitoring</span>
-            </div>
-          </article>
-
-          <article class="skill-card reveal">
-            <h3>Systemy i kompetencje</h3>
-            <div class="skill-tags">
-              <span class="skill-tag" data-tooltip="Debian/Ubuntu, pakiety, uprawnienia, cron"><i class="devicon-linux-plain" aria-hidden="true"></i>Linux</span>
-              <span class="skill-tag" data-tooltip="Analityczne myślenie i diagnoza problemów krok po kroku"><i class="fa-solid fa-magnifying-glass-chart" aria-hidden="true"></i>Troubleshooting</span>
-              <span class="skill-tag" data-tooltip="Dokumentowanie ustaleń i czytelna komunikacja techniczna"><i class="fa-solid fa-comments" aria-hidden="true"></i>Komunikacja</span>
-              <span class="skill-tag" data-tooltip="Szybkie przyswajanie wiedzy i testowanie rozwiązań w praktyce"><i class="fa-solid fa-bolt" aria-hidden="true"></i>Szybka nauka</span>
-            </div>
-          </article>
+        <div class="card">
+          <i class="fa-solid fa-chart-line" style="font-size: 2rem; color: var(--gold);"></i>
+          <h3 style="margin: 1rem 0 0.5rem;">Ciągły rozwój</h3>
+          <p>Certyfikacja Cisco CCNA w toku, systematyczne kursy z zakresu bezpieczeństwa sieci i administracji Linux. Wierzę w iteracyjne doskonalenie – każdy projekt to krok w stronę inżyniera systemowego.</p>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="section" id="code" aria-labelledby="codeTitle">
-      <div class="section__inner">
-        <div class="section__head reveal">
-          <div><p class="kicker">Prezentacja kodu</p><h2 id="codeTitle">Wizytówka programisty w terminalu portfolio.py.</h2></div>
-          <p class="lead">Ręczne podświetlanie składni, JetBrains Mono, ciemne tło i konkretna definicja profilu zawodowego.</p>
+  <!-- STACK (kreatywny moduł) -->
+  <section id="stack">
+    <div class="container">
+      <h2 class="section-title reveal">Technologiczny ekosystem</h2>
+      <div class="section-sub reveal">Narzędzia, które stosuję w praktyce – od backendu po sieci.</div>
+      <div class="card reveal">
+        <div class="skill-cloud">
+          <span class="skill-item" data-tooltip="Zaawansowany Python: OOP, asyncio, FastAPI"><i class="devicon-python-plain"></i> Python</span>
+          <span class="skill-item" data-tooltip="Nowoczesne API, dokumentacja OpenAPI"><i class="devicon-fastapi-plain"></i> FastAPI</span>
+          <span class="skill-item" data-tooltip="Mikrousługi, konteneryzacja"><i class="devicon-docker-plain"></i> Docker</span>
+          <span class="skill-item" data-tooltip="Wersjonowanie, GitHub flow"><i class="devicon-git-plain"></i> Git</span>
+          <span class="skill-item" data-tooltip="Bazy relacyjne, zapytania złożone"><i class="devicon-postgresql-plain"></i> PostgreSQL</span>
+          <span class="skill-item" data-tooltip="Analiza danych i przetwarzanie strumieni"><i class="devicon-pandas-original"></i> Pandas / DuckDB</span>
+          <span class="skill-item" data-tooltip="Automatyzacja zadań systemowych"><i class="devicon-bash-plain"></i> Bash</span>
+          <span class="skill-item" data-tooltip="Administracja Debian/Ubuntu"><i class="devicon-linux-plain"></i> Linux</span>
+          <span class="skill-item" data-tooltip="Routing, switching, symulacje"><i class="devicon-cisco-plain"></i> Cisco / CCNA</span>
+          <span class="skill-item" data-tooltip="Monitoring, logi, Wireshark"><i class="fa-solid fa-chart-simple"></i> Observability</span>
+          <span class="skill-item" data-tooltip="Kolejki i asynchroniczność"><i class="fa-solid fa-tasks"></i> Celery / Kafka</span>
+          <span class="skill-item" data-tooltip="Dashboardy metryk"><i class="fa-solid fa-chart-line"></i> Grafana</span>
         </div>
-        <article class="code-card reveal" aria-label="Okno terminala z kodem Python opisującym Macieja Górskiego">
-          <div class="terminal-bar"><div class="terminal-dots" aria-hidden="true"><span class="dot dot--red"></span><span class="dot dot--yellow"></span><span class="dot dot--green"></span></div><span class="terminal-title">portfolio.py</span></div>
-          <div class="code-scroll" tabindex="0">
-<pre><code><span class="kw">class</span> <span class="fn">MaciejGorski</span>:
-    <span class="str">"""Tworzę solidny kod i bezpieczne sieci. Aspirujący Python Dev &amp; Net Admin."""</span>
-    <span class="kw">def</span> <span class="fn">__init__</span>(self):
-        self.name = <span class="str">"Maciej Górski"</span>
-        self.title = <span class="str">"Student Informatyki | Python Developer | Network Enthusiast"</span>
-        self.education = <span class="str">"Informatyka, I rok (2024–obecnie)"</span>
-        self.certification_goal = <span class="str">"Cisco CCNA (w trakcie)"</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODUŁ KOD - profesjonalny terminal z klasą Python -->
+  <section id="code">
+    <div class="container">
+      <h2 class="section-title reveal">Kod jako wizytówka</h2>
+      <div class="reveal terminal">
+        <div class="terminal-header">
+          <div class="terminal-dot"></div><div class="terminal-dot"></div><div class="terminal-dot"></div>
+          <span style="margin-left: 0.5rem; color: #8a99b5;">portfolio_maciej.py</span>
+        </div>
+        <div class="terminal-body">
+          <pre id="codeBlock"><code><span class="keyword">from</span> typing <span class="keyword">import</span> List, Dict
+<span class="keyword">class</span> <span class="func">MaciejGorski</span>:
+    <span class="string">"""Python Developer | Network Admin | Student"""</span>
+    <span class="keyword">def</span> <span class="func">__init__</span>(self):
+        self.name = <span class="string">"Maciej Górski"</span>
         self.skills = {
-            <span class="str">"languages"</span>: {
-                <span class="str">"Python"</span>: [<span class="str">"OOP"</span>, <span class="str">"Flask"</span>, <span class="str">"FastAPI"</span>, <span class="str">"Data Analysis"</span>],
-                <span class="str">"Bash"</span>: [<span class="str">"scripting"</span>, <span class="str">"automation"</span>],
-                <span class="str">"SQL"</span>: [<span class="str">"MySQL"</span>, <span class="str">"query optimization"</span>]
-            },
-            <span class="str">"networking"</span>: [
-                <span class="str">"TCP/IP &amp; Subnetting"</span>, <span class="str">"VLANs &amp; Inter-VLAN routing"</span>,
-                <span class="str">"Routing (RIP, OSPF)"</span>, <span class="str">"Firewall (iptables)"</span>, <span class="str">"Wireshark"</span>
-            ],
-            <span class="str">"systems"</span>: [<span class="str">"Linux (Debian/Ubuntu)"</span>, <span class="str">"Git"</span>, <span class="str">"Docker"</span>]
+            <span class="string">"languages"</span>: [<span class="string">"Python"</span>, <span class="string">"Bash"</span>, <span class="string">"SQL"</span>],
+            <span class="string">"networking"</span>: [<span class="string">"TCP/IP"</span>, <span class="string">"VLAN"</span>, <span class="string">"OSPF"</span>, <span class="string">"CCNA in progress"</span>],
+            <span class="string">"tools"</span>: [<span class="string">"FastAPI"</span>, <span class="string">"Docker"</span>, <span class="string">"Git"</span>, <span class="string">"TimescaleDB"</span>]
         }
-        self.projects = [
-            <span class="str">"CloudBudget – FinOps &amp; analityka kosztów"</span>,
-            <span class="str">"InfraFlow – Obserwowalność i automatyzacja"</span>,
-            <span class="str">"NetGuardian – SecOps i detekcja zdarzeń"</span>,
-            <span class="str">"NetAegis – Orkiestracja bezpieczeństwa"</span>
-        ]
-        self.soft_skills = [<span class="str">"Analityczne myślenie"</span>, <span class="str">"Samodzielność"</span>, <span class="str">"Szybka nauka"</span>]
+        self.projects = [<span class="string">"CloudBudget"</span>, <span class="string">"InfraFlow"</span>, <span class="string">"NetGuardian"</span>, <span class="string">"NetAegis"</span>]
 
-    <span class="kw">def</span> <span class="fn">motto</span>(self):
-        <span class="kw">return</span> <span class="str">"Clean code + reliable networks = solid solutions"</span></code></pre>
-          </div>
-        </article>
-      </div>
-    </section>
+    <span class="keyword">def</span> <span class="func">approach</span>(self) -> str:
+        <span class="keyword">return</span> <span class="string">"Clean code + resilient infrastructure = performance"</span>
 
-    <section class="section" id="projects" aria-labelledby="projectsTitle">
-      <div class="section__inner">
-        <div class="section__head reveal">
-          <div><p class="kicker">Portfolio / Zaawansowane projekty</p><h2 id="projectsTitle">Platformy demonstrujące umiejętności DevOps i SecOps.</h2></div>
-          <p class="lead">Każdy projekt to kompletny stos Docker Compose z własnym API, bazą danych i dedykowaną logiką biznesową.</p>
-        </div>
-        <div class="projects-grid">
-          <article class="project-card reveal">
-            <h3>CloudBudget – Analityka kosztów chmury</h3>
-            <p>
-              Platforma FinOps do agregacji kosztów, prognozowania trendów i automatycznego
-              generowania rekomendacji oszczędności. Wykorzystuje asynchroniczne kolejki zadań
-              (Celery + RabbitMQ) oraz silnik analityczny DuckDB do szybkiego przetwarzania
-              dużych zbiorów danych.
-            </p>
-            <div class="tags">
-              <span class="tag">Python</span>
-              <span class="tag">FastAPI</span>
-              <span class="tag">PostgreSQL</span>
-              <span class="tag">DuckDB</span>
-              <span class="tag">Celery</span>
-            </div>
-            <div class="project-links">
-              <a class="project-link" href="https://github.com/Gorski-Maciej/PROJEKTS-WORK/tree/main/cloudbudget" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github" aria-hidden="true"></i> <span>GitHub</span></a>
-            </div>
-          </article>
-          <article class="project-card reveal">
-            <h3>InfraFlow – Monitoring i obserwowalność</h3>
-            <p>
-              System zbierania metryk hostów i zdarzeń infrastrukturalnych, wyposażony w
-              dashboard operacyjny oraz integrację z Grafana i Prometheus. Kolejkowanie
-              zadań przez Redis zapewnia niezawodne przetwarzanie nawet przy dużym
-              obciążeniu.
-            </p>
-            <div class="tags">
-              <span class="tag">Python</span>
-              <span class="tag">FastAPI</span>
-              <span class="tag">TimescaleDB</span>
-              <span class="tag">Redis</span>
-              <span class="tag">Grafana</span>
-            </div>
-            <div class="project-links">
-              <a class="project-link" href="https://github.com/Gorski-Maciej/PROJEKTS-WORK/tree/main/infraflow" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github" aria-hidden="true"></i> <span>GitHub</span></a>
-            </div>
-          </article>
-          <article class="project-card reveal">
-            <h3>NetGuardian – Bezpieczeństwo sieciowe</h3>
-            <p>
-              Platforma SecOps zdolna do ingesta zdarzeń przez Apache Kafka, analizy
-              behawioralnej i regułowej oraz automatycznej reakcji na incydenty.
-              Wbudowany dashboard prezentuje metryki operacyjne, a opcjonalna baza
-              GeoIP umożliwia geolokalizację zagrożeń.
-            </p>
-            <div class="tags">
-              <span class="tag">Python</span>
-              <span class="tag">Kafka</span>
-              <span class="tag">TimescaleDB</span>
-              <span class="tag">DuckDB</span>
-              <span class="tag">WebSocket</span>
-            </div>
-            <div class="project-links">
-              <a class="project-link" href="https://github.com/Gorski-Maciej/PROJEKTS-WORK/tree/main/netguardian" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github" aria-hidden="true"></i> <span>GitHub</span></a>
-            </div>
-          </article>
-          <article class="project-card reveal">
-            <h3>NetAegis – Orkiestracja bezpieczeństwa</h3>
-            <p>
-              Dwuwarstwowy system MCP (main + operational) z trzema wyspecjalizowanymi
-              agentami: NetPulse (telemetria), SecLog (logi bezpieczeństwa) i NetConfig
-              (automatyka konfiguracji). Całość wspiera operatorów w zarządzaniu
-              incydentami i politykami bezpieczeństwa.
-            </p>
-            <div class="tags">
-              <span class="tag">Python</span>
-              <span class="tag">FastAPI</span>
-              <span class="tag">SQLite</span>
-              <span class="tag">Redis</span>
-              <span class="tag">MCP</span>
-            </div>
-            <div class="project-links">
-              <a class="project-link" href="https://github.com/Gorski-Maciej/PROJEKTS-WORK/tree/main/netaegis" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github" aria-hidden="true"></i> <span>GitHub</span></a>
-            </div>
-          </article>
-        </div>
-
-        <div class="section__head reveal" style="margin-top: 1.5rem;">
-          <div><p class="kicker">Mini-projekty</p><h2 style="font-size: clamp(1.45rem, 3vw, 2rem);">Ciągła praktyka w małych iteracjach.</h2></div>
-          <p class="lead">Mniejsze zadania pokazujące systematyczne ćwiczenie algorytmów, automatyzacji i analizy danych.</p>
-        </div>
-        <div class="mini-grid">
-          <article class="mini-card reveal"><h3>HashTable implementation</h3><p>Key-value store z obsługą kolizji, ćwiczący struktury danych i złożoność operacji.</p><div class="tags"><span class="tag">Python</span><span class="tag">DSA</span></div></article>
-          <article class="mini-card reveal"><h3>Skrypt backupu katalogów</h3><p>Automatyczne archiwizowanie plików z rotacją kopii i prostym logowaniem zdarzeń.</p><div class="tags"><span class="tag">Bash</span><span class="tag">Linux</span></div></article>
-          <article class="mini-card reveal"><h3>Analiza plików logów</h3><p>Parser logów wyciągający najczęstsze błędy, adresy IP i statystyki zdarzeń.</p><div class="tags"><span class="tag">Python</span><span class="tag">Regex</span></div></article>
+mg = MaciejGorski()
+print(f<span class="string">"Hello, world! I'm {mg.name} – ready for challenges."</span>)</code></pre>
+          <button id="copyCodeBtn" class="copy-code"><i class="fa-regular fa-copy"></i> Kopiuj kod</button>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="section" id="contact" aria-labelledby="contactTitle">
-      <div class="section__inner contact-grid">
-        <article class="contact-card reveal">
-          <p class="kicker">Kontakt</p>
-          <h2 id="contactTitle">Porozmawiajmy o stażu, praktykach lub roli junior.</h2>
-          <p class="lead">Najbardziej interesują mnie obszary Python, IT Support, administracja Linux, monitoring oraz sieci komputerowe.</p>
-          <ul class="contact-methods" aria-label="Dane kontaktowe">
-            <li class="contact-line"><div class="contact-main"><i class="fa-solid fa-envelope" aria-hidden="true"></i><span>maciejgorski978@gmail.com</span></div><button class="copy-btn" type="button" data-copy="maciejgorski978@gmail.com" aria-label="Kopiuj adres email"><i class="fa-regular fa-copy" aria-hidden="true"></i></button></li>
-            <li class="contact-line"><a class="contact-main" href="tel:+48514299431"><i class="fa-solid fa-phone" aria-hidden="true"></i><span>+48 514 299 431</span></a><button class="copy-btn" type="button" data-copy="+48 514 299 431" aria-label="Kopiuj numer telefonu"><i class="fa-regular fa-copy" aria-hidden="true"></i></button></li>
-            <li class="contact-line"><a class="contact-main" href="https://github.com/gorski-maciej" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github" aria-hidden="true"></i><span>github.com/gorski-maciej</span></a></li>
-            <li class="contact-line"><a class="contact-main" href="https://www.linkedin.com/in/maciej-gorski-046176282" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin" aria-hidden="true"></i><span>LinkedIn</span></a></li>
+  <!-- PROJEKTY Z ROZBUDOWANYMI OPISAMI TECHNICZNYMI -->
+  <section id="projects">
+    <div class="container">
+      <h2 class="section-title reveal">Flagowe projekty — moja wizytówka</h2>
+      <div class="section-sub reveal">Każdy projekt demonstruje architekturę klasy produkcyjnej, praktyki DevOps i skomplikowane przepływy danych.</div>
+      <div class="grid-2">
+        <div class="card reveal">
+          <h3><i class="fa-solid fa-cloud-arrow-up"></i> CloudBudget – FinOps Platform</h3>
+          <p>Asynchroniczny agregator kosztów z wieloma źródłami danych. Wykorzystuje <strong>FastAPI</strong> jako API Gateway, <strong>Celery + RabbitMQ</strong> do kolejkowania zadań oraz <strong>DuckDB</strong> do szybkiej analizy OLAP. Prognozowanie trendów za pomocą modeli regresji liniowej. Backend przechowuje metadane w <strong>PostgreSQL</strong>, a raporty generowane są w formacie CSV/JSON.</p>
+          <div class="project-tech-stack"><span class="tech-tag">Python</span><span class="tech-tag">FastAPI</span><span class="tech-tag">Celery</span><span class="tech-tag">DuckDB</span><span class="tech-tag">PostgreSQL</span></div>
+          <div class="project-links"><a href="#" class="github-link"><i class="fa-brands fa-github"></i> Repozytorium</a></div>
+        </div>
+        <div class="card reveal">
+          <h3><i class="fa-solid fa-chart-line"></i> InfraFlow – Observability Stack</h3>
+          <p>System monitorowania infrastruktury zbierający metryki w czasie rzeczywistym. Architektura oparta na <strong>TimescaleDB</strong> (baza szeregów czasowych) oraz <strong>Redis Streams</strong> do buforowania zdarzeń. Integracja z <strong>Grafana</strong> i <strong>Prometheus</strong>. Dashboard pokazuje użycie CPU, RAM, ruch sieciowy i alerty. Własny agent napisany w Pythonie wysyła dane poprzez REST API.</p>
+          <div class="project-tech-stack"><span class="tech-tag">FastAPI</span><span class="tech-tag">TimescaleDB</span><span class="tech-tag">Redis</span><span class="tech-tag">Grafana</span><span class="tech-tag">Docker</span></div>
+          <div class="project-links"><a href="#" class="github-link"><i class="fa-brands fa-github"></i> Repozytorium</a></div>
+        </div>
+        <div class="card reveal">
+          <h3><i class="fa-solid fa-shield-halved"></i> NetGuardian – SecOps Engine</h3>
+          <p>Platforma do analizy logów bezpieczeństwa i detekcji anomalii. <strong>Apache Kafka</strong> jako strumień zdarzeń, <strong>WebSocket</strong> do powiadomień na żywo. Silnik reguł (YARA-like) i analiza behawioralna. Przechowuje zdarzenia w <strong>ElasticSearch</strong> (opcjonalnie). Skalowalna obsługa tysiąca zdarzeń na sekundę.</p>
+          <div class="project-tech-stack"><span class="tech-tag">Kafka</span><span class="tech-tag">Python asyncio</span><span class="tech-tag">DuckDB</span><span class="tech-tag">WebSockets</span></div>
+          <div class="project-links"><a href="#" class="github-link"><i class="fa-brands fa-github"></i> Repozytorium</a></div>
+        </div>
+        <div class="card reveal">
+          <h3><i class="fa-solid fa-diagram-project"></i> NetAegis – Orchestration MCP</h3>
+          <p>Wieloagentowy system do automatyzacji konfiguracji sieci. Model <strong>Model-Controller-Protocol</strong> z agentami: NetPulse (telemetria), SecLog (audyt), NetConfig (push config). API REST pełni rolę orkiestratora, a zadania asynchroniczne realizowane przez <strong>RQ (Redis Queue)</strong>. Zapewnia idempotentne zmiany konfiguracji i historię wersji.</p>
+          <div class="project-tech-stack"><span class="tech-tag">FastAPI</span><span class="tech-tag">SQLite</span><span class="tech-tag">Redis</span><span class="tech-tag">Paramiko</span></div>
+          <div class="project-links"><a href="#" class="github-link"><i class="fa-brands fa-github"></i> Repozytorium</a></div>
+        </div>
+      </div>
+      <div style="margin-top: 2rem; text-align: center;" class="reveal">
+        <p class="badge">+ więcej mini-projektów: backup skrypt w Bash, analizator logów, implementacja hash-table, scraper z BeautifulSoup</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- KONTAKT -->
+  <section id="contact">
+    <div class="container">
+      <div class="grid-2">
+        <div class="reveal">
+          <h2 class="section-title" style="font-size: 2.2rem;">Porozmawiajmy</h2>
+          <p>Szukam praktyk / stażu jako Python Developer, Junior DevOps lub Network Admin. Chętnie odpowiem na pytania techniczne.</p>
+          <ul style="list-style: none; margin-top: 1.5rem;">
+            <li style="margin-bottom: 1rem;"><i class="fa-regular fa-envelope" style="color: var(--gold); width: 1.8rem;"></i> maciejgorski978@gmail.com <button class="copy-btn" data-copy="maciejgorski978@gmail.com">kopiuj</button></li>
+            <li><i class="fa-solid fa-phone" style="color: var(--gold); width: 1.8rem;"></i> +48 514 299 431 <button class="copy-btn" data-copy="+48 514 299 431">kopiuj</button></li>
           </ul>
-        </article>
-
-        <article class="contact-card reveal">
-          <p class="kicker">Formularz Web3Forms</p>
+          <div style="margin-top: 1rem;">
+            <a href="https://github.com/gorski-maciej" style="color: var(--gold); margin-right: 1rem;"><i class="fa-brands fa-github"></i> GitHub</a>
+            <a href="#" style="color: var(--gold);"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+          </div>
+        </div>
+        <div class="card reveal">
           <h3>Wyślij wiadomość</h3>
-          <form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
-            <input type="hidden" name="access_key" value="TWÓJ_KLUCZ_DOSTĘPU" />
-            <input type="hidden" name="subject" value="Nowa wiadomość z portfolio Macieja Górskiego" />
-            <label class="form-field">Twoje imię<input type="text" name="name" autocomplete="name" placeholder="Jan Kowalski" required /></label>
-            <label class="form-field">Twój email<input type="email" name="email" autocomplete="email" placeholder="jan@example.com" required /></label>
-            <label class="form-field">Wiadomość<textarea name="message" placeholder="Napisz krótką wiadomość..." required></textarea></label>
-            <p class="form-note">Przed publikacją podmień <strong>TWÓJ_KLUCZ_DOSTĘPU</strong> na własny klucz Web3Forms.</p>
-            <button class="btn btn--primary" type="submit"><i class="fa-solid fa-paper-plane" aria-hidden="true"></i>Wyślij</button>
+          <form class="contact-form" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="dummy-key-replace-me">
+            <input type="text" name="name" placeholder="Imię i nazwisko" required>
+            <input type="email" name="email" placeholder="Adres e-mail" required>
+            <textarea rows="4" name="message" placeholder="Treść wiadomości..."></textarea>
+            <button type="submit" class="btn">Wyślij <i class="fa-solid fa-paper-plane"></i></button>
+            <p style="font-size: 0.7rem; color: var(--text-muted);">* dla działania formularza wklep swój klucz web3forms w access_key</p>
           </form>
-        </article>
+        </div>
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
+</main>
 
-  <footer>
-    <div class="container">© 2026 Maciej Górski. Wszelkie prawa zastrzeżone.</div>
-  </footer>
+<footer>
+  <div class="container">© 2026 Maciej Górski — Portfolio wykonane z pasją do kodowania i sieci.</div>
+</footer>
+<div class="toast" id="toastMsg">Skopiowano!</div>
 
-  <div class="toast" id="toast" role="status" aria-live="polite">Skopiowano!</div>
-
-  <script>
+<script>
+  // motyw + menu mobilne + particles + typewriter + copy
+  (function() {
     const root = document.documentElement;
     const themeToggle = document.getElementById('themeToggle');
-    const menuToggle = document.getElementById('menuToggle');
-    const mobileMenu = document.getElementById('mobileMenu');
-    const typewriter = document.getElementById('typewriter');
-    const toast = document.getElementById('toast');
-    const canvas = document.getElementById('particles');
-    const ctx = canvas.getContext('2d');
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const currentTheme = localStorage.getItem('theme') || 'dark';
+    root.setAttribute('data-theme', currentTheme);
+    function toggleTheme() {
+      const newTheme = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+    }
+    themeToggle.addEventListener('click', toggleTheme);
 
-    function setTheme(theme) {
-      const nextTheme = theme === 'light' ? 'light' : 'dark';
-      root.dataset.theme = nextTheme;
-      localStorage.setItem('portfolio-theme', nextTheme);
-      const isLight = nextTheme === 'light';
-      themeToggle.setAttribute('aria-pressed', String(isLight));
-      themeToggle.setAttribute('aria-label', isLight ? 'Przełącz na tryb ciemny' : 'Przełącz na tryb jasny');
-      themeToggle.innerHTML = isLight
-        ? '<i class="fa-solid fa-sun" aria-hidden="true"></i>'
-        : '<i class="fa-solid fa-moon" aria-hidden="true"></i>';
+    // mobile menu
+    const mobileBtn = document.getElementById('mobileMenuBtn');
+    const mobileNav = document.getElementById('mobileNav');
+    if (mobileBtn && mobileNav) {
+      mobileBtn.addEventListener('click', () => {
+        mobileNav.classList.toggle('open');
+      });
+      document.querySelectorAll('.mobile-nav a').forEach(link => link.addEventListener('click', () => mobileNav.classList.remove('open')));
     }
 
-    setTheme(localStorage.getItem('portfolio-theme') || 'dark');
-
-    themeToggle.addEventListener('click', () => {
-      setTheme(root.dataset.theme === 'dark' ? 'light' : 'dark');
-    });
-
-    function closeMenu() {
-      mobileMenu.dataset.open = 'false';
-      menuToggle.setAttribute('aria-expanded', 'false');
-      menuToggle.setAttribute('aria-label', 'Otwórz menu');
-      menuToggle.innerHTML = '<i class="fa-solid fa-bars" aria-hidden="true"></i>';
-      document.body.classList.remove('no-scroll');
-    }
-
-    menuToggle.addEventListener('click', () => {
-      const isOpen = mobileMenu.dataset.open === 'true';
-      if (isOpen) {
-        closeMenu();
-        return;
+    // typewriter effect
+    const typeEl = document.getElementById('typewriter');
+    if (typeEl) {
+      const text = "Python Dev · Sieciowiec · Automatyzacja";
+      let i = 0;
+      function type() {
+        if (i < text.length) {
+          typeEl.textContent += text.charAt(i);
+          i++;
+          setTimeout(type, 45);
+        }
       }
-      mobileMenu.dataset.open = 'true';
-      menuToggle.setAttribute('aria-expanded', 'true');
-      menuToggle.setAttribute('aria-label', 'Zamknij menu');
-      menuToggle.innerHTML = '<i class="fa-solid fa-xmark" aria-hidden="true"></i>';
-      document.body.classList.add('no-scroll');
-    });
-
-    document.querySelectorAll('.mobile-menu a').forEach((link) => link.addEventListener('click', closeMenu));
-
-    async function copyText(text) {
-      if (navigator.clipboard && window.isSecureContext) {
-        await navigator.clipboard.writeText(text);
-        return;
-      }
-      const textarea = document.createElement('textarea');
-      textarea.value = text;
-      textarea.setAttribute('readonly', '');
-      textarea.style.position = 'fixed';
-      textarea.style.left = '-9999px';
-      document.body.appendChild(textarea);
-      textarea.select();
-      document.execCommand('copy');
-      textarea.remove();
+      typeEl.textContent = "";
+      type();
     }
 
-    let toastTimer;
-    function showToast(message = 'Skopiowano!') {
-      toast.textContent = message;
-      toast.dataset.show = 'true';
-      clearTimeout(toastTimer);
-      toastTimer = window.setTimeout(() => {
-        toast.dataset.show = 'false';
-      }, 1700);
-    }
-
-    document.querySelectorAll('[data-copy]').forEach((button) => {
-      button.addEventListener('click', async () => {
-        try {
-          await copyText(button.dataset.copy);
-          showToast('Skopiowano!');
-        } catch (error) {
-          showToast('Nie udało się skopiować');
+    // reveal on scroll
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
         }
       });
-    });
+    }, { threshold: 0.1 });
+    reveals.forEach(r => observer.observe(r));
 
-    const phrase = 'Buduję niezawodne systemy – od skryptu w Pythonie po bezpieczną architekturę sieci.';
-    let charIndex = 0;
-    function typeLoop() {
-      if (!typewriter || reduceMotion) {
-        if (typewriter) typewriter.textContent = phrase;
-        return;
-      }
-      typewriter.textContent = phrase.slice(0, charIndex);
-      charIndex += 1;
-      if (charIndex <= phrase.length) window.setTimeout(typeLoop, 28);
+    // copy buttons
+    const copyBtns = document.querySelectorAll('[data-copy]');
+    const toast = document.getElementById('toastMsg');
+    function showToast(msg) {
+      toast.textContent = msg;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 1800);
     }
-    typeLoop();
-
-    const revealObserver = 'IntersectionObserver' in window
-      ? new IntersectionObserver((entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('is-visible');
-              revealObserver.unobserve(entry.target);
-            }
-          });
-        }, { threshold: 0.14 })
-      : null;
-
-    document.querySelectorAll('.reveal').forEach((element) => {
-      if (revealObserver) revealObserver.observe(element);
-      else element.classList.add('is-visible');
+    copyBtns.forEach(btn => {
+      btn.addEventListener('click', async () => {
+        const text = btn.getAttribute('data-copy');
+        try {
+          await navigator.clipboard.writeText(text);
+          showToast('Skopiowano!');
+        } catch(e) { showToast('Błąd kopiowania'); }
+      });
     });
+    // kopiowanie kodu
+    const copyCode = document.getElementById('copyCodeBtn');
+    if (copyCode) {
+      copyCode.addEventListener('click', async () => {
+        const codeBlock = document.querySelector('#codeBlock pre code');
+        if (codeBlock) {
+          const text = codeBlock.innerText;
+          await navigator.clipboard.writeText(text);
+          showToast('Kod skopiowany');
+        }
+      });
+    }
 
-    const navLinks = Array.from(document.querySelectorAll('.nav__links a'));
-    const sections = navLinks.map((link) => document.querySelector(link.getAttribute('href'))).filter(Boolean);
-    const navObserver = 'IntersectionObserver' in window
-      ? new IntersectionObserver((entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              navLinks.forEach((link) => link.setAttribute('aria-current', String(link.getAttribute('href') === `#${entry.target.id}`)));
-            }
-          });
-        }, { rootMargin: '-38% 0px -54% 0px' })
-      : null;
-    if (navObserver) sections.forEach((section) => navObserver.observe(section));
+    // zaawansowane cząsteczki (interaktywne)
+    const canvas = document.getElementById('particlesCanvas');
+    let ctx = canvas.getContext('2d');
+    let width, height;
+    let particles = [];
+    let mouseX = null, mouseY = null;
 
-    // Animacja cząsteczek w tle
+    function resizeCanvas() {
+      width = window.innerWidth;
+      height = window.innerHeight;
+      canvas.width = width;
+      canvas.height = height;
+    }
     function initParticles() {
-      if (!ctx || reduceMotion) return;
-      let width = 0;
-      let height = 0;
-      let particles = [];
-      const pointer = { x: null, y: null };
-
-      function resize() {
-        const ratio = Math.min(window.devicePixelRatio || 1, 2);
-        const rect = canvas.getBoundingClientRect();
-        width = rect.width;
-        height = rect.height;
-        canvas.width = Math.floor(width * ratio);
-        canvas.height = Math.floor(height * ratio);
-        ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
-
-        const count = Math.min(80, Math.max(40, Math.floor(width / 18)));
-        particles = Array.from({ length: count }, () => ({
+      const count = Math.min(60, Math.floor(width / 25));
+      particles = [];
+      for (let i = 0; i < count; i++) {
+        particles.push({
           x: Math.random() * width,
           y: Math.random() * height,
-          vx: (Math.random() - 0.5) * 0.25,
-          vy: (Math.random() - 0.5) * 0.25,
-          r: Math.random() * 3 + 2.5
-        }));
-      }
-
-      function drawLine(a, b, maxDistance) {
-        const distance = Math.hypot(a.x - b.x, a.y - b.y);
-        if (distance > maxDistance) return;
-        const alpha = 1 - distance / maxDistance;
-        ctx.strokeStyle = `rgba(229, 176, 92, ${alpha * 0.45})`;
-        ctx.lineWidth = 2.5;
-        ctx.beginPath();
-        ctx.moveTo(a.x, a.y);
-        ctx.lineTo(b.x, b.y);
-        ctx.stroke();
-      }
-
-      function animate() {
-        ctx.clearRect(0, 0, width, height);
-        particles.forEach((particle, index) => {
-          particle.x += particle.vx;
-          particle.y += particle.vy;
-          if (particle.x < 0 || particle.x > width) particle.vx *= -1;
-          if (particle.y < 0 || particle.y > height) particle.vy *= -1;
-
-          ctx.shadowColor = 'rgba(229, 176, 92, 0.7)';
-          ctx.shadowBlur = 10;
-          ctx.fillStyle = 'rgba(229, 176, 92, 0.9)';
-          ctx.beginPath();
-          ctx.arc(particle.x, particle.y, particle.r, 0, Math.PI * 2);
-          ctx.fill();
-          ctx.shadowColor = 'transparent';
-          ctx.shadowBlur = 0;
-
-          for (let next = index + 1; next < particles.length; next += 1) drawLine(particle, particles[next], 150);
-          if (pointer.x !== null) drawLine(particle, pointer, 200);
+          vx: (Math.random() - 0.5) * 0.35,
+          vy: (Math.random() - 0.5) * 0.35,
+          radius: Math.random() * 3 + 1.8,
+          alpha: Math.random() * 0.5 + 0.3
         });
-        window.requestAnimationFrame(animate);
       }
-
-      window.addEventListener('resize', resize, { passive: true });
-      window.addEventListener('pointermove', (event) => {
-        const rect = canvas.getBoundingClientRect();
-        pointer.x = event.clientX - rect.left;
-        pointer.y = event.clientY - rect.top;
-      }, { passive: true });
-      window.addEventListener('pointerleave', () => {
-        pointer.x = null;
-        pointer.y = null;
-      }, { passive: true });
-      resize();
-      animate();
+    }
+    function draw() {
+      if (!ctx) return;
+      ctx.clearRect(0, 0, width, height);
+      for (let i = 0; i < particles.length; i++) {
+        let p = particles[i];
+        p.x += p.vx;
+        p.y += p.vy;
+        if (p.x < 0 || p.x > width) p.vx *= -1;
+        if (p.y < 0 || p.y > height) p.vy *= -1;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(229, 176, 92, ${p.alpha * 0.7})`;
+        ctx.fill();
+        // linie między cząsteczkami
+        for (let j = i+1; j < particles.length; j++) {
+          const p2 = particles[j];
+          const dist = Math.hypot(p.x - p2.x, p.y - p2.y);
+          if (dist < 120) {
+            ctx.beginPath();
+            ctx.moveTo(p.x, p.y);
+            ctx.lineTo(p2.x, p2.y);
+            ctx.strokeStyle = `rgba(229, 176, 92, ${0.2 * (1 - dist/120)})`;
+            ctx.lineWidth = 1.2;
+            ctx.stroke();
+          }
+        }
+        // interakcja z myszą
+        if (mouseX && mouseY) {
+          const distMouse = Math.hypot(p.x - mouseX, p.y - mouseY);
+          if (distMouse < 130) {
+            ctx.beginPath();
+            ctx.moveTo(p.x, p.y);
+            ctx.lineTo(mouseX, mouseY);
+            ctx.strokeStyle = `rgba(229, 176, 92, 0.35)`;
+            ctx.stroke();
+          }
+        }
+      }
+      requestAnimationFrame(draw);
     }
 
+    window.addEventListener('resize', () => {
+      resizeCanvas();
+      initParticles();
+    });
+    window.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    });
+    window.addEventListener('mouseleave', () => { mouseX = null; mouseY = null; });
+    resizeCanvas();
     initParticles();
-  </script>
+    draw();
+
+    // aktywne linki nawigacji
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.nav-links a, .mobile-nav a');
+    window.addEventListener('scroll', () => {
+      let current = "";
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 110;
+        if (pageYOffset >= sectionTop) current = section.getAttribute('id');
+      });
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) link.classList.add('active');
+      });
+    });
+  })();
+</script>
 </body>
 </html>
+```
