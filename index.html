@@ -1,1 +1,794 @@
 
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Maciej Górski | Fullstack & DevOps Junior</title>
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* ========== RESET & BASE ========== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0a0c10;
+            color: #d1d5db;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        ::selection {
+            background: #4ade80;
+            color: #0a0c10;
+        }
+
+        /* ========== TYPOGRAPHY & COMMON ========== */
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2.5rem;
+            color: #f1f5f9;
+            position: relative;
+            display: inline-block;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -8px;
+            width: 60px;
+            height: 4px;
+            background: #4ade80;
+            border-radius: 4px;
+        }
+
+        section {
+            padding: 5rem 2rem;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        /* ========== NAVIGATION ========== */
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(10, 12, 16, 0.9);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(74, 222, 128, 0.2);
+            z-index: 1000;
+            padding: 0.8rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.7rem;
+            color: #4ade80;
+            letter-spacing: -1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+            font-size: 1rem;
+        }
+
+        .nav-links a:hover {
+            color: #4ade80;
+        }
+
+        /* ========== HERO ========== */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding-top: 6rem;
+            padding-bottom: 6rem;
+        }
+
+        .hero h1 {
+            font-size: 3.8rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 1rem;
+            letter-spacing: -1px;
+            line-height: 1.1;
+        }
+
+        .hero h1 span {
+            color: #4ade80;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 700px;
+            color: #9ca3af;
+            margin-bottom: 2rem;
+        }
+
+        .badge-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .badge {
+            background: rgba(74, 222, 128, 0.08);
+            border: 1px solid rgba(74, 222, 128, 0.3);
+            padding: 0.5rem 1.4rem;
+            border-radius: 30px;
+            font-size: 0.95rem;
+            color: #bbf7d0;
+            font-weight: 500;
+        }
+
+        /* ========== STACK – interaktywne karty z rozwijaniem ========== */
+        .stack-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .stack-item {
+            background: #111827;
+            border: 1px solid #1f2937;
+            border-radius: 16px;
+            padding: 1.5rem 1rem;
+            text-align: center;
+            transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 160px;
+        }
+
+        .stack-item i {
+            font-size: 2.5rem;
+            color: #4ade80;
+            margin-bottom: 0.6rem;
+            transition: transform 0.2s;
+        }
+
+        .stack-item span {
+            display: block;
+            font-weight: 600;
+            color: #e5e7eb;
+            font-size: 1.1rem;
+        }
+
+        /* Rozszerzona zawartość (domyślnie ukryta) */
+        .stack-detail {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, opacity 0.3s ease, margin-top 0.3s;
+            text-align: left;
+            font-size: 0.85rem;
+            color: #cbd5e1;
+            margin-top: 0;
+        }
+
+        .stack-item:hover {
+            border-color: #4ade80;
+            background: #1a1f2b;
+            transform: translateY(-6px);
+            box-shadow: 0 20px 30px rgba(0,0,0,0.7);
+            z-index: 10;
+        }
+
+        .stack-item:hover i {
+            transform: scale(1.1);
+        }
+
+        .stack-item:hover .stack-detail {
+            max-height: 300px;
+            opacity: 1;
+            margin-top: 1rem;
+        }
+
+        .detail-level {
+            color: #4ade80;
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        @media (max-width: 768px) {
+            .stack-item:hover .stack-detail {
+                max-height: 200px;
+            }
+        }
+
+        /* ========== PROJEKTY – rozwijane karty ========== */
+        .projects-container {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            background: #111827;
+            border: 1px solid #1f2937;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: border-color 0.2s;
+        }
+
+        .project-card.active {
+            border-color: #4ade80;
+        }
+
+        .project-header {
+            padding: 1.8rem 2rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+
+        .project-header h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            margin: 0;
+        }
+
+        .project-subtitle {
+            color: #9ca3af;
+            font-size: 0.95rem;
+            margin-top: 0.2rem;
+        }
+
+        .arrow-icon {
+            font-size: 1.5rem;
+            color: #4ade80;
+            transition: transform 0.3s;
+        }
+
+        .project-card.active .arrow-icon {
+            transform: rotate(180deg);
+        }
+
+        .project-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.45s ease-in-out;
+            background: #0f131c;
+        }
+
+        .project-card.active .project-body {
+            max-height: 1200px; /* wystarczająco duża */
+        }
+
+        .project-details {
+            padding: 0 2rem 2rem 2rem;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .tech-tag {
+            background: #1f2937;
+            color: #bbf7d0;
+            padding: 0.25rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            border: 1px solid transparent;
+        }
+
+        .tech-tag:hover {
+            border-color: #4ade80;
+            background: #0f2a1e;
+        }
+
+        .architecture-box, .challenge-box {
+            background: #1e293b;
+            border-left: 4px solid #4ade80;
+            padding: 1.2rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            font-size: 0.95rem;
+        }
+
+        .architecture-box strong, .challenge-box strong {
+            color: #4ade80;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+
+        .role-info {
+            font-weight: 600;
+            color: #4ade80;
+            margin-top: 1rem;
+        }
+
+        /* ========== SOURCE – terminal z zakładkami ========== */
+        .source-terminal {
+            background: #0c0f16;
+            border: 1px solid #2d3748;
+            border-radius: 16px;
+            overflow: hidden;
+            margin-top: 2rem;
+        }
+
+        .terminal-tabs {
+            display: flex;
+            background: #131722;
+            border-bottom: 1px solid #2d3748;
+        }
+
+        .terminal-tab {
+            padding: 0.8rem 1.5rem;
+            cursor: pointer;
+            font-weight: 500;
+            color: #9ca3af;
+            transition: 0.2s;
+            border-bottom: 2px solid transparent;
+            font-size: 0.95rem;
+        }
+
+        .terminal-tab.active {
+            color: #4ade80;
+            border-bottom: 2px solid #4ade80;
+            background: rgba(74, 222, 128, 0.05);
+        }
+
+        .code-panel {
+            display: none;
+            padding: 1.5rem;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.9rem;
+            line-height: 1.7;
+            white-space: pre-wrap;
+            color: #c9d1d9;
+            background: #0c0f16;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .code-panel.active {
+            display: block;
+        }
+
+        .code-comment { color: #8b949e; font-style: italic; }
+        .code-keyword { color: #ff7b72; }
+        .code-string { color: #a5d6ff; }
+        .code-func { color: #d2a8ff; }
+        .code-number { color: #79c0ff; }
+
+        /* ========== PROCES – ścieżka ========== */
+        .process-path {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 3rem;
+        }
+
+        .process-step {
+            flex: 1 1 150px;
+            background: #111827;
+            border: 1px solid #1f2937;
+            border-radius: 16px;
+            padding: 2rem 1rem;
+            text-align: center;
+            transition: all 0.3s;
+            cursor: default;
+            position: relative;
+        }
+
+        .process-step:hover {
+            border-color: #4ade80;
+            transform: translateY(-8px);
+            background: #1a1f2b;
+            box-shadow: 0 15px 25px rgba(0,0,0,0.6);
+        }
+
+        .process-icon {
+            font-size: 2.5rem;
+            color: #4ade80;
+            margin-bottom: 1rem;
+        }
+
+        .process-step h4 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #f1f5f9;
+            margin-bottom: 0.5rem;
+        }
+
+        .process-desc {
+            color: #9ca3af;
+            font-size: 0.85rem;
+            line-height: 1.4;
+        }
+
+        /* ========== KONTAKT ========== */
+        .contact-links {
+            display: flex;
+            gap: 2.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .contact-links a {
+            color: #d1d5db;
+            font-size: 2rem;
+            transition: 0.3s;
+        }
+
+        .contact-links a:hover {
+            color: #4ade80;
+            transform: scale(1.25);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: #4b5563;
+            border-top: 1px solid #1f2937;
+            margin-top: 3rem;
+        }
+
+        /* ========== RESPONSYWNOŚĆ ========== */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .process-path { flex-direction: column; }
+            .project-header { flex-direction: column; align-items: flex-start; }
+            .project-header h3 { font-size: 1.4rem; }
+            .terminal-tabs { overflow-x: auto; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">MG/dev</div>
+        <ul class="nav-links">
+            <li><a href="#hero">Start</a></li>
+            <li><a href="#stack">Stack</a></li>
+            <li><a href="#projekty">Projekty</a></li>
+            <li><a href="#source">Source</a></li>
+            <li><a href="#proces">Proces</a></li>
+            <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+    </nav>
+
+    <!-- 1. HERO -->
+    <section id="hero" class="hero">
+        <h1>Maciej <span>Górski</span></h1>
+        <p>Junior Developer & DevOps – buduję niezawodne backendy i infrastrukturę. Znam Pythona, Docker, FastAPI i stawiam na automatyzację. Szukam pierwszych komercyjnych wyzwań.</p>
+        <div class="badge-group">
+            <div class="badge">🐧 Linux Administrator</div>
+            <div class="badge">🐳 Docker & Compose</div>
+            <div class="badge">⚡ FastAPI</div>
+            <div class="badge">📊 Grafana / Prometheus</div>
+        </div>
+    </section>
+
+    <!-- 2. STACK -->
+    <section id="stack">
+        <h2>Stack technologiczny</h2>
+        <div class="stack-grid" id="stackContainer"></div>
+    </section>
+
+    <!-- 3. PROJEKTY -->
+    <section id="projekty">
+        <h2>Projekty</h2>
+        <div class="projects-container" id="projectsContainer"></div>
+    </section>
+
+    <!-- 4. SOURCE (zamiast Kod) -->
+    <section id="source">
+        <h2>Code Craft</h2>
+        <p style="color:#9ca3af; max-width:600px; margin-bottom:1rem;">Fragmenty kodu z moich projektów – pokazuję jak piszę, organizuję i dbam o czytelność.</p>
+        <div class="source-terminal" id="sourceTerminal"></div>
+    </section>
+
+    <!-- 5. PROCES -->
+    <section id="proces">
+        <h2>Mój proces</h2>
+        <div class="process-path">
+            <div class="process-step">
+                <i class="fas fa-search process-icon"></i>
+                <h4>Analiza</h4>
+                <p class="process-desc">Rozmowa, zbieranie wymagań, dekompozycja problemu na mniejsze moduły.</p>
+            </div>
+            <div class="process-step">
+                <i class="fas fa-pencil-ruler process-icon"></i>
+                <h4>Projekt</h4>
+                <p class="process-desc">Wybór architektury (monolit/mikroserwisy), diagramy, wybór technologii.</p>
+            </div>
+            <div class="process-step">
+                <i class="fas fa-code process-icon"></i>
+                <h4>Implementacja</h4>
+                <p class="process-desc">Kod zgodny z SOLID, testy jednostkowe, Dockerfile, CI/CD pipeline.</p>
+            </div>
+            <div class="process-step">
+                <i class="fas fa-vial process-icon"></i>
+                <h4>Testowanie</h4>
+                <p class="process-desc">Unit testy, integracyjne, testy obciążeniowe, statyczna analiza kodu.</p>
+            </div>
+            <div class="process-step">
+                <i class="fas fa-cloud-upload-alt process-icon"></i>
+                <h4>Wdrożenie</h4>
+                <p class="process-desc">Konteneryzacja, docker-compose, zmienne środowiskowe, pierwsze uruchomienie.</p>
+            </div>
+            <div class="process-step">
+                <i class="fas fa-chart-line process-icon"></i>
+                <h4>Monitoring</h4>
+                <p class="process-desc">Prometheus + Grafana, logi Loki, alerty, ciągłe doskonalenie.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. KONTAKT -->
+    <section id="kontakt">
+        <h2>Kontakt</h2>
+        <p style="text-align:center; max-width:500px; margin:0 auto 2rem;">Szukasz Juniora, który szybko się uczy i ma solidne podstawy? Odezwij się!</p>
+        <div class="contact-links">
+            <a href="https://github.com/Gorski-Maciej" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="mailto:twoj.email@example.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 Maciej Górski. Zbudowano z pasją do czystego kodu i zielonej herbaty 🍵</p>
+    </footer>
+
+    <script>
+        (function() {
+            // ---------- STACK DATA ----------
+            const stackItems = [
+                { name: "Linux", icon: "fab fa-linux", level: "średniozaawansowany", desc: "Administracja, bash, skrypty, zarządzanie usługami systemowymi, uprawnienia, konfiguracja sieci." },
+                { name: "TCP/IP", icon: "fas fa-network-wired", level: "podstawowy/średni", desc: "Model OSI, adresacja, podsieci, routing, analiza pakietów, konfiguracja firewall." },
+                { name: "FastAPI", icon: "fas fa-bolt", level: "średniozaawansowany", desc: "REST API, asynchroniczność, integracja z SQLAlchemy, JWT, OpenAPI." },
+                { name: "Docker", icon: "fab fa-docker", level: "średniozaawansowany", desc: "Dockerfile, docker-compose, sieci, wolumeny, obrazy wieloetapowe, docker-compose do dev i prod." },
+                { name: "Python", icon: "fab fa-python", level: "średniozaawansowany", desc: "OOP, async/await, type hinting, pytest, FastAPI, skrypty automatyzacji." },
+                { name: "Git", icon: "fab fa-git-alt", level: "biegły", desc: "branching, merging, rebase, code review, konwencjonalne commity, GitHub flow." },
+                { name: "Elasticsearch", icon: "fas fa-search", level: "podstawowy", desc: "Indeksowanie, zapytania, analiza tekstu, bulk API, Kibana." },
+                { name: "Grafana", icon: "fas fa-chart-bar", level: "podstawowy/średni", desc: "Tworzenie dashboardów, zmienne, alerty, integracja z Prometheus/Loki." },
+                { name: "Prometheus", icon: "fas fa-chart-line", level: "podstawowy", desc: "Konfiguracja celów, PromQL, alertmanager, monitorowanie kontenerów." }
+            ];
+
+            const stackGrid = document.getElementById('stackContainer');
+            stackItems.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'stack-item';
+                card.innerHTML = `
+                    <i class="${item.icon}"></i>
+                    <span>${item.name}</span>
+                    <div class="stack-detail">
+                        <div class="detail-level">${item.level}</div>
+                        <div>${item.desc}</div>
+                    </div>
+                `;
+                stackGrid.appendChild(card);
+            });
+
+            // ---------- PROJEKTY DATA ----------
+            const projects = [
+                {
+                    title: "CloudBudget",
+                    subtitle: "FinOps – monitorowanie kosztów chmury",
+                    tags: ["Docker", "Python", "FastAPI", "JavaScript", "REST API"],
+                    architecture: "System oparty na mikroserwisach: backend (FastAPI) pobiera dane billingowe z API dostawców, normalizuje je do wspólnego modelu i przechowuje w bazie SQLite. Frontend to prosta SPA w Vanilla JS komunikująca się przez REST. Całość konteneryzowana Docker Compose.",
+                    challenge: "Problem: różne formaty odpowiedzi od AWS, Azure, GCP. Rozwiązanie: wzorzec adaptera – dla każdego dostawcy osobny moduł konwertujący dane do ujednoliconego JSON.",
+                    role: "Fullstack Developer – od architektury, przez backend, po prosty frontend."
+                },
+                {
+                    title: "InfraFlow",
+                    subtitle: "Obserwowalność – lokalny stack monitoringu",
+                    tags: ["Docker", "Linux", "Grafana", "Prometheus", "Loki", "Promtail"],
+                    architecture: "Stack monitoringu oparty na Prometheus (metryki), Loki (logi) i Grafanie (wizualizacja). Wszystkie komponenty spięte w docker-compose. Promtail z etykietami zbiera logi kontenerów i przekazuje do Lokiego. Gotowe dashboardy dla CPU, RAM, dysku i logów aplikacji.",
+                    challenge: "Zapewnienie spójności metryk i logów z różnych źródeł. Rozwiązanie: odpowiednie etykietowanie w Promtail oraz dashboardy łączące metryki i logi na podstawie nazwy kontenera.",
+                    role: "DevOps Engineer – integracja narzędzi, konfiguracja, dokumentacja."
+                },
+                {
+                    title: "NetGuardian",
+                    subtitle: "SIEM/SOAR – analiza zdarzeń bezpieczeństwa",
+                    tags: ["Docker", "Python", "Elasticsearch", "Kibana", "FastAPI", "Redis"],
+                    architecture: "Backend w Pythonie przyjmuje zdarzenia sieciowe w formacie JSON, parsuje je i indeksuje w Elasticsearch. FastAPI wystawia API do zarządzania regułami korelacji. Redis służy jako kolejka zadań dla operacji asynchronicznych. Kibana udostępnia dashboardy bezpieczeństwa.",
+                    challenge: "Wysoka częstotliwość zdarzeń – standardowe indeksowanie było zbyt wolne. Zastosowałem Elasticsearch Bulk API oraz asynchroniczne przetwarzanie w Pythonie, co zwiększyło wydajność 4x.",
+                    role: "Backend Developer – logika parsowania, integracja z Elasticsearch i Redis."
+                },
+                {
+                    title: "NetAegis",
+                    subtitle: "Orkiestracja agentów bezpieczeństwa",
+                    tags: ["Docker", "Python", "MCP", "FastAPI", "Redis"],
+                    architecture: "System rozproszonych agentów: centralny serwer zarządza zadaniami przez REST API, agenty wykonują skanowanie sieci i raportują wyniki. Komunikacja oparta o Redis (kolejki zadań) oraz HTTP. Każdy agent działa w osobnym kontenerze.",
+                    challenge: "Jak zapewnić niezawodne dostarczanie zadań i uniknąć ich gubienia? Użyłem Redis Streams z potwierdzeniami – agent potwierdza wykonanie zadania, a w razie awarii zadanie wraca do kolejki.",
+                    role: "Architekt / Backend Developer – zaprojektowałem protokół komunikacji i zaimplementowałem logikę agentów."
+                }
+            ];
+
+            const projectsContainer = document.getElementById('projectsContainer');
+            projects.forEach((proj, index) => {
+                const card = document.createElement('div');
+                card.className = 'project-card';
+                card.innerHTML = `
+                    <div class="project-header" data-index="${index}">
+                        <div>
+                            <h3>${proj.title}</h3>
+                            <div class="project-subtitle">${proj.subtitle}</div>
+                        </div>
+                        <i class="fas fa-chevron-down arrow-icon"></i>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-details">
+                            <div class="tech-tags">
+                                ${proj.tags.map(t => `<span class="tech-tag">${t}</span>`).join('')}
+                            </div>
+                            <div class="architecture-box">
+                                <strong>🏗️ Architektura i działanie</strong>
+                                ${proj.architecture}
+                            </div>
+                            <div class="challenge-box">
+                                <strong>🧠 Wyzwanie i rozwiązanie</strong>
+                                ${proj.challenge}
+                            </div>
+                            <div class="role-info">👤 ${proj.role}</div>
+                        </div>
+                    </div>
+                `;
+                projectsContainer.appendChild(card);
+            });
+
+            // Toggle project cards
+            document.querySelectorAll('.project-header').forEach(header => {
+                header.addEventListener('click', function() {
+                    const card = this.parentElement;
+                    card.classList.toggle('active');
+                });
+            });
+
+            // ---------- SOURCE CODE (zakładki) ----------
+            const sourceSnippets = [
+                {
+                    project: "CloudBudget",
+                    code: `# cloudbudget/adapter_aws.py
+import boto3
+from .base_adapter import BaseCloudAdapter
+
+class AWSAdapter(BaseCloudAdapter):
+    """Pobiera dane billingowe z AWS Cost Explorer"""
+    def __init__(self, access_key, secret_key):
+        self.client = boto3.client('ce',
+            aws_access_key_id=access_key,
+            aws_secret_access_key=secret_key)
+
+    def fetch_costs(self, start_date, end_date):
+        response = self.client.get_cost_and_usage(
+            TimePeriod={'Start': start_date, 'End': end_date},
+            Granularity='DAILY',
+            Metrics=['UnblendedCost']
+        )
+        return self._normalize(response)  # wspólna metoda`
+                },
+                {
+                    project: "InfraFlow",
+                    code: `# docker-compose.yml (fragment)
+services:
+  prometheus:
+    image: prom/prometheus
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+      - "9090:9090"
+
+  loki:
+    image: grafana/loki:2.8.0
+    ports:
+      - "3100:3100"
+
+  promtail:
+    image: grafana/promtail:2.8.0
+    volumes:
+      - /var/log:/var/log
+      - ./promtail-config.yml:/etc/promtail/config.yml
+    command: -config.file=/etc/promtail/config.yml`
+                },
+                {
+                    project: "NetGuardian",
+                    code: `# netguardian/ingest.py
+from elasticsearch import AsyncElasticsearch
+import asyncio
+
+async def bulk_index(events):
+    es = AsyncElasticsearch(['http://elastic:9200'])
+    actions = [
+        {"_index": "security-events", "_source": ev}
+        for ev in events
+    ]
+    await es.bulk(body=actions)
+    await es.close()
+
+# asynchroniczne wywołanie
+loop = asyncio.get_event_loop()
+loop.run_until_complete(bulk_index(event_list))`
+                }
+            ];
+
+            const terminalDiv = document.getElementById('sourceTerminal');
+            // budowa interfejsu
+            let tabsHtml = '<div class="terminal-tabs">';
+            let panelsHtml = '';
+            sourceSnippets.forEach((snip, idx) => {
+                const activeTab = idx === 0 ? ' active' : '';
+                tabsHtml += `<div class="terminal-tab${activeTab}" data-tab="${idx}">📄 ${snip.project}</div>`;
+                const activePanel = idx === 0 ? ' active' : '';
+                // proste kolorowanie składni (bardzo podstawowe)
+                const coloredCode = snip.code
+                    .replace(/(#.*)/g, '<span class="code-comment">$1</span>')
+                    .replace(/\b(def|import|from|return|async|await|class)\b/g, '<span class="code-keyword">$1</span>')
+                    .replace(/(".*?"|'.*?')/g, '<span class="code-string">$1</span>')
+                    .replace(/\b([A-Z_][A-Z0-9_]*)\b/g, '<span class="code-func">$1</span>')
+                    .replace(/\b(\d+)\b/g, '<span class="code-number">$1</span>');
+                panelsHtml += `<div class="code-panel${activePanel}" data-panel="${idx}"><pre>${coloredCode}</pre></div>`;
+            });
+            tabsHtml += '</div>';
+            terminalDiv.innerHTML = tabsHtml + panelsHtml;
+
+            // przełączanie zakładek
+            const tabs = document.querySelectorAll('.terminal-tab');
+            const panels = document.querySelectorAll('.code-panel');
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const tabIdx = this.getAttribute('data-tab');
+                    tabs.forEach(t => t.classList.remove('active'));
+                    panels.forEach(p => p.classList.remove('active'));
+                    this.classList.add('active');
+                    document.querySelector(`.code-panel[data-panel="${tabIdx}"]`).classList.add('active');
+                });
+            });
+
+            // płynne przewijanie
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            });
+        })();
+    </script>
+</body>
+</html>
